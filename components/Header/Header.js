@@ -2,10 +2,9 @@ import React from "react";
 import { Container, Form, Nav, Navbar } from "react-bootstrap";
 import logo from "../../public/assets/logo.png";
 import Link from "next/link";
-import '../../styles/Header.module.css'
+import "../../styles/Header.module.css";
 
 const Header = () => {
-
   return (
     <Navbar className="header" collapseOnSelect expand="lg">
       <Container>
@@ -19,12 +18,14 @@ const Header = () => {
             <Link href="#pricing">For Nannies</Link>
             <Link href="#pricing">For Parents</Link>
           </Nav>
-          <Nav>
-            <Form.Select aria-label="Default select example">
+          <Nav className="button-navbar">
+            <Form.Select aria-label="Default select example" className="language-dropdown">
               <option value="eng">ENG</option>
               <option value="1">One</option>
             </Form.Select>
-            <Link className="login-btn" href="#memes">Login</Link>
+            <Link className="login-btn" href="#memes">
+              Login
+            </Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

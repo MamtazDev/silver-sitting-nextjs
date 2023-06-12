@@ -1,0 +1,39 @@
+.icons {
+  width: 99px;
+  height: 99px;
+  background-color: rgba(168, 106, 183, 0.5);
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 44px 36px;
+  background-color: rgba(254, 249, 255, 0.9);
+  border-radius: 15px;
+}
+.cardContainer .icons {
+  margin: 0 auto;
+}
+
+.cardContainer h6 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 40px;
+  text-align: center;
+  color: #8b3888;
+}
+
+.cardContainer p {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 32px;
+  text-align: center;
+  color: #666666;
+}

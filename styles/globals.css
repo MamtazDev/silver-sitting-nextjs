@@ -1,7 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
-
-
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 h1,
 h2,
@@ -26,19 +23,18 @@ a {
   text-decoration: none !important;
 }
 
-
 .container {
   max-width: 1420px;
 }
 
 :root {
-  --outfit-font: 'Outfit', sans-serif;
-  --violet-primary: #8B3888;
+  --outfit-font: "Outfit", sans-serif;
+  --violet-primary: #8b3888;
   --violet-secondary: rgba(254, 249, 255, 0.9);
   --violet-accent: rgba(168, 106, 183, 0.06);
 }
 
-.body {
+body {
   font-family: var(--outfit-font) !important;
 }
 
@@ -63,7 +59,6 @@ a {
   line-height: 25px;
   color: #333333;
   padding: 16px 24px;
-
 }
 
 .header .login-btn {
@@ -74,11 +69,19 @@ a {
   font-weight: 500;
 }
 
+/* header */
 
+.button-navbar {
+  gap: 15px !important;
+}
+
+.language-dropdown {
+  width: 117px !important;
+}
 
 /* footer css */
 footer {
-  background-color: #1D001C;
+  background-color: #1d001c;
   padding-top: 110px;
 }
 
