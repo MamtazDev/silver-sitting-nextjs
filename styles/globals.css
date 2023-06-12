@@ -1,5 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
+:root {
+  --outfit-font: "Outfit", sans-serif;
+  --violet-primary: #8b3888;
+  --violet-secondary: rgba(254, 249, 255, 0.9);
+  --violet-accent: rgba(168, 106, 183, 0.06);
+}
+
+body {
+  font-family: var(--outfit-font) !important;
+}
+
 h1,
 h2,
 h3,
