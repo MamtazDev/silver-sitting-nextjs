@@ -1,7 +1,7 @@
 import React from "react";
 
 const ChildCare = () => {
-  return <div>This is childcare</div>;
+  return <section>This is childcare</section>;
 };
 
 export default ChildCare;

@@ -1,7 +1,7 @@
 import React from "react";
 
 const Guidance = () => {
-  return <div>This is guidance</div>;
+  return <section>This is guidance</section>;
 };
 
 export default Guidance;
