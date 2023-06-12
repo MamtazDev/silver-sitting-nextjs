@@ -23,8 +23,9 @@ li {
 }
 
 a {
-  text-decoration: none;
+  text-decoration: none !important;
 }
+
 
 .container {
   max-width: 1420px;
@@ -35,4 +36,72 @@ a {
   --violet-primary: #8B3888;
   --violet-secondary: rgba(254, 249, 255, 0.9);
   --violet-accent: rgba(168, 106, 183, 0.06);
+}
+
+.body {
+  font-family: var(--outfit-font);
+}
+
+/* header part css */
+.header .navbar-nav {
+  gap: 74px;
+}
+
+.header a {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 25px;
+  color: #333333;
+}
+
+.header .form-select {
+  background-color: var(--violet-accent);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 25px;
+  color: #333333;
+  padding: 16px 24px;
+
+}
+
+.header .login-btn {
+  background: var(--violet-primary);
+  border-radius: 7px;
+  padding: 16px 36px;
+  color: white;
+  font-weight: 500;
+}
+
+
+
+/* footer css */
+footer {
+  background-color: #1D001C;
+  padding-top: 110px;
+}
+
+footer img {
+  margin-bottom: 40px;
+}
+
+footer p {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  color: #FFFFFF;
+  margin-bottom: 80px;
+}
+
+footer a {
+  display: block;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 25px;
+  color: rgba(224, 224, 224, 0.878431);
+  margin-bottom: 20px;
 }
