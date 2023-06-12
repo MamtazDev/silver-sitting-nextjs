@@ -10,7 +10,7 @@ h4,
 h5,
 h6,
 p {
-  margin: 0;
+  margin: 0 !important;
 }
 
 ul {
@@ -39,7 +39,7 @@ a {
 }
 
 .body {
-  font-family: var(--outfit-font);
+  font-family: var(--outfit-font) !important;
 }
 
 /* header part css */
@@ -86,22 +86,43 @@ footer img {
   margin-bottom: 40px;
 }
 
-footer p {
-  font-style: normal;
+footer .content {
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
   text-align: center;
   color: #FFFFFF;
-  margin-bottom: 80px;
+  margin-bottom: 80px !important;
+}
+
+footer .mid_content {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 32px;
+  text-align: center;
+  color: #E0E0E0;
+  padding: 80px 0 100px;
 }
 
 footer a {
   display: block;
-  font-style: normal;
   font-weight: 400;
   font-size: 20px;
   line-height: 25px;
   color: rgba(224, 224, 224, 0.878431);
   margin-bottom: 20px;
+}
+
+footer .hr {
+  border-top: 1px solid rgba(221, 221, 221, 0.3);
+  margin-top: 70px !important;
+}
+
+footer .copyright {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: rgba(224, 224, 224, 0.878431);
+  text-align: center;
+  padding: 35px 0 46px;
 }

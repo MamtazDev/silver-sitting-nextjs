@@ -6,153 +6,180 @@ import Link from "next/link";
 const Footer = () => {
   const routes = [
     {
-      name:"Conditions",
-      path:""
+      name: "Conditions",
+      path: "",
     },
     {
-      name:"Data protection",
-      path:""
+      name: "Data protection",
+      path: "",
     },
     {
-      name:"Imprint",
-      path:""
+      name: "Imprint",
+      path: "",
     },
     {
-      name:"Make contact",
-      path:""
+      name: "Make contact",
+      path: "",
     },
     {
-      name:"Team",
-      path:""
+      name: "Team",
+      path: "",
     },
     {
-      name:"Find nanny",
-      path:""
+      name: "Find nanny",
+      path: "",
     },
     {
-      name:"Become  a childcare worker",
-      path:""
+      name: "Become  a childcare worker",
+      path: "",
     },
     {
-      name:"FAQ from childcare workers",
-      path:""
+      name: "FAQ from childcare workers",
+      path: "",
     },
     {
-      name:"FAQ from parents",
-      path:""
+      name: "FAQ from parents",
+      path: "",
     },
     {
-      name:"Feedback",
-      path:""
+      name: "FAQ from parents",
+      path: "",
     },
     {
-      name:"How does it work",
-      path:""
+      name: "Feedback",
+      path: "",
     },
     {
-      name:"Login / Registration",
-      path:""
+      name: "How does it work",
+      path: "",
     },
     {
-      name:"To the blog",
-      path:""
+      name: "Login / Registration",
+      path: "",
     },
     {
-      name:"Interesting for seniors",
-      path:""
+      name: "To the blog",
+      path: "",
     },
     {
-      name:"Baby-sitter",
-      path:""
+      name: "Interesting for seniors",
+      path: "",
     },
     {
-      name:"Babysitter Berlin",
-      path:""
+      name: "Baby-sitter",
+      path: "",
     },
     {
-      name:"Babysitter Bonn",
-      path:""
+      name: "Babysitter Berlin",
+      path: "",
     },
     {
-      name:"Babysitter Dusseldorf",
-      path:""
+      name: "Babysitter Bonn",
+      path: "",
     },
     {
-      name:"Babysitter Frankfurt",
-      path:""
+      name: "Babysitter Dusseldorf",
+      path: "",
     },
     {
-      name:"Babysitter Hamburg",
-      path:""
+      name: "Babysitter Frankfurt",
+      path: "",
     },
     {
-      name:"More cities",
-      path:""
+      name: "Babysitter Hamburg",
+      path: "",
     },
     {
-      name:"",
-      path:""
+      name: "More cities",
+      path: "",
     },
     {
-      name:"",
-      path:""
+      name: "Childcare",
+      path: "",
     },
     {
-      name:"",
-      path:""
+      name: "Childcare Berlin",
+      path: "",
     },
     {
-      name:"",
-      path:""
+      name: "Childcare Bonn",
+      path: "",
     },
     {
-      name:"",
-      path:""
+      name: "Childcare Dusseldorf",
+      path: "",
     },
     {
-      name:"",
-      path:""
+      name: "Childcare Frankfurt",
+      path: "",
     },
     {
-      name:"",
-      path:""
+      name: "Childcare Hamburg",
+      path: "",
     },
     {
-      name:"",
-      path:""
+      name: "More cities",
+      path: "",
     },
     {
-      name:"",
-      path:""
+      name: "Surrogate",
+      path: "",
     },
     {
-      name:"",
-      path:""
+      name: "Loan Grandma Berlin",
+      path: "",
     },
     {
-      name:"",
-      path:""
+      name: "Leihoma Bonn",
+      path: "",
     },
     {
-      name:"",
-      path:""
+      name: "Loan Grandma Dusseldorf",
+      path: "",
     },
     {
-      name:"",
-      path:""
+      name: "Lease grandmother Frankfurt",
+      path: "",
     },
     {
-      name:"",
-      path:""
+      name: "Lease granmother Hamburg",
+      path: "",
     },
-  ]
+    {
+      name: "Nanny",
+      path: "",
+    },
+    {
+      name: "Nanny Berlin",
+      path: "",
+    },
+    {
+      name: "Nanny Bonn",
+      path: "",
+    },
+    {
+      name: "Nanny Dusseldorf",
+      path: "",
+    },
+    {
+      name: "Nanny Frankfurt",
+      path: "",
+    },
+    {
+      name: "Nanny Hamburg",
+      path: "",
+    },
+  ];
+  const chunkedData = Array(Math.ceil(routes.length / 4))
+    .fill()
+    .map((_, index) => routes.slice(index * 4, index * 4 + 4));
   return (
     <footer>
       <div className="container">
         <div className="text-center">
           <img src={footerLogo.src} alt="" />
         </div>
-        <p>
+        <p className="content">
           SilverSitting.com is a platform where parents can find seniors to care
           for their children. Parents can search for a suitable childcare worker
           - SilverSitter - independently, contact them and arrange childcare
@@ -163,62 +190,55 @@ const Footer = () => {
           general terms and conditions. SilverSitting sees itself as a
           meaningful company.
         </p>
+
         <div className="d-flex flex-wrap justify-content-between">
           <div>
-            <Link href="/">Conditions</Link>
-            <Link href="/">Data protection</Link>
-            <Link href="/">Imprint</Link>
-            <Link href="/">Make contact</Link>
-          </div> 
-          <div>
-            <Link href="/">Team</Link>
-            <Link href="/">Find nanny</Link>
-            <Link href="/">Become a childcare worker</Link>
-            <Link href="/">FAQ from childcare workers</Link>
+            {routes.slice(0, 4).map((item, index) => (
+              <Link href="/">{item.name}</Link>
+            ))}
           </div>
           <div>
-            <Link href="/">FAQ from parents</Link>
-            <Link href="/">Feedback</Link>
-            <Link href="/">How does it work</Link>
-            <Link href="/">Login / Registration</Link>
+            {routes.slice(4, 8).map((item, index) => (
+              <Link href="/">{item.name}</Link>
+            ))}
           </div>
           <div>
-            <Link href="/">To the blog</Link>
-            <Link href="/">Interesting for seniors</Link>
+            {routes.slice(9, 13).map((item, index) => (
+              <Link href="/">{item.name}</Link>
+            ))}
+          </div>
+          <div>
+            {routes.slice(13, 15).map((item, index) => (
+              <Link href="/">{item.name}</Link>
+            ))}
           </div>
         </div>
+        <p className="mid_content">SilverSetting sees itself as a meaningful company</p>
+
         <div className="d-flex flex-wrap justify-content-between">
           <div>
-            <Link href="/">Baby-sitter</Link>
-            <Link href="/">Babysitter Berlin</Link>
-            <Link href="/">Babysitter Berlin</Link>
-            <Link href="/">Babysitter Dusseldorf</Link>
-            <Link href="/">Babysitter Frankfurt</Link>
-            <Link href="/">Babysitter Hamburg</Link>
-            <Link href="/">More cities</Link>
-      
-          </div> 
-          <div>
-            <Link href="/">Childcare</Link>
-            <Link href="/">Childcare Berlin</Link>
-            <Link href="/">Childcare Bonn</Link>
-            <Link href="/">Childcare Dusseldorf</Link>
-            <Link href="/">Childcare Frankfurt</Link>
-            <Link href="/"></Link>
-            <Link href="/"></Link>
-            <Link href="/"></Link>
+            {routes.slice(15, 22).map((item, index) => (
+              <Link href="/">{item.name}</Link>
+            ))}
           </div>
           <div>
-            <Link href="/">FAQ from parents</Link>
-            <Link href="/">Feedback</Link>
-            <Link href="/">How does it work</Link>
-            <Link href="/">Login / Registration</Link>
+            {routes.slice(22, 29).map((item, index) => (
+              <Link href="/">{item.name}</Link>
+            ))}
           </div>
           <div>
-            <Link href="/">To the blog</Link>
-            <Link href="/">Interesting for seniors</Link>
+            {routes.slice(29, 35).map((item, index) => (
+              <Link href="/">{item.name}</Link>
+            ))}
+          </div>
+          <div>
+            {routes.slice(35, 41).map((item, index) => (
+              <Link href="/">{item.name}</Link>
+            ))}
           </div>
         </div>
+       <p className="hr"></p>
+        <p className="copyright">© 2022 SilverSitting, Andrea and Daniel Monninger (GbR)</p>
       </div>
     </footer>
   );
