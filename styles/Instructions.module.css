@@ -56,10 +56,17 @@
   line-height: 25px;
   color: #ffffff;
   padding: 16px 36px;
+  margin-bottom: 118px;
 }
 
 .button:hover {
   color: white;
   background-color: #441843;
   border-color: var(--bs-btn-hover-border-color);
+}
+
+@media only screen and (max-width: 688px) {
+  .instructionsContainer {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }

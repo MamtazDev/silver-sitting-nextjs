@@ -62,7 +62,6 @@ const instructions = [
 ];
 
 const Instructions = () => {
-  console.log(chat, "kjkjk");
   return (
     <section className="container mx-auto">
       {/* banner */}
