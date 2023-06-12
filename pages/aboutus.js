@@ -1,7 +1,7 @@
 import React from "react";
 
 const AboutUs = () => {
-  return <div className="btn btn-primary">this is about us</div>;
+  return <section className="btn btn-primary">this is about us</section>;
 };
 
 export default AboutUs;

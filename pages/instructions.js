@@ -1,7 +1,7 @@
 import React from "react";
 
 const Instructions = () => {
-  return <div>This is instructions</div>;
+  return <section>This is instructions</section>;
 };
 
 export default Instructions;
