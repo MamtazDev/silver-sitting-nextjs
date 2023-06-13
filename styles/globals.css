@@ -35,7 +35,7 @@ a {
 }
 
 .container {
-  max-width: 1420px;
+  max-width: 1420px !important;
 }
 
 :root {
