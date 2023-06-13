@@ -4,6 +4,9 @@ import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import Banner from "@/components/Home/Banner/Banner";
 import Known from "@/components/Home/Known/Known";
+import About from "@/components/Home/About";
+import HowWorks from "@/components/Home/HowWorks";
+import Register from "@/components/Home/Register";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,7 +22,10 @@ export default function Home() {
       </Head>
       <main>
         <Banner />
-        <Known/>
+        <Known />
+        <About />
+        <HowWorks />
+        <Register />
       </main>
     </>
   );
