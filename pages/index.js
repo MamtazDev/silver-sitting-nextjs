@@ -5,6 +5,7 @@ import styles from "@/styles/Home.module.css";
 import Banner from "@/components/Home/Banner/Banner";
 import Known from "@/components/Home/Known/Known";
 import About from "@/components/Home/About";
+import HowWorks from "@/components/Home/HowWorks";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,8 +21,9 @@ export default function Home() {
       </Head>
       <main>
         <Banner />
-        <Known/>
-        <About/>
+        <Known />
+        <About />
+        <HowWorks />
       </main>
     </>
   );

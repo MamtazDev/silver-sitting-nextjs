@@ -3,6 +3,7 @@
     margin-bottom: 170px;
 }
 
+
 .about_us .icon {
     height: 106px;
     width: 106px;
@@ -44,7 +45,7 @@
 .about_us .security {
     padding: 60px 46px 36px;
     border-radius: 10px;
-    height: 421px;
+    max-width: 454px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
