@@ -37,7 +37,6 @@ const Banner = () => {
                 >
                   <img
                     style={{ marginBottom: "20Px" }}
-                    width={50}
                     src={children.src}
                     alt="tab"
                   />
@@ -47,7 +46,11 @@ const Banner = () => {
                   className={`${tab === "caregiver" ? "active" : "deactivate"}`}
                   onClick={handleButtonClick}
                 >
-                  <img width={50} src={caregiver.src} alt="" />
+                  <img
+                    style={{ marginBottom: "20Px" }}
+                    src={caregiver.src}
+                    alt=""
+                  />
                   <p>Find Caregiver</p>
                 </div>
               </div>

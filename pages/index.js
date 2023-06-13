@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import Banner from "@/components/Home/Banner/Banner";
+import Known from "@/components/Home/Known/Known";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,6 +19,7 @@ export default function Home() {
       </Head>
       <main>
         <Banner />
+        <Known/>
       </main>
     </>
   );

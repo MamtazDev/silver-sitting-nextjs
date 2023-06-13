@@ -49,6 +49,10 @@ body {
   font-family: var(--outfit-font) !important;
 }
 
+input:focus-visible {
+  outline: none;
+}
+
 /* header part css */
 .header .navbar-nav {
   gap: 74px;
@@ -97,6 +101,7 @@ body {
   padding-top: 114px;
   padding-bottom: 91px;
   background-position: center;
+  margin-bottom: 50px;
 }
 
 .banner p {
