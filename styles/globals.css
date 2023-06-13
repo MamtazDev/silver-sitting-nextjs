@@ -54,6 +54,10 @@ input:focus-visible {
 }
 
 /* header part css */
+.navbar {
+  padding: 20px 0 !important;
+}
+
 .header .navbar-nav {
   gap: 74px;
 }

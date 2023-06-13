@@ -16,6 +16,7 @@ const HowWorks = () => {
   return (
     <div className={styles.how_works}>
       <div className="container">
+        <h2>Here’s how it works</h2>
         <div className={`${styles.parent} row justify-content-center`}>
           {works.map((work, index) => (
             <div
