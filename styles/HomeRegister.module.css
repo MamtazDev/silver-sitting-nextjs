@@ -11,6 +11,7 @@
     background: #F3EBF3;
     border-radius: 15px;
     max-width: 663px;
+    width: 100%;
     padding: 25px 20px 45px;
 }
 
@@ -35,4 +36,9 @@
     line-height: 25px;
     color: #FFFFFF;
     border: none;
+    transition: 0.3s ease-in-out;
+}
+
+.register .child button:hover {
+    scale: .95;
 }

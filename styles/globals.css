@@ -78,6 +78,7 @@ input:focus-visible {
   line-height: 25px;
   color: #333333;
   padding: 16px 24px;
+  cursor: pointer;
 }
 
 .header .login-btn {
@@ -86,6 +87,11 @@ input:focus-visible {
   padding: 16px 36px;
   color: white;
   font-weight: 500;
+  transition: 0.3s ease-in-out;
+}
+
+.header .login-btn:hover {
+  scale: 0.95;
 }
 
 /* header */
@@ -154,6 +160,11 @@ input:focus-visible {
   padding: 16px 36px;
   border: none;
   margin-bottom: 20px;
+  transition: 0.3s ease-in-out;
+}
+
+.banner .care_form button:hover {
+  scale: 0.95;
 }
 
 .banner .care_form .tabs p {
@@ -161,7 +172,6 @@ input:focus-visible {
   font-size: 24px;
   line-height: 30px;
   color: #222222;
-  /* white-space: nowrap; */
 }
 
 .banner .care_form .tabs .active {
@@ -170,6 +180,7 @@ input:focus-visible {
   border-radius: 9px;
   padding: 40px 43px;
   text-align: center;
+  cursor: pointer;
 }
 
 .banner .care_form .tabs .deactivate {
@@ -178,6 +189,7 @@ input:focus-visible {
   border-radius: 9px;
   padding: 40px 43px;
   text-align: center;
+  cursor: pointer;
 }
 
 

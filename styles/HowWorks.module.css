@@ -23,6 +23,7 @@
     border-radius: 20px;
     padding: 45px 21px 24px 40px;
     max-width: 394px;
+    width: 100%;
 }
 
 .how_works .child h1 {

@@ -9,7 +9,10 @@ const About = () => {
   return (
     <div className={styles.about_us}>
       <div className="container">
-        <div className="row justify-content-between gy-5">
+        <div
+          style={{ gap: "29px" }}
+          className="row justify-content-center gy-5"
+        >
           <div className={`${styles.about} col-12 col-md-6 col-lg-4`}>
             <div className={styles.icon}>
               <img src={about.src} alt="" />
