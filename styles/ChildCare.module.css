@@ -1,0 +1,136 @@
+.mainContainer {
+  margin-top: 40px;
+  margin-bottom: 170px;
+}
+.childCareBanner {
+  background-color: rgba(168, 106, 183, 0.06);
+  border-radius: 9px;
+  text-align: center;
+}
+
+.childCareBanner h3 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 40px;
+  text-align: center;
+  color: #a86ab7;
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+.contentContainer {
+  display: flex;
+  margin-top: 40px;
+}
+.emptyContainer {
+  width: 10%;
+}
+.formContainer {
+  width: 70%;
+  background: #fcf9fc;
+}
+
+.formContainer form {
+  padding: 50px 100px;
+}
+.formContainer form h6 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 30px;
+  text-align: center;
+  color: #333333;
+  margin-bottom: 30px !important;
+}
+.imageContainer {
+  width: 20%;
+}
+.imageContainer img {
+  object-fit: contain;
+}
+
+.grannySelction {
+  max-width: 382px;
+  margin: 0 auto;
+  justify-content: space-between;
+  margin-bottom: 45px;
+}
+.grannySelction label {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 30px;
+  color: #222222;
+}
+.colorCheckBox {
+  width: 17px;
+  height: 17px;
+  border: 2px solid red !important;
+  border-color: #a86ab7 !important;
+  outline: #a86ab7;
+  border-radius: 2px;
+}
+.inputContainer {
+  margin-bottom: 60px;
+}
+.inputContainer label {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 30px;
+  color: #333333;
+  margin-bottom: 20px;
+}
+
+.inputContainer input {
+  height: 49px;
+  background: #ffffff;
+  border: 1px solid rgba(168, 106, 183, 0.4);
+  border-radius: 3px;
+  padding: 10px;
+}
+
+.distance {
+  text-align: center;
+  margin-top: 20px;
+}
+.distance p {
+  text-align: center;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 30px;
+  color: #333333;
+}
+
+.distance input {
+  width: 85px;
+}
+
+.typesContainer {
+}
+
+.typesCheckboxs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: end;
+}
+
+.typesCheckboxs input {
+  width: 17px;
+  height: 17px;
+}
+.typesCheckboxs label {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 25px;
+  color: #666666;
+  margin-left: 12px;
+}
+.box1 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
