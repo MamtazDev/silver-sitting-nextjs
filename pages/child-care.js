@@ -20,7 +20,10 @@ const ChildCare = () => {
           <form>
             <h6>I'm looking for</h6>
             <div className={`d-flex ${styles.grannySelction}`}>
-              <div onClick={() => setLookfor("granny")}>
+              <div
+                onClick={() => setLookfor("granny")}
+                className={styles.checkBoxContainer}
+              >
                 <input
                   id="granny"
                   type="checkbox"
@@ -31,7 +34,10 @@ const ChildCare = () => {
                 />
                 <label htmlFor="granny">Granny</label>
               </div>
-              <div onClick={() => setLookfor("grandpa")}>
+              <div
+                onClick={() => setLookfor("grandpa")}
+                className={styles.checkBoxContainer}
+              >
                 <input
                   id="grandpa"
                   type="checkbox"
@@ -59,34 +65,39 @@ const ChildCare = () => {
               <h6 className="text-start">I need the following types of care</h6>
               <div className={styles.typesCheckboxs}>
                 <div className={styles.box1}>
-                  <div>
+                  <div className={styles.checkBoxContainer}>
                     <input type="checkbox" />
                     <label>Classic child sitting (child age &gt; 1y.)</label>
                   </div>
-                  <div>
+                  <div className={styles.checkBoxContainer}>
                     <input type="checkbox" />
                     <label>Classic child sitting (child age &gt; 4y.)</label>
                   </div>
-                  <div>
+                  <div className={styles.checkBoxContainer}>
                     <input type="checkbox" />
                     <label>Homework supervision 1. - 4. class</label>
                   </div>
-                  <div>
+                  <div className={styles.checkBoxContainer}>
                     <input type="checkbox" />
                     <label>Homework supervision 5. - 7. class</label>
                   </div>
                 </div>
                 <div className={styles.box1}>
-                  <div>
+                  <div className={styles.checkBoxContainer}>
                     <input type="checkbox" />
                     <label>Cook and bake</label>
                   </div>
-                  <div>
+                  <div className={styles.checkBoxContainer}>
                     <input type="checkbox" />
                     <label>Pick up and delivery services</label>
                   </div>
                 </div>
               </div>
+            </div>
+            <div className="text-center">
+              <button className={`btn ${styles.formButton}`} type="submit">
+                Start Search
+              </button>
             </div>
           </form>
         </div>
