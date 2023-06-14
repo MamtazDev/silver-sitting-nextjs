@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "@/styles/Blog.module.css";
+import Blog from "./Blog";
 
 const BlogTab = () => {
   const [active, setActive] = useState(1);
@@ -33,6 +34,7 @@ const BlogTab = () => {
           ))}
         </div>
       </div>
+      <Blog/>
     </div>
   );
 };
