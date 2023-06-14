@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "@/styles/InstructionCard.module.css";
 
-const InstructionCard = ({ instruction }) => {
+const InstructionCard = ({ instruction, number }) => {
   console.log(instruction.image);
 
   const imagePath = `${instruction?.image.src}`;
@@ -17,7 +17,9 @@ const InstructionCard = ({ instruction }) => {
       </div> */}
 
       <div className={styles.mainCardContainer}>
-        <div>1</div>
+        <div className={styles.countNumber}>
+          <div>{number}</div>
+        </div>
         <div className={styles.allContentContainer}>
           <div className={styles.headline}>
             <div>
@@ -25,7 +27,7 @@ const InstructionCard = ({ instruction }) => {
             </div>
             <p>{instruction?.title}</p>
           </div>
-          <p>{instruction?.content}</p>
+          <p className={styles.contentText}>{instruction?.content}</p>
         </div>
       </div>
     </>
