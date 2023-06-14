@@ -56,6 +56,7 @@ input:focus-visible {
 /* header part css */
 .navbar {
   padding: 20px 0 !important;
+  border-bottom: 1px solid rgba(139, 56, 136, 0.1);
 }
 
 .header .navbar-nav {
