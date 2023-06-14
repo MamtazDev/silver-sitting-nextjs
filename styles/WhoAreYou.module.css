@@ -7,7 +7,7 @@
     font-size: 42px;
     line-height: 53px;
     color: #333333;
-    margin-bottom: 30px;
+    margin-bottom: 30px !important;
 }
 
 
@@ -16,4 +16,8 @@
     font-size: 20px;
     line-height: 30px;
     color: #666666;
+}
+
+.who_we_are .intro {
+    margin-bottom: 50px;
 }

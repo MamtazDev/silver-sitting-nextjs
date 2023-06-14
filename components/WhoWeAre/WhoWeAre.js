@@ -12,7 +12,7 @@ const WhoWeAre = () => {
           </div>
           <div className="col-12 col-lg-6">
             <h3>Who we are</h3>
-            <p style={{ marginBottom: "50px" }}>
+            <p style={{ marginBottom: "50px !important" }}>
               We are Andrea and Daniel, have a psychological and educational
               background and live in Malchow. We are motivated by bright
               children's eyes and the gratitude of parents when their children
