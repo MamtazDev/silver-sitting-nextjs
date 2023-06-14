@@ -78,7 +78,7 @@ const Instructions = () => {
 
       <div className={styles.instructionsContainer}>
         {instructions.map((item, idx) => (
-          <InstructionCard instruction={item} key={idx} />
+          <InstructionCard instruction={item} key={idx} number={idx + 1} />
         ))}
       </div>
       <div className="text-center">
