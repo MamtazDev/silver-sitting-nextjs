@@ -34,7 +34,11 @@ const BlogTab = () => {
           ))}
         </div>
       </div>
-      <Blog/>
+
+      {active === 1 && <Blog />}
+      {active === 2 && <Blog />}
+      {active === 3 && <Blog />}
+      {active === 4 && <Blog />}
     </div>
   );
 };
