@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <Navbar className="header" collapseOnSelect expand="lg">
       <Container>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href="/">
           <img src={logo.src} alt="logo" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -19,7 +19,10 @@ const Header = () => {
             <Link href="#pricing">For Parents</Link>
           </Nav>
           <Nav className="button-navbar">
-            <Form.Select aria-label="Default select example" className="language-dropdown">
+            <Form.Select
+              aria-label="Default select example"
+              className="language-dropdown"
+            >
               <option value="eng">ENG</option>
               <option value="1">One</option>
             </Form.Select>

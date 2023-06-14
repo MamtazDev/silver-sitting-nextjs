@@ -8,7 +8,7 @@ const WhoWeAre = () => {
       <div className="container">
         <div className="row g-5">
           <div className="col-12 col-lg-6">
-            <img className="img-fluid w-100 h-100" src={family.src} alt="" />
+            <img className="img-fluid w-100" src={family.src} alt="" />
           </div>
           <div className="col-12 col-lg-6">
             <h3>Who we are</h3>
