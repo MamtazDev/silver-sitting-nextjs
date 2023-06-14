@@ -1,33 +1,38 @@
 import React from "react";
 import styles from "@/styles/Register.module.css";
+import parents from "../public/assets/icons/register-parent.png";
+import grandma from "../public/assets/icons/register-grandma.png";
 
 const Register = () => {
   return (
     <section className={`container mx-auto ${styles.signInMainContainer}`}>
       <div className={styles.emptyContainer}></div>
       <div className={styles.mainRegisterContainer}>
-        <form>
+        <div className={styles.register1stSection}>
           <h3>Register</h3>
           <h6>I am...</h6>
 
           {/* choose person */}
-          <div>
+          <div className={styles.choosePersonContainer}>
             <div>
-              <div>
-                <img src="" alt="" />
+              <label className={styles.person} htmlFor="grandma">
+                <img src={grandma.src} alt="" />
                 <p>Grandma</p>
-              </div>
-              <input type="" name="" value="" />
+              </label>
+              <input type="radio" name="person" value="" id="grandma" />
             </div>
             <div>
-              <div>
-                <img src="" alt="" />
+              <label className={styles.person} htmlFor="parents">
+                <img src={parents.src} alt="" />
                 <p>Parents</p>
-              </div>
-              <input type="" name="" value="" />
+              </label>
+              <input type="radio" name="person" value="" id="parents" />
             </div>
           </div>
-        </form>
+          <div className={styles.loginButtonContainer}>
+            <button className={`btn`}>Next</button>
+          </div>
+        </div>
       </div>
       <div className={styles.emptyContainer}></div>
     </section>
