@@ -7,13 +7,28 @@ const InstructionCard = ({ instruction }) => {
   const imagePath = `${instruction?.image.src}`;
   const cleanedPath = imagePath.replace("/_next/static/media/", "");
   return (
-    <div className={styles.cardContainer}>
-      <div className={styles.icons}>
-        <img src={instruction?.image.src} alt="" />
+    <>
+      {/* <div className={styles.cardContainer}>
+        <div className={styles.icons}>
+          <img src={instruction?.image.src} alt="" />
+        </div>
+        <h6>{instruction?.title}</h6>
+        <p>{instruction?.content}</p>
+      </div> */}
+
+      <div className={styles.mainCardContainer}>
+        <div>1</div>
+        <div className={styles.allContentContainer}>
+          <div className={styles.headline}>
+            <div>
+              <img src={instruction?.image.src} alt="" />
+            </div>
+            <p>{instruction?.title}</p>
+          </div>
+          <p>{instruction?.content}</p>
+        </div>
       </div>
-      <h6>{instruction?.title}</h6>
-      <p>{instruction?.content}</p>
-    </div>
+    </>
   );
 };
 
