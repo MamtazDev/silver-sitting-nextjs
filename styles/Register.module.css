@@ -25,6 +25,10 @@
   padding-left: 150px;
   padding-right: 150px;
   padding-bottom: 142px;
+  background-image: url("../public/assets/images/register-quote.png");
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  position: relative;
 }
 .mainRegisterContainer form label {
   font-weight: 300;
@@ -163,6 +167,28 @@
   align-items: center;
   gap: 14px;
 }
+.quoteText {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 32px;
+  text-align: center;
+  color: #ffffff;
+  position: absolute;
+  width: 20ch;
+  right: 34px;
+  bottom: 56px;
+}
+.quoteText a {
+  color: white;
+  text-decoration: underline !important;
+  margin-left: 2px;
+}
+
+.lightImage {
+  position: absolute;
+  bottom: 193px;
+  right: 105px;
+}
 
 @media only screen and (max-width: 1024px) {
   .emptyContainer {
@@ -194,6 +220,9 @@
 }
 
 @media only screen and (max-width: 688px) {
+  .mainRegisterContainer form {
+    background-size: 38%;
+  }
   .emptyContainer {
     display: none;
   }
@@ -212,5 +241,39 @@
   }
   .twoInputContainer div {
     width: 100% !important;
+  }
+
+  .quoteText {
+    font-weight: 400;
+    font-size: 8px;
+    line-height: 15px;
+    position: absolute;
+    width: 20ch;
+    right: 28px;
+    bottom: 35px;
+  }
+
+  .lightImage {
+    position: absolute;
+    bottom: 100px;
+    right: 50px;
+  }
+  .lightImage img {
+    width: 50%;
+  }
+}
+
+@media only screen and (width: 320px) {
+  .quoteText {
+    font-size: 6px;
+    bottom: 20px;
+    right: 10px;
+  }
+  .lightImage {
+    bottom: 80px;
+    right: 10px;
+  }
+  .lightImage img {
+    width: 50%;
   }
 }

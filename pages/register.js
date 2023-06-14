@@ -3,6 +3,7 @@ import styles from "@/styles/Register.module.css";
 import parents from "../public/assets/icons/register-parent.png";
 import grandma from "../public/assets/icons/register-grandma.png";
 import child from "../public/assets/images/register-child.png";
+import light from "../public/assets/icons/register-light.png";
 
 const Register = () => {
   const [step, setStep] = useState(1);
@@ -121,6 +122,17 @@ const Register = () => {
             </div>
             <div className={`text-center ${styles.loginButtonContainer}`}>
               <button className={`btn`}>Register</button>
+            </div>
+            <div className={styles.quoteText}>
+              If you need assistance with registration then contact us at
+              <a href="mailto:info@silversitting.com">
+                info@silversitting.com
+              </a>{" "}
+              . We're happy to help!
+            </div>
+
+            <div className={styles.lightImage}>
+              <img src={light.src} alt="" />
             </div>
           </form>
         )}
