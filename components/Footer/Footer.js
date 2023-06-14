@@ -170,9 +170,7 @@ const Footer = () => {
       path: "",
     },
   ];
-  const chunkedData = Array(Math.ceil(routes.length / 4))
-    .fill()
-    .map((_, index) => routes.slice(index * 4, index * 4 + 4));
+
   return (
     <footer>
       <div className="container">
