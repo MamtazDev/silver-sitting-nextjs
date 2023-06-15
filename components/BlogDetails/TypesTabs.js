@@ -24,7 +24,7 @@ const TypesTabs = () => {
     <div className="container">
       <div className={styles.tabs}>
         {tabs.map((tab, index) => (
-          <Link key={index} href="">
+          <Link  key={index} href="/Corona">
             {tab.name}
           </Link>
         ))}

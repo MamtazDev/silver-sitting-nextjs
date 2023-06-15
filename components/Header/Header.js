@@ -17,15 +17,15 @@ const Header = () => {
             <div className="parent">
               <Link href="#features">Pursue</Link>
               <div className="child">
-                <Link href="#features">Who we are</Link>
-                <Link href="#features">Blog</Link>
+                <Link href="/whoWeAre">Who we are</Link>
+                <Link href="/blogs">Blog</Link>
                 <Link href="#features">Feedback</Link>
               </div>
             </div>
             <div className="parent">
               <Link href="#pricing">For Nannies</Link>
               <div className="child">
-                <Link href="#features"> guidance child caregiver</Link>
+                <Link href="/guidance"> Guidance child caregiver</Link>
                 <Link href="#features">FAQ</Link>
               </div>
             </div>
