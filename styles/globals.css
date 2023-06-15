@@ -95,6 +95,49 @@ input:focus-visible {
   scale: 0.95;
 }
 
+.header .parent {
+  position: relative;
+}
+
+.header .child {
+  position: absolute;
+  top: 65px;
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(25px);
+  border-radius: 9px;
+  padding: 30px;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s ease-in-out;
+  width: max-content;
+  z-index: 9999;
+}
+
+.header .child a {
+  background: transparent;
+  border-radius: 36px;
+  padding: 16.5px 21px;
+  width: 100%;
+  text-align: center;
+  transition: 0.3s ease-in;
+}
+
+.header .child a:hover {
+  background: #FAF6FB;
+  border-radius: 36px;
+  padding: 16.5px 21px;
+  width: 100%;
+}
+
+.header .parent:hover .child {
+  visibility: visible;
+  opacity: 1;
+}
+
 /* header */
 
 .button-navbar {

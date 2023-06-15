@@ -14,9 +14,29 @@ const Header = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mx-auto">
-            <Link href="#features">Pursue</Link>
-            <Link href="#pricing">For Nannies</Link>
-            <Link href="#pricing">For Parents</Link>
+            <div className="parent">
+              <Link href="#features">Pursue</Link>
+              <div className="child">
+                <Link href="#features">Who we are</Link>
+                <Link href="#features">Blog</Link>
+                <Link href="#features">Feedback</Link>
+              </div>
+            </div>
+            <div className="parent">
+              <Link href="#pricing">For Nannies</Link>
+              <div className="child">
+                <Link href="#features"> guidance child caregiver</Link>
+                <Link href="#features">FAQ</Link>
+              </div>
+            </div>
+            <div className="parent">
+              <Link href="#pricing">For Parents</Link>
+              <div className="child">
+                <Link href="#features"> Instructions</Link>
+                <Link href="#features">FAQ</Link>
+                <Link href="#features"> Search for child care</Link>
+              </div>
+            </div>
           </Nav>
           <Nav className="button-navbar">
             <Form.Select
