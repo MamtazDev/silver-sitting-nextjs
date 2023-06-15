@@ -17,7 +17,7 @@ const PocketGuide = () => {
             here
           </Link>{" "}
         </p>
-        <img src={guide.src} alt="" />
+        <img className="img-fluid" src={guide.src} alt="" />
       </div>
     </div>
   );

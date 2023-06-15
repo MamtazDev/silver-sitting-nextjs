@@ -19,7 +19,9 @@ const Blog = () => {
               className="col-12 col-md-6 col-lg-4"
             >
               <div className={styles.blog}>
-                <img className="img-fluid w-100" src={blog.src} alt="" />
+                <Link href={`blogs/details/${index}`}>
+                  <img className="img-fluid w-100" src={blog.src} alt="" />
+                </Link>
                 <div></div>
                 <div className={styles.date}>
                   <h5 className="mb-0">19</h5>

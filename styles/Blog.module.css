@@ -196,6 +196,8 @@
     border-bottom: 1px solid #DDDDDD;
     padding: 30px 0;
     display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 60px;
@@ -342,4 +344,22 @@
     font-size: 20px;
     line-height: 32px;
     color: #666666;
+}
+
+@media screen and (max-width:991px) {
+    .social_media{
+        justify-content: center;
+    }
+    .comments {
+        padding: 30px;
+    }
+
+    .comments input {
+        padding: 15px;
+    }
+
+    .speech {
+        padding: 30px;
+    }
+
 }

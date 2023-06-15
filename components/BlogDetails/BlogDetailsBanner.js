@@ -10,7 +10,7 @@ const BlogDetailsBanner = () => {
   return (
     <div className={styles.blog_details}>
       <div className="container">
-        <div className="row">
+        <div className="row gy-4">
           <div className="col-12 col-lg-6">
             <img className="img-fluid w-100" src={banner.src} alt="" />
           </div>
