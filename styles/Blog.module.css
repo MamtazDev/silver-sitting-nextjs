@@ -290,3 +290,29 @@
     color: #A86AB7;
     text-decoration: underline !important;
 }
+
+.chancellor_speech {
+    margin-bottom: 90px;
+    text-align: center;
+}
+
+.chancellor_speech h4 {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+    color: #222222;
+    margin-bottom: 30px;
+}
+
+.speech {
+    background: rgba(168, 106, 183, 0.06);
+    border-radius: 10px;
+    padding: 50px 171px;
+}
+
+.speech p {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 32px;
+    color: rgba(34, 34, 34, 0.8);
+}
