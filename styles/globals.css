@@ -52,6 +52,9 @@ body {
 input:focus-visible {
   outline: none;
 }
+button:hover{
+  scale: 0.95;
+}
 
 /* header part css */
 .navbar {

@@ -128,3 +128,114 @@
     line-height: 20px;
     color: #A86AB7;
 }
+
+/* blog details css */
+
+.current_post h4 {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+    color: #333333;
+}
+
+.current_post button {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+    text-align: right;
+    color: #666666;
+    background-color: transparent;
+    border: none;
+}
+
+.comments {
+    background: rgba(168, 106, 183, 0.06);
+    border-radius: 15px;
+    padding: 75px 100px;
+    margin-bottom: 150px;
+}
+
+.comments h4 {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 25px;
+    color: #333333;
+    margin-bottom: 30px;
+}
+
+.comments input {
+    width: 100%;
+    background: #FFFFFF;
+    border-radius: 10px;
+    padding: 37px 30px;
+    border: none;
+    margin-bottom: 40px;
+}
+
+.comments input::placeholder {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: #666666;
+}
+
+.comments button {
+    background: #8B3888;
+    border-radius: 7px;
+    padding: 16px 36px;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 25px;
+    color: #FFFFFF;
+    border: none;
+    transition: 0.3s ease-out;
+}
+
+.social_media {
+    border-top: 1px solid #DDDDDD;
+    border-bottom: 1px solid #DDDDDD;
+    padding: 30px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.social_media p {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+    text-align: right;
+    color: #666666;
+}
+
+.social_media img {
+    margin-right: 45px;
+}
+
+.types_tab {}
+
+.tabs {
+    max-width: 1280;
+    margin: 0 auto;
+    display: flex;
+    gap: 20px;
+    overflow-x: scroll;
+    margin-bottom: 50px;
+
+}
+
+.tabs::-webkit-scrollbar {
+    display: none !important;
+}
+
+.tabs a {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+    color: #666666;
+    background: rgba(246, 239, 245, 0.65);
+    border-radius: 3px;
+    padding: 23px 44px;
+    white-space: nowrap;
+}
