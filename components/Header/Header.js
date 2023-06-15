@@ -26,7 +26,7 @@ const Header = () => {
               <option value="eng">ENG</option>
               <option value="1">One</option>
             </Form.Select>
-            <Link className="login-btn" href="#memes">
+            <Link className="login-btn" href="/login">
               Login
             </Link>
           </Nav>
