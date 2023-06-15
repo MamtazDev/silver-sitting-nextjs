@@ -316,3 +316,30 @@
     line-height: 32px;
     color: rgba(34, 34, 34, 0.8);
 }
+
+.blog_details {
+    margin-top: 70px;
+    margin-bottom: 90px;
+}
+
+.blog_details h6 {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+    color: #666666;
+}
+
+.blog_details h4 {
+    font-weight: 600;
+    font-size: 42px;
+    line-height: 53px;
+    color: #333333;
+    margin-bottom: 30px;
+}
+
+.blog_details p {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 32px;
+    color: #666666;
+}

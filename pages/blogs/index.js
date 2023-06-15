@@ -1,4 +1,5 @@
 import BlogTab from "@/components/Blog/BlogTab";
+import BlogDetailsBanner from "@/components/BlogDetails/BlogDetailsBanner";
 import ChancellorSpeech from "@/components/BlogDetails/ChancellorSpeech";
 import Comments from "@/components/BlogDetails/Comments";
 import CurrentPosts from "@/components/BlogDetails/CurrentPosts";
@@ -12,6 +13,7 @@ const Blogs = () => {
   return (
     <section>
       {/* <BlogTab /> */}
+      <BlogDetailsBanner/>
       <ChancellorSpeech/>
       <PocketGuide/>
       <Study/>
