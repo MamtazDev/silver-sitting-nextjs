@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "@/styles/Faq.module.css";
 import { Accordion } from "react-bootstrap";
+import Meta from "@/components/Shared/Meta";
 
 const parentsFAQ = [
   {
@@ -39,29 +40,32 @@ const parentsFAQ = [
 
 const FAQ = () => {
   return (
-    <section className={`container mx-auto ${styles.faqMainContainer}`}>
-      {/* banner */}
-      <div className={styles.faqBanner}>
-        <div>FAQ for parents</div>
-      </div>
+    <>
+      <Meta>Frequently Asked Question</Meta>
+      <section className={`container mx-auto ${styles.faqMainContainer}`}>
+        {/* banner */}
+        <div className={styles.faqBanner}>
+          <div>FAQ for parents</div>
+        </div>
 
-      <div>
-        {parentsFAQ.map((item, idx) => (
-          <Accordion
-            defaultActiveKey={["0"]}
-            alwaysOpen
-            className={styles.accordionContainer}
-          >
-            <Accordion.Item eventKey={`${idx}`}>
-              <Accordion.Header>{item?.question}</Accordion.Header>
-              <Accordion.Body>
-                <div dangerouslySetInnerHTML={{ __html: item?.content }} />
-              </Accordion.Body>
-            </Accordion.Item>
-          </Accordion>
-        ))}
-      </div>
-    </section>
+        <div>
+          {parentsFAQ.map((item, idx) => (
+            <Accordion
+              defaultActiveKey={["0"]}
+              alwaysOpen
+              className={styles.accordionContainer}
+            >
+              <Accordion.Item eventKey={`${idx}`}>
+                <Accordion.Header>{item?.question}</Accordion.Header>
+                <Accordion.Body>
+                  <div dangerouslySetInnerHTML={{ __html: item?.content }} />
+                </Accordion.Body>
+              </Accordion.Item>
+            </Accordion>
+          ))}
+        </div>
+      </section>
+    </>
   );
 };
 
