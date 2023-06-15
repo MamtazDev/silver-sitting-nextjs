@@ -101,6 +101,11 @@
   padding: 16px 36px;
 }
 
+.buttonContainer button:hover {
+  background: #8b3888;
+  color: #ffffff;
+}
+
 @media only screen and (min-width: 689px) and (max-width: 992px) {
   .emptyContainer {
     display: none;
