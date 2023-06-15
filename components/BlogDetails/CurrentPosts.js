@@ -8,20 +8,25 @@ import like from "../../public/assets/icons/like.png";
 import arrow from "../../public/assets/icons/violet-arrow.png";
 import Link from "next/link";
 
-const Blog = () => {
+const CurrentPosts = () => {
   return (
-    <div style={{ marginBottom: "30px" }}>
+    <div className={styles.current_post}>
       <div className="container">
-        <div className="row gy-4">
-          {[1, 2, 3, 4, 5, 6].map((index) => (
+        <div
+          style={{ marginBottom: "40px" }}
+          className="d-flex justify-content-between"
+        >
+          <h4>Current Posts</h4>
+          <button>View all</button>
+        </div>
+        <div style={{ marginBottom: "60px" }} className="row gy-4">
+          {[1, 2, 3].map((index) => (
             <div
               style={{ minHeight: "560px" }}
               className="col-12 col-md-6 col-lg-4"
             >
               <div className={styles.blog}>
-                <Link href={`blogs/details/${index}`}>
-                  <img className="img-fluid w-100" src={blog.src} alt="" />
-                </Link>
+                <img className="img-fluid w-100" src={blog.src} alt="" />
                 <div></div>
                 <div className={styles.date}>
                   <h5 className="mb-0">19</h5>
@@ -77,4 +82,4 @@ const Blog = () => {
   );
 };
 
-export default Blog;
+export default CurrentPosts;
