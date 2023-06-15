@@ -10,6 +10,9 @@
 .formContainer {
   width: 60%;
 }
+.imageContainer {
+  width: 20%;
+}
 
 .formContainer form {
   padding: 60px 110px;
@@ -30,10 +33,6 @@
   font-size: 20px;
   line-height: 25px;
   color: #333333;
-}
-
-.imageContainer {
-  width: 20%;
 }
 
 .imageContainer img {
@@ -100,4 +99,37 @@
   line-height: 25px;
   color: #ffffff;
   padding: 16px 36px;
+}
+
+@media only screen and (min-width: 689px) and (max-width: 992px) {
+  .emptyContainer {
+    display: none;
+  }
+  .formContainer {
+    width: 100%;
+  }
+  .imageContainer {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 688px) {
+  .emptyContainer {
+    display: none;
+  }
+  .formContainer {
+    width: 100%;
+  }
+  .imageContainer {
+    display: none;
+  }
+  .inputContainer {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .formContainer form {
+    padding: 10px 10px;
+  }
+  .buttonContainer {
+    margin-bottom: 20px;
+  }
 }
