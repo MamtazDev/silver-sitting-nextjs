@@ -26,7 +26,7 @@ const Header = () => {
               <Link href="#pricing">For Nannies</Link>
               <div className="child">
                 <Link href="/guidance"> Guidance child caregiver</Link>
-                <Link href="#features">FAQ</Link>
+                <Link href="/ChildrenProviderFaq">FAQ</Link>
               </div>
             </div>
             <div className="parent">
