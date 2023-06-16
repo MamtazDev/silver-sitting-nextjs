@@ -32,7 +32,7 @@ const Header = () => {
             <div className="parent">
               <Link href="#pricing">For Parents</Link>
               <div className="child">
-                <Link href="#features"> Instructions</Link>
+                <Link href="/instructions"> Instructions</Link>
                 <Link href="#features">FAQ</Link>
                 <Link href="#features"> Search for child care</Link>
               </div>
@@ -46,7 +46,7 @@ const Header = () => {
               <option value="eng">ENG</option>
               <option value="1">One</option>
             </Form.Select>
-            <Link className="login-btn" href="#memes">
+            <Link className="login-btn" href="/login">
               Login
             </Link>
           </Nav>
