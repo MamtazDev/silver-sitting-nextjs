@@ -19,7 +19,7 @@ const Header = () => {
               <div className="child">
                 <Link href="/whoWeAre">Who we are</Link>
                 <Link href="/blogs">Blog</Link>
-                <Link href="#features">Feedback</Link>
+                <Link href="/feedback">Feedback</Link>
               </div>
             </div>
             <div className="parent">
@@ -32,9 +32,9 @@ const Header = () => {
             <div className="parent">
               <Link href="#pricing">For Parents</Link>
               <div className="child">
-                <Link href="#features"> Instructions</Link>
-                <Link href="#features">FAQ</Link>
-                <Link href="#features"> Search for child care</Link>
+                <Link href="/instructions"> Instructions</Link>
+                <Link href="/faq">FAQ</Link>
+                <Link href="/child-care"> Search for child care</Link>
               </div>
             </div>
           </Nav>
