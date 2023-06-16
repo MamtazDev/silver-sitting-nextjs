@@ -12,7 +12,7 @@ const ChildcareWorker = () => {
         <h4>Then read here how to become a childcare worker.</h4>
         <div
           style={{ marginBottom: "20px" }}
-          className="d-flex gap-4 align-items-start"
+          className="d-flex flex-column flex-md-row align-items-center gap-4 align-items-md-start "
         >
           <img className="img-fluid" src={laptop.src} alt="" />
 
@@ -33,7 +33,7 @@ const ChildcareWorker = () => {
         </div>
         <div
           style={{ marginBottom: "20px" }}
-          className="d-flex gap-4 align-items-start"
+          className="d-flex flex-column flex-md-row align-items-center gap-4 align-items-md-start "
         >
           <img className="img-fluid" src={important.src} alt="" />
 
@@ -74,7 +74,7 @@ const ChildcareWorker = () => {
         </div>
         <div
           style={{ marginBottom: "20px" }}
-          className="d-flex gap-4 align-items-start"
+          className="d-flex flex-column flex-md-row align-items-center gap-4 align-items-md-start "
         >
           <img className="img-fluid" src={thankful.src} alt="" />
 

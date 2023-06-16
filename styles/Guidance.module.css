@@ -64,3 +64,10 @@
 
 
 }
+
+
+@media screen and (max-width: 767px) {
+    .Childcare_worker {
+        margin-bottom: 50px;
+    }
+}
