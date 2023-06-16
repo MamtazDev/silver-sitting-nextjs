@@ -3,12 +3,11 @@ import styles from "@/styles/Faq.module.css";
 import Banner from "@/components/ChildrenProviderFaq/Banner";
 import Faq from "@/components/ChildrenProviderFaq/Faq";
 
-
 const ChildrenProviderFaq = () => {
   return (
-    <div>
+    <div className={`container mx-auto ${styles.faqMainContainer}`}>
       <Banner />
-      <Faq/>
+      <Faq />
     </div>
   );
 };
