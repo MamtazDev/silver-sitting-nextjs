@@ -18,13 +18,11 @@ const InstructionCard = ({ instruction, number }) => {
 
       <div className={styles.mainCardContainer}>
         <div className={styles.countNumber}>
-          <div>{number}</div>
+          <img src={instruction?.image.src} alt="" />
         </div>
         <div className={styles.allContentContainer}>
           <div className={styles.headline}>
-            <div>
-              <img src={instruction?.image.src} alt="" />
-            </div>
+            <div>{number}</div>
             <p>{instruction?.title}</p>
           </div>
           <p className={styles.contentText}>{instruction?.content}</p>
