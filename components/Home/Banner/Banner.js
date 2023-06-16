@@ -7,14 +7,14 @@ import arrow from "../../../public/assets/icons/arrow.png";
 import Link from "next/link";
 
 const Banner = () => {
-  const [backgroundImage, setBackgroundImage] = useState(`url(${banner.src})`);
+  const [backgroundImage, setBackgroundImage] = useState(`url(${banner1.src})`);
   const [tab, setTab] = useState("children");
   const handleButtonClick = () => {
-    setBackgroundImage(`url(${banner1.src})`);
+    setBackgroundImage(`url(${banner.src})`);
     setTab("caregiver");
   };
   const handleButtonClicknext = () => {
-    setBackgroundImage(`url(${banner.src})`);
+    setBackgroundImage(`url(${banner1.src})`);
     setTab("children");
   };
   return (
