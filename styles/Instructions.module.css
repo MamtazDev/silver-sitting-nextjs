@@ -24,7 +24,7 @@
   line-height: 25px;
   text-align: center;
   color: #a86ab7;
-  max-width: 64ch;
+  max-width: 43ch;
   margin: 0 auto !important;
 }
 
@@ -42,7 +42,7 @@
   margin-top: 80px;
   margin-bottom: 90px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   gap: 23px;
 }
 
