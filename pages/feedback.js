@@ -1,10 +1,12 @@
 import Meta from "@/components/Shared/Meta";
-import React from "react";
+import React, { useState } from "react";
 import styles from "@/styles/Feedback.module.css";
 import child from "../public/assets/images/feedbackChild.png";
 import love from "../public/assets/icons/love.png";
+import filledLove from "../public/assets/icons/filledLove.png";
 
 const Feedback = () => {
+  const [feedback, setFeedback] = useState(0);
   return (
     <>
       <Meta>Feedback</Meta>
@@ -36,11 +38,51 @@ const Feedback = () => {
               <div>
                 <h6>Rate us</h6>
                 <div>
-                  <img src={love.src} alt="" />
-                  <img src={love.src} alt="" />
-                  <img src={love.src} alt="" />
-                  <img src={love.src} alt="" />
-                  <img src={love.src} alt="" />
+                  {feedback >= 1 ? (
+                    <img
+                      src={filledLove.src}
+                      alt=""
+                      onClick={() => setFeedback(1)}
+                    />
+                  ) : (
+                    <img src={love.src} alt="" onClick={() => setFeedback(1)} />
+                  )}
+                  {feedback >= 2 ? (
+                    <img
+                      src={filledLove.src}
+                      alt=""
+                      onClick={() => setFeedback(2)}
+                    />
+                  ) : (
+                    <img src={love.src} alt="" onClick={() => setFeedback(2)} />
+                  )}
+                  {feedback >= 3 ? (
+                    <img
+                      src={filledLove.src}
+                      alt=""
+                      onClick={() => setFeedback(3)}
+                    />
+                  ) : (
+                    <img src={love.src} alt="" onClick={() => setFeedback(3)} />
+                  )}
+                  {feedback >= 4 ? (
+                    <img
+                      src={filledLove.src}
+                      alt=""
+                      onClick={() => setFeedback(4)}
+                    />
+                  ) : (
+                    <img src={love.src} alt="" onClick={() => setFeedback(4)} />
+                  )}
+                  {feedback === 5 ? (
+                    <img
+                      src={filledLove.src}
+                      alt=""
+                      onClick={() => setFeedback(5)}
+                    />
+                  ) : (
+                    <img src={love.src} alt="" onClick={() => setFeedback(5)} />
+                  )}
                 </div>
               </div>
             </div>

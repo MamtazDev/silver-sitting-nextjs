@@ -72,6 +72,7 @@
 .ratingContainer img {
   margin-left: 10px;
   margin-right: 10px;
+  cursor: pointer;
 }
 
 .formContainer form textarea {
