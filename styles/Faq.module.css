@@ -47,3 +47,6 @@
   line-height: 33px;
   color: #333333;
 }
+.accordionContainer h2 button:hover {
+  scale: 1 !important;
+}
