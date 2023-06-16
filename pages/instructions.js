@@ -10,6 +10,7 @@ import search from "../public/assets/icons/search.png";
 import stamptik from "../public/assets/icons/staptik.png";
 import InstructionCard from "@/components/Instructions/InstructionCard";
 import Meta from "@/components/Shared/Meta";
+import ProtectedRoute from "@/routes/ProtectedRoute";
 
 const instructions = [
   {
@@ -64,31 +65,33 @@ const instructions = [
 
 const Instructions = () => {
   return (
-    <>
-      <Meta>Instructions</Meta>
-      <section className="container mx-auto">
-        {/* banner */}
-        <div className={styles.findNannyBanner}>
-          <h3>How to find a nanny for your child</h3>
-          <p>
-            "Aging people are like museums: It’s not the facade that counts, but
-            the treasures inside"
-          </p>
-          <h6>Jeanne Moreau</h6>
-        </div>
+    <ProtectedRoute>
+      <>
+        <Meta>Instructions</Meta>
+        <section className="container mx-auto">
+          {/* banner */}
+          <div className={styles.findNannyBanner}>
+            <h3>How to find a nanny for your child</h3>
+            <p>
+              "Aging people are like museums: It’s not the facade that counts,
+              but the treasures inside"
+            </p>
+            <h6>Jeanne Moreau</h6>
+          </div>
 
-        {/* instructions */}
+          {/* instructions */}
 
-        <div className={styles.instructionsContainer}>
-          {instructions.map((item, idx) => (
-            <InstructionCard instruction={item} key={idx} number={idx + 1} />
-          ))}
-        </div>
-        <div className="text-center">
-          <button className={`btn ${styles.button}`}>Find A Nanny Now</button>
-        </div>
-      </section>
-    </>
+          <div className={styles.instructionsContainer}>
+            {instructions.map((item, idx) => (
+              <InstructionCard instruction={item} key={idx} number={idx + 1} />
+            ))}
+          </div>
+          <div className="text-center">
+            <button className={`btn ${styles.button}`}>Find A Nanny Now</button>
+          </div>
+        </section>
+      </>
+    </ProtectedRoute>
   );
 };
 
