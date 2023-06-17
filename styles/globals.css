@@ -118,7 +118,7 @@ button:hover {
   opacity: 0;
   transition: 0.3s ease-in-out;
   width: max-content;
-  z-index: 9999;
+  z-index: 10000;
 }
 
 .header .child a {
@@ -346,19 +346,24 @@ footer .copyright {
     margin-top: 25px;
     gap: 25px;
   }
-  .banner .care_form{
+
+  .banner .care_form {
     padding: 30px;
   }
-  .banner .care_form .tabs{
+
+  .banner .care_form .tabs {
     gap: 20px;
   }
-  .banner .care_form .tabs .active{
+
+  .banner .care_form .tabs .active {
     padding: 20px !important;
   }
-  .banner .care_form .tabs .deactivate{
+
+  .banner .care_form .tabs .deactivate {
     padding: 20px !important;
   }
-  footer{
+
+  footer {
     padding-top: 35px;
   }
 
