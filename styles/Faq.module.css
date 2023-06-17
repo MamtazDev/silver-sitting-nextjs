@@ -2,6 +2,7 @@
   margin-top: 90px;
   margin-bottom: 221px;
 }
+
 .faqBanner {
   background-image: url("../public/assets/images/faq-banner.png");
   background-repeat: no-repeat;
@@ -29,6 +30,7 @@
 .accordionContainer {
   margin-bottom: 20px !important;
 }
+
 .accordionContainer div {
   font-weight: 400;
   font-size: 18px;
