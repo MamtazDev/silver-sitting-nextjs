@@ -69,11 +69,20 @@ const ChildCare = () => {
 
                   <div className={styles.distance}>
                     <p>
-                      Up to max. <input type="text" className="mx-3" /> km
+                      Up to max. <input type="text" className="mx-3 text-center" placeholder="30" /> km
                       distance
                     </p>
                   </div>
                 </div>
+
+                <h5>
+                  The search is limited to a radius of 30 km and has been reset
+                  automatically.
+                </h5>
+                <h5 style={{ marginBottom: "34px" }}>
+                  {" "}
+                  We ask for your understanding.
+                </h5>
 
                 <div className={styles.typesContainer}>
                   <h6 className="text-start">

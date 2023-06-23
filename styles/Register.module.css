@@ -3,16 +3,29 @@
   margin-bottom: 278px;
   display: flex;
 }
+
 .emptyContainer {
   width: 15%;
+}
+
+#warning {
+  color: #222;
+  font-size: 12px;
+  line-height: 18px;
+  border-radius: 10px;
+  background: rgba(139, 56, 136, 0.10);
+  padding: 4px 9px;
+  transition: 0.3s ease-in;
 }
 
 .imageContainer {
   width: 15%;
 }
+
 .imageContainer img {
   object-fit: contain;
 }
+
 .mainRegisterContainer {
   width: 70%;
 }
@@ -30,6 +43,7 @@
   background-position: bottom right;
   position: relative;
 }
+
 .mainRegisterContainer form label {
   font-weight: 300;
   font-size: 20px;
@@ -38,9 +52,16 @@
   display: block;
   margin-bottom: 10px;
 }
+
+.mainRegisterContainer form label a {
+  color: #8B3888;
+  font-weight: 500;
+}
+
 .mainRegisterContainer form span {
   color: #f10460;
 }
+
 .mainRegisterContainer form input {
   border: 1px solid #dddddd;
   border-radius: 7px;
@@ -48,10 +69,11 @@
   padding: 20px;
   margin-bottom: 20px;
 }
+
 .mainRegisterContainer h3 {
   font-weight: 600;
   font-size: 36px;
-  line-height: 45px;
+  line-height: 25px;
   color: #8b3888;
   margin-bottom: 50px;
   text-align: center;
@@ -72,6 +94,7 @@
   color: #8b3888;
   margin-bottom: 60px;
 }
+
 .register1stSection h6 {
   font-weight: 600;
   font-size: 32px;
@@ -84,7 +107,7 @@
   display: flex;
   justify-content: center;
   margin-bottom: 74px;
-  gap: 45px;
+  gap: 24px;
   flex-wrap: wrap;
 }
 
@@ -98,7 +121,7 @@
 .person {
   background: #f3ebf3;
   border-radius: 10px;
-  width: 200px;
+  width: 244px;
   height: 174px;
   display: flex;
   flex-direction: column;
@@ -116,6 +139,7 @@
   color: #8b3888;
   margin-top: 15px;
 }
+
 .loginButtonContainer button {
   font-weight: 500;
   font-size: 20px;
@@ -155,6 +179,7 @@
   width: 17px;
   height: 17px;
 }
+
 .checkboxContainer p {
   margin: 0 !important;
   padding: 0 !important;
@@ -167,6 +192,7 @@
   align-items: center;
   gap: 14px;
 }
+
 .quoteText {
   font-weight: 400;
   font-size: 16px;
@@ -178,6 +204,7 @@
   right: 34px;
   bottom: 56px;
 }
+
 .quoteText a {
   color: white;
   text-decoration: underline !important;
@@ -194,6 +221,7 @@
   .emptyContainer {
     width: 10%;
   }
+
   .mainRegisterContainer {
     width: 80%;
   }
@@ -208,12 +236,15 @@
   .emptyContainer {
     display: none;
   }
+
   .mainRegisterContainer {
     width: 100%;
   }
+
   .register1stSection {
     padding: 50px 50px;
   }
+
   .imageContainer {
     display: none;
   }
@@ -223,22 +254,28 @@
   .mainRegisterContainer form {
     background-size: 38%;
   }
+
   .emptyContainer {
     display: none;
   }
+
   .mainRegisterContainer {
     width: 100%;
   }
+
   .register1stSection {
     padding: 50px 50px;
   }
+
   .imageContainer {
     display: none;
   }
+
   .twoInputContainer {
     flex-direction: column;
     gap: 10px;
   }
+
   .twoInputContainer div {
     width: 100% !important;
   }
@@ -258,6 +295,7 @@
     bottom: 100px;
     right: 50px;
   }
+
   .lightImage img {
     width: 50%;
   }
@@ -269,10 +307,12 @@
     bottom: 20px;
     right: 10px;
   }
+
   .lightImage {
     bottom: 80px;
     right: 10px;
   }
+
   .lightImage img {
     width: 50%;
   }
