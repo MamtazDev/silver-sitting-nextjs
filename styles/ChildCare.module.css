@@ -49,6 +49,18 @@
   padding: 50px 100px;
 }
 
+.formContainer form p {
+  color: #333;
+  text-align: center;
+  font-size: 20px;
+  line-height: 32px;
+}
+
+.formContainer form p a {
+  color: #8B3888;
+  text-decoration: underline !important;
+}
+
 .formContainer form h6 {
   font-style: normal;
   font-weight: 600;

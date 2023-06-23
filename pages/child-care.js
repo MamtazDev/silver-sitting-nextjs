@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import styles from "@/styles/ChildCare.module.css";
 import children from "../public/assets/images/child-photo.png";
+import children1 from "../public/assets/images/child-login.png";
 import qoute from "../public/assets/images/qoute.png";
 import SearchResult from "@/components/ChildCare/SearchResult";
 import Meta from "@/components/Shared/Meta";
+import Link from "next/link";
 
 const ChildCare = () => {
   const [lookfor, setLookfor] = useState("");
@@ -11,7 +13,8 @@ const ChildCare = () => {
 
   const handleSerchFormSubmit = (e) => {
     e.preventDefault();
-    setStep((prev) => prev + 1);
+    // setStep((prev) => prev + 1);
+    setStep(2);
   };
 
   return (
@@ -22,6 +25,7 @@ const ChildCare = () => {
         <div className={styles.childCareBanner}>
           {step === 0 && <h3>Find childcare for your child here</h3>}
           {step === 1 && <h3>Search Result</h3>}
+          {step === 3 && <h3>Find childcare for your child here</h3>}
         </div>
 
         {/* chilcare form */}
@@ -69,8 +73,13 @@ const ChildCare = () => {
 
                   <div className={styles.distance}>
                     <p>
-                      Up to max. <input type="text" className="mx-3 text-center" placeholder="30" /> km
-                      distance
+                      Up to max.{" "}
+                      <input
+                        type="text"
+                        className="mx-3 text-center"
+                        placeholder="30"
+                      />{" "}
+                      km distance
                     </p>
                   </div>
                 </div>
@@ -139,6 +148,40 @@ const ChildCare = () => {
         {/* search result */}
 
         {step === 1 && <SearchResult />}
+
+        {step === 2 && (
+          <div className={styles.contentContainer}>
+            <div className={styles.emptyContainer}></div>
+            <div className={styles.formContainer}>
+              <form>
+                <p className="pt-5">
+                  Unfortunately, no matching grandmas or grandpas were found for
+                  your <br /> search criteria more presents.
+                </p>
+                <h6>Tip</h6>
+
+                <p className="pb-5">
+                  Increase the area or <Link href="!#">click here</Link> to be
+                  notified as soon as a childcare <br /> worker registers with
+                  your criteria
+                </p>
+
+                <div className="text-center">
+                  <button
+                    onClick={() => setStep(0)}
+                    className={`btn ${styles.formButton}`}
+                    type="submit"
+                  >
+                    Search Again
+                  </button>
+                </div>
+              </form>
+            </div>
+            <div className={styles.imageContainer}>
+              <img src={children1.src} alt="" />
+            </div>
+          </div>
+        )}
       </section>
     </>
   );
