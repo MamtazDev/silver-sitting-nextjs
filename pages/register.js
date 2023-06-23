@@ -158,9 +158,9 @@ const Register = () => {
                   </label>
                 </div>
               </div>
-              <div className={`text-center ${styles.loginButtonContainer}`}>
+              <Link href="/register-success-sms" className={`text-center ${styles.loginButtonContainer}`}>
                 <button className={`btn`}>Register</button>
-              </div>
+              </Link>
               <div className={styles.quoteText}>
                 If you need assistance with registration then contact us at
                 <a href="mailto:info@silversitting.com">
