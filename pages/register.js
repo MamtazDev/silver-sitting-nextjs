@@ -4,10 +4,13 @@ import parents from "../public/assets/icons/register-parent.png";
 import grandma from "../public/assets/icons/register-grandma.png";
 import child from "../public/assets/images/register-child.png";
 import light from "../public/assets/icons/register-light.png";
+import info from "../public/assets/icons/info.png";
 import Meta from "@/components/Shared/Meta";
+import Link from "next/link";
 
 const Register = () => {
   const [step, setStep] = useState(1);
+  const [warningShow, setWarningShow] = useState(false);
   return (
     <>
       <Meta>Register</Meta>
@@ -25,7 +28,7 @@ const Register = () => {
                 <div>
                   <label className={styles.person} htmlFor="grandma">
                     <img src={grandma.src} alt="" />
-                    <p>Grandma</p>
+                    <p>Child care provider</p>
                   </label>
                   <input type="radio" name="person" value="" id="grandma" />
                 </div>
@@ -49,7 +52,38 @@ const Register = () => {
           {step === 2 && (
             <form>
               <h3>Register</h3>
+              <div
+                style={{ height: "100px", marginBottom: "5px" }}
+                className="row align-items-center"
+              >
+                <div className="col-12 col-lg-6">
+                  <div className={styles.checkboxs}>
+                    <input className="mb-0" type="checkbox" />
+                    <label className="mb-0">
+                      I am at least 55 years old <span>*</span>{" "}
+                    </label>
+                    <img
+                      style={{cursor:"pointer"}}
+                      onClick={() => setWarningShow(!warningShow)}
+                      src={info.src}
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <div className="col-12 col-lg-6">
+                  {warningShow && (
+                    <p className="mb-0" id={styles.warning}>
+                      Childminders at SilverSitting must be at least 55 years of
+                      age. For example, if you are an early retiree and just
+                      under 55 years old, you are welcome to email us at
+                      info@silversitting.com. In such special cases, an
+                      exception can be made if necessary.
+                    </p>
+                  )}
+                </div>
+              </div>
               {/* 1st row */}
+
               <div className={styles.twoInputContainer}>
                 <div className="w-50">
                   <label>
@@ -111,15 +145,16 @@ const Register = () => {
                 <div className={styles.checkboxs}>
                   <input type="checkbox" />
                   <label>
-                    I have read the SilverSitting <p>terms and conditions</p>{" "}
-                    and agree to them.
+                    I have read the SilverSitting{" "}
+                    <Link href="#!">terms and conditions</Link> and agree to
+                    them.
                   </label>
                 </div>
                 <div className={styles.checkboxs}>
                   <input type="checkbox" />
                   <label>
-                    I have read SilverSitting's <p>privacy policy</p> and agree
-                    to it
+                    I have read SilverSitting's{" "}
+                    <Link href="!#">privacy policy</Link> and agree to it
                   </label>
                 </div>
               </div>

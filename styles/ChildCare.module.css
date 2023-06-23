@@ -2,6 +2,7 @@
   margin-top: 40px;
   margin-bottom: 170px;
 }
+
 .childCareBanner {
   background-color: rgba(168, 106, 183, 0.06);
   border-radius: 9px;
@@ -23,9 +24,19 @@
   display: flex;
   margin-top: 40px;
 }
+
+.contentContainer h5 {
+  color: #F00;
+  text-align: center;
+  font-size: 18px;
+  font-family: Outfit;
+  line-height: 28px;
+}
+
 .emptyContainer {
   width: 10%;
 }
+
 .formContainer {
   width: 70%;
   background-color: #fcf9fc;
@@ -37,6 +48,7 @@
 .formContainer form {
   padding: 50px 100px;
 }
+
 .formContainer form h6 {
   font-style: normal;
   font-weight: 600;
@@ -46,9 +58,11 @@
   color: #333333;
   margin-bottom: 30px !important;
 }
+
 .imageContainer {
   width: 20%;
 }
+
 .imageContainer img {
   object-fit: contain;
 }
@@ -59,6 +73,7 @@
   justify-content: space-between;
   margin-bottom: 45px;
 }
+
 .grannySelction label {
   font-style: normal;
   font-weight: 400;
@@ -66,6 +81,7 @@
   line-height: 30px;
   color: #222222;
 }
+
 .colorCheckBox {
   width: 17px;
   height: 17px;
@@ -74,9 +90,11 @@
   outline: #a86ab7;
   border-radius: 2px;
 }
+
 .inputContainer {
-  margin-bottom: 60px;
+  margin-bottom: 25px;
 }
+
 .inputContainer label {
   font-style: normal;
   font-weight: 500;
@@ -98,6 +116,7 @@
   text-align: center;
   margin-top: 20px;
 }
+
 .distance p {
   text-align: center;
   font-style: normal;
@@ -125,6 +144,7 @@
   width: 17px;
   height: 17px;
 }
+
 .typesCheckboxs label {
   font-style: normal;
   font-weight: 400;
@@ -133,6 +153,7 @@
   color: #666666;
   margin-left: 12px;
 }
+
 .box1 {
   display: flex;
   flex-direction: column;
@@ -149,6 +170,7 @@
   color: #ffffff;
   padding: 16px 36px;
 }
+
 .formButton:hover {
   background: #771f76;
   color: #ffffff;
@@ -170,9 +192,11 @@
   .emptyContainer {
     display: none;
   }
+
   .formContainer {
     width: 100%;
   }
+
   .imageContainer {
     display: none;
   }
@@ -182,12 +206,15 @@
   .emptyContainer {
     display: none;
   }
+
   .formContainer {
     width: 100%;
   }
+
   .imageContainer {
     display: none;
   }
+
   .formContainer form {
     padding: 25px 20px;
   }
@@ -196,18 +223,22 @@
     justify-content: space-evenly;
     margin-bottom: 20px;
   }
+
   .grannySelction label {
     font-weight: 400;
     font-size: 16px;
     line-height: 30px;
   }
+
   .inputContainer label {
     font-size: 18px;
     margin-bottom: 10px;
   }
+
   .distance p {
     font-size: 18px;
   }
+
   .typesCheckboxs label {
     font-size: 12px;
   }
@@ -216,6 +247,7 @@
     display: flex;
     align-items: center;
   }
+
   .typesContainer {
     margin-bottom: 30px;
   }

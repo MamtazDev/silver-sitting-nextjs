@@ -11,16 +11,16 @@ const SearchResultCard = () => {
         </div>
         <div>
           <h5>Testing Senior</h5>
-          <p>Hello, unfortunately I am only a test user</p>
           <span>Volunteer</span>
+          <p>Hello, unfortunately I am only a test user</p>
         </div>
       </div>
       <div>
-        <h5>Away</h5>
-        <p>01 km</p>
+        <h5>Distance</h5>
+        <p>1 km</p>
       </div>
       <div className={styles.buttonContainer}>
-        <button className="btn">To Contact</button>
+        <button className="btn">Contact</button>
       </div>
     </div>
   );

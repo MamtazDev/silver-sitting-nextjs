@@ -4,6 +4,7 @@
   padding: 22px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin: 30px 0px;
 }
 
@@ -25,13 +26,16 @@
   font-size: 24px;
   line-height: 30px;
   color: #8b3888;
+  margin-bottom: 8px !important;
 }
 
 .mainContainer span {
+  display: block;
   font-weight: 400;
   font-size: 18px;
   line-height: 23px;
   color: rgba(102, 102, 102, 0.8);
+  margin-bottom: 10px;
 }
 
 .mainContainer button {
@@ -54,6 +58,7 @@
   gap: 22px;
   align-items: center;
 }
+
 .buttonContainer {
   display: flex;
   justify-content: center;
@@ -86,12 +91,15 @@
     align-items: center;
     gap: 20px;
   }
+
   .personContainer {
     flex-direction: column;
   }
+
   .personContainer div {
     width: 100%;
   }
+
   .personContainer img {
     width: 100%;
   }
