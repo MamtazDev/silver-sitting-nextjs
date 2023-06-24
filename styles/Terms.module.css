@@ -1,0 +1,27 @@
+.listBanner {
+    padding-top: 70px;
+    margin-bottom: 60px;
+}
+
+.listBanner h2 {
+    color: #8B3888;
+    font-size: 42px;
+    font-weight: 600;
+    line-height: 52px;
+    margin-bottom: 41px;
+}
+
+.listBanner .listing {
+    border-radius: 5px;
+    background: #fcf9fc;
+    padding: 30px 20px;
+}
+
+.listBanner ul li {
+    list-style: disc;
+    color: #333;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 52px;
+    margin-bottom: 20px;
+}
