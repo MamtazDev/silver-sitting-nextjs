@@ -7,6 +7,7 @@ import light from "../public/assets/icons/register-light.png";
 import info from "../public/assets/icons/info.png";
 import Meta from "@/components/Shared/Meta";
 import Link from "next/link";
+import sms from "../public/assets/success-sms.png";
 
 const Register = () => {
   const [step, setStep] = useState(1);
@@ -63,7 +64,7 @@ const Register = () => {
                       I am at least 55 years old <span>*</span>{" "}
                     </label>
                     <img
-                      style={{cursor:"pointer"}}
+                      style={{ cursor: "pointer" }}
                       onClick={() => setWarningShow(!warningShow)}
                       src={info.src}
                       alt=""
@@ -89,13 +90,13 @@ const Register = () => {
                   <label>
                     First Name <span>*</span>
                   </label>
-                  <input type="text" name="" value="" className="w-100" />
+                  <input type="text" name="" className="w-100" />
                 </div>
                 <div className="w-50">
                   <label>
                     Last Name <span>*</span>
                   </label>
-                  <input type="text" name="" value="" className="w-100" />
+                  <input type="text" name="" className="w-100" />
                 </div>
               </div>
               {/* 2nd row */}
@@ -103,7 +104,7 @@ const Register = () => {
                 <label>
                   Email address <span>*</span>
                 </label>
-                <input type="email" name="" value="" className="w-100" />
+                <input type="email" name="" className="w-100" />
               </div>
               {/* 3rd row */}
               <div className={styles.twoInputContainer}>
@@ -131,13 +132,13 @@ const Register = () => {
                   <label>
                     Password <span>*</span>
                   </label>
-                  <input type="password" name="" value="" className="w-100" />
+                  <input type="password" name="" className="w-100" />
                 </div>
                 <div className="w-50">
                   <label>
                     Re-enter Password <span>*</span>
                   </label>
-                  <input type="password" name="" value="" className="w-100" />
+                  <input type="password" name="" className="w-100" />
                 </div>
               </div>
 
@@ -158,9 +159,12 @@ const Register = () => {
                   </label>
                 </div>
               </div>
-              <Link href="/register-success-sms" className={`text-center ${styles.loginButtonContainer}`}>
+              <div
+                className={`text-center ${styles.loginButtonContainer}`}
+                onClick={() => setStep(3)}
+              >
                 <button className={`btn`}>Register</button>
-              </Link>
+              </div>
               <div className={styles.quoteText}>
                 If you need assistance with registration then contact us at
                 <a href="mailto:info@silversitting.com">
@@ -174,9 +178,28 @@ const Register = () => {
               </div>
             </form>
           )}
+          {step === 3 && (
+            <div className={styles.success}>
+              <img src={sms.src} alt="" />
+              <h6>Nice that you have registered with SilverSitting!</h6>
+              <p>
+                To complete your registration, please click on the{" "}
+                <Link href="!#">link</Link> in the <br /> email we just sent
+                you.
+              </p>
+              <p>
+                <span>For information :</span> a <Link href="!#">link</Link> can
+                be a word with a blue background that can be clicked on.
+              </p>
+            </div>
+          )}
         </div>
         <div
-          className={step === 1 ? styles.emptyContainer : styles.imageContainer}
+          className={
+            step === 1 || step === 3
+              ? styles.emptyContainer
+              : styles.imageContainer
+          }
         >
           {step === 2 && <img src={child.src} alt="" />}
         </div>

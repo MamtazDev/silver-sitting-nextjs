@@ -394,7 +394,16 @@ footer .copyright {
   transition: 0.3s ease-in-out;
   margin-top: 40px;
 }
-
+._button {
+  background: var(--violet-primary);
+  margin-top: 30px;
+  border: unset !important;
+  border-radius: 7px;
+  padding: 16px 36px;
+  color: white;
+  font-weight: 500;
+  transition: 0.3s ease-in-out;
+}
 @media screen and (max-width: 767px) {
   .header .navbar-nav {
     gap: 25px;

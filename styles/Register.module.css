@@ -13,7 +13,7 @@
   font-size: 12px;
   line-height: 18px;
   border-radius: 10px;
-  background: rgba(139, 56, 136, 0.10);
+  background: rgba(139, 56, 136, 0.1);
   padding: 4px 9px;
   transition: 0.3s ease-in;
 }
@@ -54,7 +54,7 @@
 }
 
 .mainRegisterContainer form label a {
-  color: #8B3888;
+  color: #8b3888;
   font-weight: 500;
 }
 
@@ -217,13 +217,10 @@
   right: 105px;
 }
 
-
-
 /* register success sms part */
 .success {
-  max-width: 940px;
   border-radius: 15px;
-  background: #FAF6FB;
+  background: #faf6fb;
   padding: 106px 30px;
   text-align: center;
   margin: 90px auto 140px;
@@ -236,7 +233,7 @@
 }
 
 .success h6 {
-  color: #8B3888;
+  color: #8b3888;
   font-size: 32px;
   font-weight: 600;
   line-height: 140%;
@@ -255,14 +252,9 @@
 }
 
 .success a {
-  color: #8B3888;
+  color: #8b3888;
   font-weight: 600;
 }
-
-
-
-
-
 
 @media only screen and (max-width: 1024px) {
   .emptyContainer {

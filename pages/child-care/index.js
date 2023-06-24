@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import styles from "@/styles/ChildCare.module.css";
-import children from "../public/assets/images/child-photo.png";
-import children1 from "../public/assets/images/child-login.png";
-import qoute from "../public/assets/images/qoute.png";
+import children from "../../public/assets/images/child-photo.png";
+import children1 from "../../public/assets/images/child-login.png";
+
 import SearchResult from "@/components/ChildCare/SearchResult";
 import Meta from "@/components/Shared/Meta";
 import Link from "next/link";
