@@ -1,14 +1,16 @@
+import NoSms from "@/components/Pobox/NoSms";
 import PoBox from "@/components/Pobox/PoBox";
 import ProfileLayout from "@/layouts/Profile";
-import React from "react";
-import styles from "@/styles/Pobox.module.css";
+import React, { useState } from "react";
 
 const POBOX = () => {
-  return (
-    <div className="w-100">
-      <PoBox />
-    </div>
-  );
+  const [step, setStep] = useState(2);
+
+  return <div className="w-100">
+    {step === 1 && <PoBox />}
+    {step === 2 && <NoSms />}
+    {step === 1 && <PoBox />}
+  </div>;
 };
 
 POBOX.PageLayout = ProfileLayout;
