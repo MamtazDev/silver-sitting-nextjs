@@ -4,8 +4,10 @@ import React from "react";
 const ProfileLayout = ({ children }) => {
   return (
     <section className="container">
-      <SideBar />
-      {children}
+      <div className="d-flex gap-5">
+        <SideBar />
+        {children}
+      </div>
     </section>
   );
 };
