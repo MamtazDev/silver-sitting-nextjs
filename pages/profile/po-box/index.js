@@ -1,8 +1,14 @@
+import PoBox from "@/components/Pobox/PoBox";
 import ProfileLayout from "@/layouts/Profile";
 import React from "react";
+import styles from "@/styles/Pobox.module.css";
 
 const POBOX = () => {
-  return <div>this iis p.o box</div>;
+  return (
+    <div className="w-100">
+      <PoBox />
+    </div>
+  );
 };
 
 POBOX.PageLayout = ProfileLayout;

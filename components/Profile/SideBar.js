@@ -11,13 +11,13 @@ const SideBar = () => {
     <div className={styles.sidebar}>
       <ul>
         <li className={styles.active}>
-          <Link href="!#">
+          <Link href="/profile/po-box">
             <img src={pobox.src} alt="" /> P.O. Box
           </Link>
         </li>
         <li>
           {" "}
-          <Link href="!#">
+          <Link href="/profile">
             <img src={profile.src} alt="" /> Profile
           </Link>
         </li>
