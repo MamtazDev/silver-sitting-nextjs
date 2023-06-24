@@ -6,15 +6,17 @@ import qoute from "../public/assets/images/qoute.png";
 import SearchResult from "@/components/ChildCare/SearchResult";
 import Meta from "@/components/Shared/Meta";
 import Link from "next/link";
+import ChildCareSeachError from "@/utils/modals/ChildCareSeachError";
 
 const ChildCare = () => {
   const [lookfor, setLookfor] = useState("");
   const [step, setStep] = useState(0);
+  const [modalShow, setModalShow] = useState(false);
 
   const handleSerchFormSubmit = (e) => {
     e.preventDefault();
     // setStep((prev) => prev + 1);
-    setStep(2);
+    setStep("error");
   };
 
   return (
@@ -25,7 +27,7 @@ const ChildCare = () => {
         <div className={styles.childCareBanner}>
           {step === 0 && <h3>Find childcare for your child here</h3>}
           {step === 1 && <h3>Search Result</h3>}
-          {step === 3 && <h3>Find childcare for your child here</h3>}
+          {step === "error" && <h3>Find childcare for your child here</h3>}
         </div>
 
         {/* chilcare form */}
@@ -149,7 +151,7 @@ const ChildCare = () => {
 
         {step === 1 && <SearchResult />}
 
-        {step === 2 && (
+        {step === "error" && (
           <div className={styles.contentContainer}>
             <div className={styles.emptyContainer}></div>
             <div className={styles.formContainer}>
@@ -161,9 +163,12 @@ const ChildCare = () => {
                 <h6>Tip</h6>
 
                 <p className="pb-5">
-                  Increase the area or <Link href="!#">click here</Link> to be
-                  notified as soon as a childcare <br /> worker registers with
-                  your criteria
+                  Increase the area or{" "}
+                  <Link href="#" onClick={() => setModalShow(true)}>
+                    click here
+                  </Link>{" "}
+                  to be notified as soon as a childcare <br /> worker registers
+                  with your criteria
                 </p>
 
                 <div className="text-center">
@@ -182,6 +187,11 @@ const ChildCare = () => {
             </div>
           </div>
         )}
+
+        <ChildCareSeachError
+          show={modalShow}
+          onHide={() => setModalShow(false)}
+        />
       </section>
     </>
   );
