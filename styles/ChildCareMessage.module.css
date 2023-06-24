@@ -1,0 +1,42 @@
+.chilCareMessageMainContainer {
+  margin-top: 120px;
+  margin-bottom: 265px;
+  display: flex;
+}
+
+.imageContainer {
+  width: 20%;
+}
+
+.imageContainer img {
+  object-fit: contain;
+  width: 100%;
+}
+
+.mainContainer {
+  width: 60%;
+  background-color: #fcf9fc;
+  padding: 52px;
+}
+
+.emptyContainer {
+  width: 20%;
+}
+
+.buttonContainer {
+  text-align: end;
+}
+
+.textareaInput {
+  width: 100%;
+  padding: 21px;
+  border-radius: 11px;
+  height: 134px;
+  border: 1px solid #dcdcdc;
+  background-color: #fcf9fc;
+  resize: none;
+}
+
+.textareaInput:focus-visible {
+  outline: 1px solid #dcdcdc;
+}
