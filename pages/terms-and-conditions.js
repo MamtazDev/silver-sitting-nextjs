@@ -1,5 +1,6 @@
 import AcceptablePolicy from "@/components/TermsConditions/AcceptablePolicy";
 import ConclusionContract from "@/components/TermsConditions/ConclusionContract";
+import Copyright from "@/components/TermsConditions/Copyright";
 import DataProtection from "@/components/TermsConditions/DataProtection";
 import Declaration from "@/components/TermsConditions/Declaration";
 import Disclosure from "@/components/TermsConditions/Disclosure";
@@ -10,6 +11,7 @@ import Liability from "@/components/TermsConditions/Liability";
 import ListBanner from "@/components/TermsConditions/ListBanner";
 import Responsibilities from "@/components/TermsConditions/Responsibilities";
 import ServiceDescription from "@/components/TermsConditions/ServiceDescription";
+import Withdrawal from "@/components/TermsConditions/Withdrawal";
 import React from "react";
 
 const TermsConditions = () => {
@@ -27,6 +29,8 @@ const TermsConditions = () => {
       <Liability />
       <FinalProvision />
       <Dispute />
+      <Copyright />
+      <Withdrawal/>
     </div>
   );
 };
