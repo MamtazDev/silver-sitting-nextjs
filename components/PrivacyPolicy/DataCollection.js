@@ -38,7 +38,7 @@ const DataCollection = () => {
             </p>
           </div>
           <div
-            style={{ marginBottom: "20px" }}
+            style={{ marginBottom: "40px" }}
             className="d-flex align-items-start gap-3"
           >
             <img className="mt-2" src={listicon.src} alt="" />
@@ -91,7 +91,7 @@ const DataCollection = () => {
             </p>
           </div>
           <div
-            style={{ marginBottom: "20px" }}
+            style={{ marginBottom: "40px" }}
             className="d-flex align-items-start gap-3"
           >
             <img className="mt-2" src={listicon.src} alt="" />
@@ -149,7 +149,7 @@ const DataCollection = () => {
             </p>
           </div>
           <div
-            style={{ marginBottom: "20px" }}
+            style={{ marginBottom: "40px" }}
             className="d-flex align-items-start gap-3"
           >
             <img className="mt-2" src={listicon.src} alt="" />
@@ -263,7 +263,7 @@ const DataCollection = () => {
             </p>
           </div>
           <div
-            style={{ marginBottom: "20px" }}
+            style={{ marginBottom: "40px" }}
             className="d-flex align-items-start gap-3"
           >
             <img className="mt-2" src={listicon.src} alt="" />
@@ -318,7 +318,7 @@ const DataCollection = () => {
             </p>
           </div>
 
-          <ul>
+          <ul style={{ marginBottom: "40px" }}>
             <li>
               In the event that personal data is transferred to the USA, the
               third-party providers listed below have submitted to the EU-US
@@ -384,7 +384,7 @@ const DataCollection = () => {
             </p>
           </div>
           <div
-            style={{ marginBottom: "20px" }}
+            style={{ marginBottom: "40px" }}
             className="d-flex align-items-start gap-3"
           >
             <img className="mt-2" src={listicon.src} alt="" />
@@ -395,6 +395,179 @@ const DataCollection = () => {
                 {" "}
                 https://tools.google.com/dlpage/gaoptout?hl=de
               </Link>
+            </p>
+          </div>
+          <h5>SendGrid Inc.</h5>
+          <div
+            style={{ marginBottom: "20px" }}
+            className="d-flex align-items-start gap-3"
+          >
+            <img className="mt-2" src={listicon.src} alt="" />
+            <p className="mb-0">
+              The operator uses the SendGrid, Inc., 1801 California Street,
+              Suite 500 Denver, Colorado 80202 service. This transfers personal
+              data (first name, last name, email address) to a server based in
+              the USA. You can find more information about the use of data
+              within the scope of the service at
+              <Link href=" https://sendgrid.com/policies/privacy/">
+                {" "}
+                https://sendgrid.com/policies/privacy/
+              </Link>
+            </p>
+          </div>
+          <div
+            style={{ marginBottom: "40px" }}
+            className="d-flex align-items-start gap-3"
+          >
+            <img className="mt-2" src={listicon.src} alt="" />
+            <p className="mb-0">
+              The operator uses the e-mail address of the user or provider to
+              send e-mails via SendGrid with the purpose of informing the user
+              or provider about successful registration, for example, to confirm
+              the e-mail address or Send reminders about pending reviews.
+            </p>
+          </div>
+          <h5>Links to Social Networks</h5>
+          <div
+            style={{ marginBottom: "20px" }}
+            className="d-flex align-items-start gap-3"
+          >
+            <img className="mt-2" src={listicon.src} alt="" />
+            <p className="mb-0">
+              On silversitting.com there are links to the social networks
+              Facebook (Facebook Inc., 1601 Willow Road, Menlo Park, California,
+              94025, USA) and Instagram (Facebook Ireland Limited, 4 Grand Canal
+              Square, Dublin 2, Ireland) with the corresponding logo . By
+              activating the links by the user or provider, the user or provider
+              is redirected to the company's website in the respective social
+              network and a connection to the addressed server is established.
+              The following information is transmitted to the social network
+              server:
+            </p>
+          </div>
+          <div className={styles.special}>
+            <p>
+              – Information about the site visit (domain address, date, time)
+            </p>
+            <p>- IP address</p>
+            <p>– for mobile devices, device detection</p>
+            <p>
+              – Information about the browser used and the operating system.
+            </p>
+          </div>
+
+          <div
+            style={{ marginBottom: "20px" }}
+            className="d-flex align-items-start gap-3"
+          >
+            <img className="mt-2" src={listicon.src} alt="" />
+            <p className="mb-0">
+              If there is an active login in the social network, it is possible
+              to assign the above information to the user or provider account.
+              This means that targeted advertising can be displayed or usage and
+              analysis data can be created from it. It is recommended to log out
+              regularly after using the social network in order to avoid data
+              being assigned to the profile.
+            </p>
+          </div>
+          <div
+            style={{ marginBottom: "40px" }}
+            className="d-flex align-items-start gap-3"
+          >
+            <img className="mt-2" src={listicon.src} alt="" />
+            <p className="mb-0">
+              Further information on the purpose and scope of the data
+              collection and its processing by the social networks can be found
+              in the <Link href="!#">data protection declarations</Link> of
+              these providers. There you will also receive further information
+              on your rights in this regard and setting options to protect your
+              privacy.
+            </p>
+          </div>
+          <h5>Data Security</h5>
+          <div
+            style={{ marginBottom: "20px" }}
+            className="d-flex align-items-start gap-3"
+          >
+            <img className="mt-2" src={listicon.src} alt="" />
+            <p className="mb-0">
+              The SSL procedure (Secure Socket Layer) is used on
+              silversitting.com in connection with the respective highest level
+              of encryption (max. 256-bit encryption, depending on the browser
+              of the user or provider).
+            </p>
+          </div>
+          <div
+            style={{ marginBottom: "20px" }}
+            className="d-flex align-items-start gap-3"
+          >
+            <img className="mt-2" src={listicon.src} alt="" />
+            <p className="mb-0">
+              The operator maintains and constantly improves all technical and
+              organizational security measures. This is to ensure that the user
+              or provider is protected against any kind of accidental or
+              intentional manipulation, partial or complete loss, destruction or
+              against unauthorized access by third parties.
+            </p>
+          </div>
+          <div
+            style={{ marginBottom: "40px" }}
+            className="d-flex align-items-start gap-3"
+          >
+            <img className="mt-2" src={listicon.src} alt="" />
+            <p className="mb-0">
+              Despite the highest security measures, security gaps in data
+              transmissions on the Internet cannot be completely ruled out and
+              there is a risk of access by third parties.
+            </p>
+          </div>
+          <h5>Right to Object</h5>
+          <div
+            style={{ marginBottom: "20px" }}
+            className="d-flex align-items-start gap-3"
+          >
+            <img className="mt-2" src={listicon.src} alt="" />
+            <p className="mb-0">
+              The user or provider has the right to object at any time to the
+              personal data processed on the basis of Art. 6 Para. 1 Sentence 1
+              f GDPR, provided that there are reasons for the objection that
+              arise from your particular situation.
+            </p>
+          </div>
+          <div
+            style={{ marginBottom: "20px" }}
+            className="d-flex align-items-start gap-3"
+          >
+            <img className="mt-2" src={listicon.src} alt="" />
+            <p className="mb-0">
+              In the case of compelling reasons worthy of protection that
+              outweigh the interests, rights and freedoms of the user or
+              provider, the personal data can be processed further. Likewise if
+              the processing serves to assert, exercise or defend legal claims.
+            </p>
+          </div>
+          <div
+            style={{ marginBottom: "40px" }}
+            className="d-flex align-items-start gap-3"
+          >
+            <img className="mt-2" src={listicon.src} alt="" />
+            <p className="mb-0">
+              If the operator processes the personal data in order to carry out
+              direct advertising, the user or provider has the right to object
+              to the processing of the personal data for the purpose of such
+              advertising at any time without giving reasons (Article 21 GDPR).
+            </p>
+          </div>
+          <h5>Change to the privacy policy</h5>
+          <div
+            style={{ marginBottom: "20px" }}
+            className="d-flex align-items-start gap-3"
+          >
+            <img className="mt-2" src={listicon.src} alt="" />
+            <p className="mb-0">
+              We reserve the right to change this data protection declaration,
+              for example if the legal or official requirements or the content
+              of our website change. Status: April 2022.
             </p>
           </div>
         </div>
