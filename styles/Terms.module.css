@@ -42,3 +42,10 @@
 .terms a {
     color: #8B3888;
 }
+
+.terms ul li {
+    list-style: disc !important;
+    color: #666;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
