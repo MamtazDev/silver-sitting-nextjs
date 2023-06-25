@@ -7,11 +7,11 @@ const Footer = () => {
   const routes = [
     {
       name: "Conditions",
-      path: "",
+      path: "/terms-and-conditions",
     },
     {
       name: "Data protection",
-      path: "",
+      path: "/privacy-statement",
     },
     {
       name: "Imprint",
@@ -192,7 +192,7 @@ const Footer = () => {
         <div className="d-flex flex-wrap justify-content-between">
           <div>
             {routes.slice(0, 4).map((item, index) => (
-              <Link href="/">{item.name}</Link>
+              <Link href={item?.path}>{item.name}</Link>
             ))}
           </div>
           <div>
@@ -211,7 +211,9 @@ const Footer = () => {
             ))}
           </div>
         </div>
-        <p className="mid_content">SilverSetting sees itself as a meaningful company</p>
+        <p className="mid_content">
+          SilverSetting sees itself as a meaningful company
+        </p>
 
         <div className="d-flex flex-wrap justify-content-between">
           <div>
@@ -235,8 +237,10 @@ const Footer = () => {
             ))}
           </div>
         </div>
-       <p className="hr"></p>
-        <p className="copyright">© 2022 SilverSitting, Andrea and Daniel Monninger (GbR)</p>
+        <p className="hr"></p>
+        <p className="copyright">
+          © 2022 SilverSitting, Andrea and Daniel Monninger (GbR)
+        </p>
       </div>
     </footer>
   );

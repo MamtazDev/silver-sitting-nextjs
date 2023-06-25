@@ -37,6 +37,13 @@
     color: #A86AB7;
     font-size: 24px;
     margin-bottom: 20px;
+    margin-bottom: 15px;
+}
+
+.terms .special p {
+    color: #666;
+    font-size: 20px;
+    line-height: 34px;
 }
 
 .terms h6 {
