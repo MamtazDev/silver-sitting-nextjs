@@ -9,6 +9,7 @@
 
 body {
   font-family: var(--outfit-font) !important;
+  font-style: normal;
 }
 
 h1,
@@ -36,17 +37,6 @@ a {
 
 .container {
   max-width: 1420px !important;
-}
-
-:root {
-  --outfit-font: "Outfit", sans-serif;
-  --violet-primary: #8b3888;
-  --violet-secondary: rgba(254, 249, 255, 0.9);
-  --violet-accent: rgba(168, 106, 183, 0.06);
-}
-
-body {
-  font-family: var(--outfit-font) !important;
 }
 
 input:focus-visible {
@@ -384,6 +374,7 @@ footer .copyright {
   border: 1px solid #ddd;
   padding: 15px 30px;
 }
+
 .searchErrorContainer .active_button {
   background: var(--violet-primary);
   border: unset !important;
@@ -394,6 +385,7 @@ footer .copyright {
   transition: 0.3s ease-in-out;
   margin-top: 40px;
 }
+
 ._button {
   background: var(--violet-primary);
   margin-top: 30px;
@@ -404,6 +396,7 @@ footer .copyright {
   font-weight: 500;
   transition: 0.3s ease-in-out;
 }
+
 @media screen and (max-width: 767px) {
   .header .navbar-nav {
     gap: 25px;
