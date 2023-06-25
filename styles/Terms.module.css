@@ -33,6 +33,12 @@
     margin-bottom: 40px;
 }
 
+.terms h6 {
+    color: #666;
+    font-size: 18px;
+    line-height: 34px;
+}
+
 .terms p {
     color: rgba(34, 34, 34, 0.90);
     font-size: 24px;
