@@ -41,6 +41,7 @@
 
 .terms a {
     color: #8B3888;
+    text-decoration: underline !important;
 }
 
 .terms ul li {
