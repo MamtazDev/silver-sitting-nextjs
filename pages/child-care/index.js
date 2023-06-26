@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "@/styles/ChildCare.module.css";
 import children from "../../public/assets/images/child-photo.png";
 import children1 from "../../public/assets/images/child-login.png";
@@ -29,6 +29,10 @@ const ChildCare = () => {
       setWarning(false);
     }
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [step]);
 
   return (
     <>

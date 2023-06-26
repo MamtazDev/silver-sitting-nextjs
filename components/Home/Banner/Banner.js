@@ -68,7 +68,7 @@ const Banner = () => {
                       href="/register"
                       onClick={() => dispatch(setStepControll("childcarer"))}
                     >
-                      <button>Register as a child career</button>
+                      <button>Register as a child carer</button>
                     </Link>
                   </div>
                   <div className="text-center">
