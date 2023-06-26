@@ -19,15 +19,15 @@ const Footer = () => {
     },
     {
       name: "Make contact",
-      path: "#",
+      path: "/contact",
     },
     {
       name: "Team",
-      path: "#",
+      path: "/whoWeAre",
     },
     {
       name: "Find nanny",
-      path: "#",
+      path: "/child-care",
     },
     {
       name: "Become  a childcare worker",
