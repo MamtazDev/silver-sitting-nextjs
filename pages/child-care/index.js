@@ -10,6 +10,7 @@ import ChildCareSeachError from "@/utils/modals/ChildCareSeachError";
 
 const ChildCare = () => {
   const [lookfor, setLookfor] = useState("");
+  const [warning, setWarning] = useState(false);
   const [step, setStep] = useState(0);
   const [modalShow, setModalShow] = useState(false);
 
@@ -17,6 +18,16 @@ const ChildCare = () => {
     e.preventDefault();
     // setStep((prev) => prev + 1);
     setStep("error");
+  };
+
+  const handleChange = (e) => {
+    console.log(e.target.value);
+    const distance = e.target.value;
+    if (distance > 30) {
+      setWarning(true);
+    } else {
+      setWarning(false);
+    }
   };
 
   return (
@@ -78,6 +89,8 @@ const ChildCare = () => {
                       Up to max.{" "}
                       <input
                         type="text"
+                        name="distance"
+                        onChange={(e) => handleChange(e)}
                         className="mx-3 text-center"
                         placeholder="30"
                       />{" "}
@@ -85,15 +98,18 @@ const ChildCare = () => {
                     </p>
                   </div>
                 </div>
-
-                <h5>
-                  The search is limited to a radius of 30 km and has been reset
-                  automatically.
-                </h5>
-                <h5 style={{ marginBottom: "34px" }}>
-                  {" "}
-                  We ask for your understanding.
-                </h5>
+                {warning && (
+                  <>
+                    <h5>
+                      The search is limited to a radius of 30 km and has been
+                      reset automatically.
+                    </h5>
+                    <h5 style={{ marginBottom: "34px" }}>
+                      {" "}
+                      We ask for your understanding.
+                    </h5>
+                  </>
+                )}
 
                 <div className={styles.typesContainer}>
                   <h6 className="text-start">
