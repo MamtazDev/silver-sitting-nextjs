@@ -5,8 +5,11 @@ import children from "../../../public/assets/children.png";
 import caregiver from "../../../public/assets/caregiver.png";
 import arrow from "../../../public/assets/icons/arrow.png";
 import Link from "next/link";
+import { useDispatch } from "react-redux";
+import { setStepControll } from "@/features/register/registerSlice";
 
 const Banner = () => {
+  const dispatch = useDispatch();
   const [backgroundImage, setBackgroundImage] = useState(`url(${banner.src})`);
   const [tab, setTab] = useState("children");
   const handleButtonClick = () => {
@@ -61,7 +64,12 @@ const Banner = () => {
                     you want.
                   </h6>
                   <div className="text-center">
-                    <button>Register as a child carer</button>
+                    <Link
+                      href="/register"
+                      onClick={() => dispatch(setStepControll("childcarer"))}
+                    >
+                      <button>Register as a child career</button>
+                    </Link>
                   </div>
                   <div className="text-center">
                     <Link href="https://en.silversitting.com/leihoma-werden">

@@ -4,16 +4,21 @@ import childcare from "../../public/assets/icons/register-childcare.png";
 import parent from "../../public/assets/icons/register-parent.png";
 import arrow from "../../public/assets/icons/arrow-white.png";
 import Link from "next/link";
+import { useDispatch } from "react-redux";
+import { setStepControll } from "@/features/register/registerSlice";
 
 const Register = () => {
+  const dispatch = useDispatch();
   const registerType = [
     {
       pic: childcare,
       text: "Register as a childcare worker",
+      role: "childcarer",
     },
     {
       pic: parent,
       text: "Register as a parent",
+      role: "parents",
     },
   ];
   return (
@@ -28,7 +33,10 @@ const Register = () => {
                 alt=""
               />
               <p>{register.text}</p>
-              <Link href="">
+              <Link
+                href="/register"
+                onClick={() => dispatch(setStepControll(register.role))}
+              >
                 <button>
                   Register now{" "}
                   <img style={{ marginLeft: "8px" }} src={arrow.src} alt="" />
