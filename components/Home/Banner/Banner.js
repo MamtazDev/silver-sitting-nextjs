@@ -10,14 +10,14 @@ import { setStepControll } from "@/features/register/registerSlice";
 
 const Banner = () => {
   const dispatch = useDispatch();
-  const [backgroundImage, setBackgroundImage] = useState(`url(${banner1.src})`);
+  const [backgroundImage, setBackgroundImage] = useState(`url(${banner.src})`);
   const [tab, setTab] = useState("children");
   const handleButtonClick = () => {
-    setBackgroundImage(`url(${banner.src})`);
+    setBackgroundImage(`url(${banner1.src})`);
     setTab("caregiver");
   };
   const handleButtonClicknext = () => {
-    setBackgroundImage(`url(${banner1.src})`);
+    setBackgroundImage(`url(${banner.src})`);
     setTab("children");
   };
   return (
@@ -35,17 +35,6 @@ const Banner = () => {
               </h3>
               <div className="tabs">
                 <div
-                  className={`${tab === "children" ? "active" : "deactivate"}`}
-                  onClick={handleButtonClicknext}
-                >
-                  <img
-                    style={{ marginBottom: "20Px" }}
-                    src={children.src}
-                    alt="tab"
-                  />
-                  <p>Care Children</p>
-                </div>
-                <div
                   className={`${tab === "caregiver" ? "active" : "deactivate"}`}
                   onClick={handleButtonClick}
                 >
@@ -55,6 +44,17 @@ const Banner = () => {
                     alt=""
                   />
                   <p>Find Caregiver</p>
+                </div>
+                <div
+                  className={`${tab === "children" ? "active" : "deactivate"}`}
+                  onClick={handleButtonClicknext}
+                >
+                  <img
+                    style={{ marginBottom: "20Px" }}
+                    src={children.src}
+                    alt="tab"
+                  />
+                  <p>Care Children</p>
                 </div>
               </div>
               {tab === "children" && (

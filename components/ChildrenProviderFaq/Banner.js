@@ -5,7 +5,7 @@ const Banner = () => {
   return (
     <div className="container">
       <div className={styles.faqBanner}>
-        <div>FAQ for Childcare <br/> provider?</div>
+        <div>FAQ for Childcare <br/> provider</div>
       </div>
     </div>
   );

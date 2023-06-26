@@ -11,163 +11,163 @@ const Footer = () => {
     },
     {
       name: "Data protection",
-      path: "/privacy-statement",
+      path: "#",
     },
     {
       name: "Imprint",
-      path: "",
+      path: "/privacy-statement",
     },
     {
       name: "Make contact",
-      path: "",
+      path: "#",
     },
     {
       name: "Team",
-      path: "",
+      path: "#",
     },
     {
       name: "Find nanny",
-      path: "",
+      path: "#",
     },
     {
       name: "Become  a childcare worker",
-      path: "",
+      path: "#",
     },
     {
       name: "FAQ from childcare workers",
-      path: "",
+      path: "/ChildrenProviderFaq",
     },
     {
       name: "FAQ from parents",
-      path: "",
+      path: "/faq",
     },
     {
       name: "FAQ from parents",
-      path: "",
+      path: "/faq",
     },
     {
       name: "Feedback",
-      path: "",
+      path: "/feedback",
     },
     {
       name: "How does it work",
-      path: "",
+      path: "#",
     },
     {
       name: "Login / Registration",
-      path: "",
+      path: "/login",
     },
     {
       name: "To the blog",
-      path: "",
+      path: "/blogs",
     },
     {
       name: "Interesting for seniors",
-      path: "",
+      path: "#",
     },
     {
       name: "Baby-sitter",
-      path: "",
+      path: "#",
     },
     {
       name: "Babysitter Berlin",
-      path: "",
+      path: "#",
     },
     {
       name: "Babysitter Bonn",
-      path: "",
+      path: "#",
     },
     {
       name: "Babysitter Dusseldorf",
-      path: "",
+      path: "#",
     },
     {
       name: "Babysitter Frankfurt",
-      path: "",
+      path: "#",
     },
     {
       name: "Babysitter Hamburg",
-      path: "",
+      path: "#",
     },
     {
       name: "More cities",
-      path: "",
+      path: "#",
     },
     {
       name: "Childcare",
-      path: "",
+      path: "#",
     },
     {
       name: "Childcare Berlin",
-      path: "",
+      path: "#",
     },
     {
       name: "Childcare Bonn",
-      path: "",
+      path: "#",
     },
     {
       name: "Childcare Dusseldorf",
-      path: "",
+      path: "#",
     },
     {
       name: "Childcare Frankfurt",
-      path: "",
+      path: "#",
     },
     {
       name: "Childcare Hamburg",
-      path: "",
+      path: "#",
     },
     {
       name: "More cities",
-      path: "",
+      path: "#",
     },
     {
       name: "Surrogate",
-      path: "",
+      path: "#",
     },
     {
       name: "Loan Grandma Berlin",
-      path: "",
+      path: "#",
     },
     {
       name: "Leihoma Bonn",
-      path: "",
+      path: "#",
     },
     {
       name: "Loan Grandma Dusseldorf",
-      path: "",
+      path: "#",
     },
     {
       name: "Lease grandmother Frankfurt",
-      path: "",
+      path: "#",
     },
     {
       name: "Lease granmother Hamburg",
-      path: "",
+      path: "#",
     },
     {
       name: "Nanny",
-      path: "",
+      path: "#",
     },
     {
       name: "Nanny Berlin",
-      path: "",
+      path: "#",
     },
     {
       name: "Nanny Bonn",
-      path: "",
+      path: "#",
     },
     {
       name: "Nanny Dusseldorf",
-      path: "",
+      path: "#",
     },
     {
       name: "Nanny Frankfurt",
-      path: "",
+      path: "#",
     },
     {
       name: "Nanny Hamburg",
-      path: "",
+      path: "#",
     },
   ];
 
@@ -197,17 +197,17 @@ const Footer = () => {
           </div>
           <div>
             {routes.slice(4, 8).map((item, index) => (
-              <Link href="/">{item.name}</Link>
+              <Link href={item?.path}>{item.name}</Link>
             ))}
           </div>
           <div>
             {routes.slice(9, 13).map((item, index) => (
-              <Link href="/">{item.name}</Link>
+              <Link href={item?.path}>{item.name}</Link>
             ))}
           </div>
           <div>
             {routes.slice(13, 15).map((item, index) => (
-              <Link href="/">{item.name}</Link>
+              <Link href={item?.path}>{item.name}</Link>
             ))}
           </div>
         </div>
