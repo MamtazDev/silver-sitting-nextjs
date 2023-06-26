@@ -41,7 +41,7 @@ const Login = () => {
                   to it. <span>*</span>
                 </label>
               </div>
-              <p>Forger Password?</p>
+              <p>Forgot Password?</p>
             </div>
             <div className="text-center">
               <button className={`btn ${styles.loginButton}`}>Log In</button>

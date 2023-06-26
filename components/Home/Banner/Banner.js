@@ -7,14 +7,14 @@ import arrow from "../../../public/assets/icons/arrow.png";
 import Link from "next/link";
 
 const Banner = () => {
-  const [backgroundImage, setBackgroundImage] = useState(`url(${banner1.src})`);
+  const [backgroundImage, setBackgroundImage] = useState(`url(${banner.src})`);
   const [tab, setTab] = useState("children");
   const handleButtonClick = () => {
-    setBackgroundImage(`url(${banner.src})`);
+    setBackgroundImage(`url(${banner1.src})`);
     setTab("caregiver");
   };
   const handleButtonClicknext = () => {
-    setBackgroundImage(`url(${banner1.src})`);
+    setBackgroundImage(`url(${banner.src})`);
     setTab("children");
   };
   return (
@@ -32,17 +32,6 @@ const Banner = () => {
               </h3>
               <div className="tabs">
                 <div
-                  className={`${tab === "children" ? "active" : "deactivate"}`}
-                  onClick={handleButtonClicknext}
-                >
-                  <img
-                    style={{ marginBottom: "20Px" }}
-                    src={children.src}
-                    alt="tab"
-                  />
-                  <p>Care Children</p>
-                </div>
-                <div
                   className={`${tab === "caregiver" ? "active" : "deactivate"}`}
                   onClick={handleButtonClick}
                 >
@@ -53,6 +42,17 @@ const Banner = () => {
                   />
                   <p>Find Caregiver</p>
                 </div>
+                <div
+                  className={`${tab === "children" ? "active" : "deactivate"}`}
+                  onClick={handleButtonClicknext}
+                >
+                  <img
+                    style={{ marginBottom: "20Px" }}
+                    src={children.src}
+                    alt="tab"
+                  />
+                  <p>Care Children</p>
+                </div>
               </div>
               {tab === "children" && (
                 <div>
@@ -61,7 +61,7 @@ const Banner = () => {
                     you want.
                   </h6>
                   <div className="text-center">
-                    <button>Register as a child career</button>
+                    <button>Register as a child carer</button>
                   </div>
                   <div className="text-center">
                     <Link href="https://en.silversitting.com/leihoma-werden">

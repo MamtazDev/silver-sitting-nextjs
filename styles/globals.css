@@ -97,6 +97,8 @@ button:hover {
 .header .child {
   position: absolute;
   top: 65px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   gap: 5px;
   flex-direction: column;
@@ -400,6 +402,11 @@ footer .copyright {
 @media screen and (max-width: 767px) {
   .header .navbar-nav {
     gap: 25px;
+  }
+
+  .header .child {
+    top: 32px;
+    left: 36%;
   }
 
   .button-navbar {
