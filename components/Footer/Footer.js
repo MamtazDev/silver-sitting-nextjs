@@ -11,11 +11,11 @@ const Footer = () => {
     },
     {
       name: "Data protection",
-      path: "#",
+      path: "/privacy-statement",
     },
     {
       name: "Imprint",
-      path: "/privacy-statement",
+      path: "/imprint",
     },
     {
       name: "Make contact",

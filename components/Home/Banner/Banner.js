@@ -24,8 +24,8 @@ const Banner = () => {
     >
       <div className="container">
         <div className="row">
-          <div className="col-12 col-lg-5"></div>
-          <div className="col-12 col-lg-7">
+          <div className="col-12 col-lg-6"></div>
+          <div className="col-12 col-lg-6">
             <div className="care_form">
               <h3>
                 Seniors take care of <br /> children
