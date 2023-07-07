@@ -11,7 +11,7 @@ import { setStepControll } from "@/features/register/registerSlice";
 const Banner = () => {
   const dispatch = useDispatch();
   const [backgroundImage, setBackgroundImage] = useState(`url(${banner.src})`);
-  const [tab, setTab] = useState("children");
+  const [tab, setTab] = useState("caregiver");
   const handleButtonClick = () => {
     setBackgroundImage(`url(${banner1.src})`);
     setTab("caregiver");
