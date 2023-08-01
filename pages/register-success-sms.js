@@ -6,16 +6,21 @@ import Link from "next/link";
 const SuccessSms = () => {
   return (
     <div className="container">
-      <div className={styles.success}>
-        <img src={sms.src} alt="" />
-        <h6>Nice that you have registered with SilverSitting!</h6>
+      <div className={styles.success} style={{ maxWidth: "60%" }}>
+        <h6>
+          This link has already been clicked, your user has already been
+          successfully activated.
+        </h6>
         <p>
-          To complete your registration, please click on the{" "}
-          <Link href="!#">link</Link> in the <br /> email we just sent you.
-        </p>
-        <p>
-          <span>For information :</span> a <Link href="!#">link</Link> can be a
-          word with a blue background that can be clicked on.
+          Please login{" "}
+          <Link
+            style={{
+              textDecoration: "underline !important",
+            }}
+            href="/login"
+          >
+            here
+          </Link>
         </p>
       </div>
     </div>

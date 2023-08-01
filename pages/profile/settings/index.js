@@ -3,10 +3,22 @@ import React, { useRef, useState } from "react";
 import styles from "@/styles/Setting.module.css";
 import { FiPlus } from "react-icons/fi";
 import info from "../../../public/assets/icons/info.png";
+import {
+  useGetSingleUserQuery,
+  useUploadDocumentMutation,
+} from "@/features/register/registerApi";
+import { useSelector } from "react-redux";
 
 const settings = () => {
+  const { user } = useSelector((state) => state.register);
+  const { data: userInfo } = useGetSingleUserQuery(user?._id);
+
   const [selectedFile, setSelectedFile] = useState(null);
   const [warningShow, setWarningShow] = useState(false);
+  const [parentSearch, setParentSearch] = useState(false);
+
+  const [uploadDocument, { isLoading }] = useUploadDocumentMutation();
+
   const inputRef = useRef(null);
   const handleClick = () => {
     inputRef.current.click();
@@ -16,6 +28,20 @@ const settings = () => {
     const file = event.target.files[0];
 
     setSelectedFile(file);
+  };
+
+  const handleUpload = () => {
+    const data = {
+      url: selectedFile?.name,
+      parentSearch,
+    };
+    uploadDocument({ id: user?._id, data }).then((res) => {
+      if (res.data?.status === 200) {
+        alert("Document uploaded sucessfully!");
+      } else if (res.error) {
+        alert("Error occured!");
+      }
+    });
   };
 
   return (
@@ -49,7 +75,13 @@ const settings = () => {
         </div>
         <div className={styles.checkboxContainer}>
           <div className={styles.checkBox_Box}>
-            <input type="checkbox" name="" value="" />
+            <input
+              type="checkbox"
+              name=""
+              value=""
+              checked={parentSearch || userInfo?.parentSearch}
+              onChange={() => setParentSearch(!parentSearch)}
+            />
             <label htmlFor="">
               I do not want to be found in the parent's search at the moment.
             </label>
@@ -60,7 +92,7 @@ const settings = () => {
               alt=""
             />
           </div>
-          <button>Save</button>
+          <button onClick={handleUpload}>Save</button>
 
           {warningShow && (
             <div className={styles.labelTextContainer}>

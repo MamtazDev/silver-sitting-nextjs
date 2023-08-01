@@ -1,10 +1,17 @@
 import React from "react";
 import { Container, Form, Nav, Navbar } from "react-bootstrap";
 import logo from "../../public/assets/logo.png";
+import profile from "../../public/assets/icons/loggedInProfile.png";
+import poBox from "../../public/assets/icons/pobox.png";
+import profileColor from "../../public/assets/icons/profileActive.png";
+import ideas from "../../public/assets/icons/ideas.png";
+import logOut from "../../public/assets/icons/logout.png";
 import Link from "next/link";
 import "../../styles/Header.module.css";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const { user } = useSelector((state) => state.register);
   return (
     <Navbar className="header" collapseOnSelect expand="lg">
       <Container>
@@ -17,7 +24,7 @@ const Header = () => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mx-auto">
             <div className="parent">
-              <Link href="#features">Pursue</Link>
+              <a href="">Pursue</a>
               <div className="child">
                 <Link href="/whoWeAre">Who we are</Link>
                 <Link href="/blogs">Blog</Link>
@@ -25,14 +32,14 @@ const Header = () => {
               </div>
             </div>
             <div className="parent">
-              <Link href="#pricing">For Nannies</Link>
+              <a href="">For Nannies</a>
               <div className="child">
                 <Link href="/guidance"> Guidance child caregiver</Link>
                 <Link href="/ChildrenProviderFaq">FAQ</Link>
               </div>
             </div>
             <div className="parent">
-              <Link href="#pricing">For Parents</Link>
+              <a href="">For Parents</a>
               <div className="child">
                 <Link href="/instructions"> Instructions</Link>
                 <Link href="/faq">FAQ</Link>
@@ -46,11 +53,67 @@ const Header = () => {
               className="language-dropdown"
             >
               <option value="eng">ENG</option>
-              <option value="1">One</option>
+              <option value="1">GER</option>
             </Form.Select>
-            <Link className="login-btn" href="/login">
-              Login
-            </Link>
+            {user ? (
+              <div className="parent">
+                <Link
+                  href="/profile"
+                  className="login-btn d-flex justify-content-center align-items-center"
+                  style={{ maxWidth: "56px" }}
+                >
+                  <img src={profile.src} alt="" />
+                </Link>
+                <div className="child">
+                  <Link
+                    href="/profile/po-box"
+                    style={{
+                      display: "flex",
+                      gap: "18px",
+                      alignItems: "center",
+                    }}
+                  >
+                    <img src={poBox.src} alt="" /> P.O. Box
+                  </Link>
+                  <Link
+                    href="/profile"
+                    style={{
+                      display: "flex",
+                      gap: "18px",
+                      alignItems: "center",
+                    }}
+                  >
+                    {" "}
+                    <img src={profileColor.src} alt="" /> Profile
+                  </Link>
+                  <Link
+                    href="/profile/ideas"
+                    style={{
+                      display: "flex",
+                      gap: "18px",
+                      alignItems: "center",
+                    }}
+                  >
+                    <img src={ideas.src} alt="" /> Ideas
+                  </Link>
+                  <Link
+                    href="/logout"
+                    style={{
+                      display: "flex",
+                      gap: "18px",
+                      alignItems: "center",
+                    }}
+                  >
+                    {" "}
+                    <img src={logOut.src} alt="" /> Logout
+                  </Link>
+                </div>
+              </div>
+            ) : (
+              <Link className="login-btn" href="/login">
+                Login
+              </Link>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>
