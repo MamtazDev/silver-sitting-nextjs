@@ -24,7 +24,7 @@ const Header = () => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mx-auto">
             <div className="parent">
-              <a href="">Pursue</a>
+              <button>Pursue</button>
               <div className="child">
                 <Link href="/whoWeAre">Who we are</Link>
                 <Link href="/blogs">Blog</Link>
@@ -32,14 +32,14 @@ const Header = () => {
               </div>
             </div>
             <div className="parent">
-              <a href="">For Nannies</a>
+              <button>For Nannies</button>
               <div className="child">
                 <Link href="/guidance"> Guidance child caregiver</Link>
                 <Link href="/ChildrenProviderFaq">FAQ</Link>
               </div>
             </div>
             <div className="parent">
-              <a href="">For Parents</a>
+              <button>For Parents</button>
               <div className="child">
                 <Link href="/instructions"> Instructions</Link>
                 <Link href="/faq">FAQ</Link>
