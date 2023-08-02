@@ -10,22 +10,126 @@ import Link from "next/link";
 import sms from "../public/assets/success-sms.png";
 import { useDispatch, useSelector } from "react-redux";
 import { setRole, setStepControll } from "@/features/register/registerSlice";
+import { useRegisterMutation } from "@/features/register/registerApi";
 
 const Register = () => {
   const { registerPage, role } = useSelector((state) => state.register);
   const dispatch = useDispatch();
 
   const [warningShow, setWarningShow] = useState(false);
+  const [older, setOlder] = useState(false);
+  const [terms, setTerms] = useState(false);
+  const [privacy, setPrivacy] = useState(false);
+  const [errors, setError] = useState("");
 
   const scrollToTop = () => {
     window.scrollTo(0, 0);
   };
 
+  const validatePassword = (value) => {
+    const passwordRegex = /^(?=.*[a-z])(?=.*\d).{8,}$/;
+    return passwordRegex.test(value);
+  };
+
+  const checkMatchedPassword = (password, rePassword) => {
+    return password === rePassword;
+  };
+
+  const [register, { isLoading, isSuccess, isError, error, data }] =
+    useRegisterMutation();
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(setStepControll());
-    scrollToTop();
+
+    const form = event.target;
+
+    const firstName = form.firstName.value;
+    const lastName = form.lastName.value;
+    const email = form.email.value;
+    const postCode = form.postCode.value;
+    const residence = form.residence.value;
+    const password = form.password.value;
+    const rePassword = form.rePassword.value;
+    const streetOrHouseNumber = form.streetOrHouseNumber.value;
+
+    if (role === "childcarer" && older) {
+      const passwordTesting = validatePassword(password);
+
+      if (passwordTesting) {
+        const matchedPassword = checkMatchedPassword(password, rePassword);
+
+        if (matchedPassword) {
+          if (terms && privacy) {
+            const data = {
+              role,
+              firstName,
+              lastName,
+              email,
+              postCode: parseInt(postCode),
+              residance: residence,
+              password,
+              streetOrHouseNumber,
+            };
+            register(data).then((res) => {
+              if (res.data?.status === 200) {
+                setError("");
+                dispatch(setStepControll());
+                scrollToTop();
+              } else if (res.error) {
+                setError(res.error.data.message);
+              }
+            });
+          } else {
+            setError("Please accept the terms and privacy.");
+          }
+        } else {
+          setError("Password doesn't matched!");
+        }
+      } else {
+        setError("Password should be 8 charecter or a number.");
+      }
+    } else if (role === "parents") {
+      const passwordTesting = validatePassword(password);
+      if (passwordTesting) {
+        const matchedPassword = checkMatchedPassword(password, rePassword);
+
+        if (matchedPassword) {
+          if (terms && privacy) {
+            const data = {
+              role,
+              firstName,
+              lastName,
+              email,
+              postCode: parseInt(postCode),
+              residance: residence,
+              password,
+              streetOrHouseNumber,
+            };
+            register(data).then((res) => {
+              if (res.data?.status === 200) {
+                setError("");
+                dispatch(setStepControll());
+                scrollToTop();
+              } else if (res.error) {
+                setError(res.error.data.message);
+              }
+            });
+          } else {
+            setError("Please accept the terms and privacy.");
+          }
+        } else {
+          setError("Password doesn't matched!");
+        }
+      } else {
+        setError("Password should be 8 charecter or a number.");
+      }
+    } else {
+      setError("Please confirm that you are atleast 55 years old.");
+    }
   };
+
+  console.log(data, "eee");
+  console.log(error, "eror");
   return (
     <>
       <Meta>Register</Meta>
@@ -77,7 +181,12 @@ const Register = () => {
                 >
                   <div className="col-12 col-lg-6">
                     <div className={styles.checkboxs}>
-                      <input className="mb-0" type="checkbox" />
+                      <input
+                        className="mb-0"
+                        type="checkbox"
+                        checked={older}
+                        onChange={() => setOlder(!older)}
+                      />
                       <label className="mb-0">
                         I am at least 55 years old <span>*</span>{" "}
                       </label>
@@ -109,13 +218,13 @@ const Register = () => {
                   <label>
                     First Name <span>*</span>
                   </label>
-                  <input type="text" name="" className="w-100" />
+                  <input type="text" name="firstName" className="w-100" />
                 </div>
                 <div className="w-50">
                   <label>
                     Last Name <span>*</span>
                   </label>
-                  <input type="text" name="" className="w-100" />
+                  <input type="text" name="lastName" className="w-100" />
                 </div>
               </div>
               {/* 2nd row */}
@@ -123,7 +232,7 @@ const Register = () => {
                 <label>
                   Email address <span>*</span>
                 </label>
-                <input type="email" name="" className="w-100" />
+                <input type="email" name="email" className="w-100" />
               </div>
               {/* 3rd row */}
               <div className={styles.twoInputContainer}>
@@ -131,19 +240,23 @@ const Register = () => {
                   <label>
                     Post Code <span>*</span>
                   </label>
-                  <input type="number" className="w-100" />
+                  <input type="number" name="postCode" className="w-100" />
                 </div>
                 <div className="w-50">
                   <label>
                     Residence <span>*</span>
                   </label>
-                  <input type="text" className="w-100" />
+                  <input type="text" name="residence" className="w-100" />
                 </div>
               </div>
               {/* 4th row */}
               <div>
                 <label>Street/House number</label>
-                <input type="text" className="w-100" />
+                <input
+                  type="text"
+                  name="streetOrHouseNumber"
+                  className="w-100"
+                />
               </div>
               {/* 5th row */}
               <div className={styles.twoInputContainer}>
@@ -151,19 +264,23 @@ const Register = () => {
                   <label>
                     Password <span>*</span>
                   </label>
-                  <input type="password" name="" className="w-100" />
+                  <input type="password" name="password" className="w-100" />
                 </div>
                 <div className="w-50">
                   <label>
                     Re-enter Password <span>*</span>
                   </label>
-                  <input type="password" name="" className="w-100" />
+                  <input type="password" name="rePassword" className="w-100" />
                 </div>
               </div>
 
               <div className={styles.checkboxContainer}>
                 <div className={styles.checkboxs}>
-                  <input type="checkbox" />
+                  <input
+                    type="checkbox"
+                    checked={terms}
+                    onChange={() => setTerms(!terms)}
+                  />
                   <label>
                     I have read the SilverSitting{" "}
                     <Link href="#!">terms and conditions</Link> and agree to
@@ -171,18 +288,23 @@ const Register = () => {
                   </label>
                 </div>
                 <div className={styles.checkboxs}>
-                  <input type="checkbox" />
+                  <input
+                    type="checkbox"
+                    checked={privacy}
+                    onChange={() => setPrivacy(!privacy)}
+                  />
                   <label>
                     I have read SilverSitting's{" "}
                     <Link href="!#">privacy policy</Link> and agree to it
                   </label>
                 </div>
               </div>
+              <p className="text-danger">{errors}</p>
               <div
                 className={`text-center ${styles.loginButtonContainer}`}
                 // onClick={() => setStep(3)}
               >
-                <button className={`btn`} type="submit">
+                <button className={`btn`} type="submit" disabled={isLoading}>
                   Register
                 </button>
               </div>
@@ -222,7 +344,9 @@ const Register = () => {
               : styles.imageContainer
           }
         >
-          {registerPage.step === 2 && <img src={child.src} alt="" />}
+          {registerPage.step === 2 && (
+            <img src={child.src} alt="" className="h-100" />
+          )}
         </div>
       </section>
     </>

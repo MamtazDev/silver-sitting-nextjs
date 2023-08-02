@@ -10,9 +10,11 @@ import password from "../../public/assets/icons/changepassword.png";
 import passwordActive from "../../public/assets/icons/passwordActive.png";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useSelector } from "react-redux";
 
 const SideBar = () => {
   const pathName = usePathname();
+  const { user } = useSelector((state) => state.register);
 
   return (
     <div className={styles.sidebar}>
@@ -36,20 +38,22 @@ const SideBar = () => {
             Profile
           </Link>
         </li>
-        <li className={pathName == "/profile/settings" && styles.active}>
-          {" "}
-          <Link href="/profile/settings">
-            <img
-              src={
-                pathName == "/profile/settings"
-                  ? settingsActive.src
-                  : settings.src
-              }
-              alt=""
-            />{" "}
-            Settings
-          </Link>
-        </li>
+        {user.role === "childcarer" && (
+          <li className={pathName == "/profile/settings" && styles.active}>
+            {" "}
+            <Link href="/profile/settings">
+              <img
+                src={
+                  pathName == "/profile/settings"
+                    ? settingsActive.src
+                    : settings.src
+                }
+                alt=""
+              />{" "}
+              Settings
+            </Link>
+          </li>
+        )}
         <li className={pathName == "/profile/change-password" && styles.active}>
           {" "}
           <Link href="/profile/change-password">
