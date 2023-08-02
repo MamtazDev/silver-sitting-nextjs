@@ -49,6 +49,10 @@ input:focus-visible {
   outline: none;
 }
 
+input[type="checkbox"] {
+  accent-color: #8b3888;
+}
+
 button:hover {
   scale: 0.95;
 }
