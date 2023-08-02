@@ -7,7 +7,7 @@ import { useLoginMutation } from "@/features/register/registerApi";
 import { useRouter } from "next/router";
 
 const Login = () => {
-  const [agreee, setAgree] = useState(false);
+  const [agree, setAgree] = useState(false);
   const [errors, setErrors] = useState("");
 
   const router = useRouter();
@@ -23,7 +23,7 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    if (agreee) {
+    if (agree) {
       const data = {
         email,
         password,
@@ -72,8 +72,8 @@ const Login = () => {
                 <input
                   type="checkbox"
                   name=""
-                  checked={agreee}
-                  onChange={() => setAgree(!agreee)}
+                  checked={agree}
+                  onChange={() => setAgree(!agree)}
                 />
                 <label className={styles.policyLabel}>
                   I have read the{" "}
