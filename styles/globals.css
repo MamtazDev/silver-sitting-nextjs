@@ -51,7 +51,6 @@ button:hover {
 .navbar {
   padding: 20px 0 !important;
   border-bottom: 1px solid rgba(139, 56, 136, 0.1);
-
 }
 
 .header .navbar-nav {
@@ -64,6 +63,15 @@ button:hover {
   font-size: 20px;
   line-height: 25px;
   color: #333333;
+}
+.header button {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 25px;
+  color: #333333;
+  background: unset;
+  border: unset;
 }
 
 .header .form-select {

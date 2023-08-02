@@ -4,7 +4,7 @@ import ProfileLayout from "@/layouts/Profile";
 import React, { useState } from "react";
 
 const POBOX = () => {
-  const [step, setStep] = useState(2);
+  const [step, setStep] = useState(1);
 
   return (
     <div className="w-100">

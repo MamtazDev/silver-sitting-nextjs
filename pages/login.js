@@ -1,17 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "@/styles/Login.module.css";
 import children from "../public/assets/images/child-login.png";
 import Link from "next/link";
 import Meta from "@/components/Shared/Meta";
+import { useLoginMutation } from "@/features/register/registerApi";
+import { useRouter } from "next/router";
 
 const Login = () => {
+  const [agreee, setAgree] = useState(false);
+  const [errors, setErrors] = useState("");
+
+  const router = useRouter();
+
+  const [login, { isError, isLoading, isSuccess, error, data }] =
+    useLoginMutation();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const form = event.target;
+
+    const email = form.email.value;
+    const password = form.password.value;
+
+    if (agreee) {
+      const data = {
+        email,
+        password,
+      };
+
+      login(data).then((res) => {
+        if (res.data?.accessTOken) {
+          router.push("/profile");
+        } else if (res.error) {
+          setErrors(res.error.data.message);
+        }
+      });
+    } else {
+      setErrors("You have to agree the privacy policy.");
+    }
+  };
   return (
     <>
       <Meta>Login</Meta>
       <section className={`container mx-auto ${styles.loginMainContainer}`}>
         <div className={styles.emptyContainer}></div>
         <div className={styles.loginFormContainer}>
-          <form>
+          <form onSubmit={handleSubmit}>
             <h2>Log In</h2>
             <div className={`${styles.inputContainer} ${styles.emailInput}`}>
               <label>
@@ -34,7 +69,12 @@ const Login = () => {
               className={`d-flex align-items-center mt-2 ${styles.policy} justify-content-between`}
             >
               <div className="d-flex align-items-center gap-2">
-                <input type="checkbox" name="" />
+                <input
+                  type="checkbox"
+                  name=""
+                  checked={agreee}
+                  onChange={() => setAgree(!agreee)}
+                />
                 <label className={styles.policyLabel}>
                   I have read the{" "}
                   <p className="m-0 p-0 d-inline">Privacy Policy</p> and agree
@@ -43,8 +83,15 @@ const Login = () => {
               </div>
               <p>Forgot Password?</p>
             </div>
+            <p className="text-danger">{errors}</p>
             <div className="text-center">
-              <button className={`btn ${styles.loginButton}`}>Log In</button>
+              <button
+                className={`btn ${styles.loginButton}`}
+                type="submit"
+                disabled={isLoading}
+              >
+                Log In
+              </button>
             </div>
           </form>
           <div className={styles.formFooter}>

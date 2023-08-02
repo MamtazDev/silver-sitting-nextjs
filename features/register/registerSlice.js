@@ -6,6 +6,8 @@ const initialState = {
     step: 1,
     heading: false,
   },
+  accessToken: undefined,
+  user: undefined,
 };
 
 const registerSlice = createSlice({
@@ -29,8 +31,17 @@ const registerSlice = createSlice({
     setRole: (state, action) => {
       state.role = action.payload;
     },
+    userLoggedIn: (state, action) => {
+      state.accessToken = action.payload.accessToken;
+      state.user = action.payload.user;
+    },
+    userLoggedOut: (state) => {
+      state.accessToken = undefined;
+      state.user = undefined;
+    },
   },
 });
 
 export default registerSlice.reducer;
-export const { setStepControll, setRole } = registerSlice.actions;
+export const { setStepControll, setRole, userLoggedIn, userLoggedOut } =
+  registerSlice.actions;
