@@ -6,6 +6,31 @@ import security from "../../public/assets/icons/security.png";
 import Link from "next/link";
 
 const About = () => {
+  const details = [
+    {
+      pic: about,
+      title: "About Us",
+      content:
+        "Find out where the idea for Silver Sitting came from and what drives us.",
+      link: "Learn more about the idea and the <br /> founders of SilverSitting",
+      bg: "about",
+    },
+    {
+      pic: news,
+      title: "News",
+      content: "Check out our childcare news and articles",
+      link: "To the news",
+      bg: "news",
+    },
+    {
+      pic: security,
+      title: "Security",
+      content: "Your safety is important to us!",
+      link: "Take care of children safely",
+      bg: "security",
+    },
+  ];
+
   return (
     <div className={styles.about_us}>
       <div className="container">
@@ -13,43 +38,24 @@ const About = () => {
           style={{ gap: "29px" }}
           className="row justify-content-center gy-5"
         >
-          <div className={`${styles.about} col-12 col-md-6 col-lg-4`}>
-            <div className={styles.icon}>
-              <img src={about.src} alt="" />
+          {details.map((detail, index) => (
+            <div
+              key={index}
+              className={`${styles[detail.bg]} col-12 col-md-6 col-lg-4`}
+            >
+              <div className={styles.icon}>
+                <img src={detail.pic.src} alt="" />
+              </div>
+              <div>
+                <h6>{detail.title}</h6>
+                <p>{detail.content}</p>
+              </div>
+              <Link
+                href="#"
+                dangerouslySetInnerHTML={{ __html: detail.link }}
+              />
             </div>
-            <div>
-              <h6>About Us</h6>
-              <p>
-                Find out where the idea for Silver Sitting came from and what
-                drives us.
-              </p>
-            </div>
-            <Link href="">
-              Learn more about the idea and the <br /> founders of SilverSitting
-            </Link>
-          </div>
-          <div className={`${styles.news} col-12 col-md-6 col-lg-4`}>
-            {" "}
-            <div className={styles.icon}>
-              <img src={news.src} alt="" />
-            </div>
-            <div>
-              <h6>News</h6>
-              <p>Check out our childcare news and articles</p>
-            </div>
-            <Link href="">To the news</Link>
-          </div>
-          <div className={`${styles.security} col-12 col-md-6 col-lg-4`}>
-            {" "}
-            <div className={styles.icon}>
-              <img src={security.src} alt="" />
-            </div>
-            <div>
-              <h6>Security</h6>
-              <p>Your safety is important to us!</p>
-            </div>
-            <Link href="">Take care of children safely</Link>
-          </div>
+          ))}
         </div>
       </div>
     </div>

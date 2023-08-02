@@ -39,6 +39,12 @@ a {
   max-width: 1420px !important;
 }
 
+select:focus {
+  border-color: rgba(168, 106, 183, 0.06) !important;
+  box-shadow: none !important;
+}
+
+select:focus-visible,
 input:focus-visible {
   outline: none;
 }
@@ -48,6 +54,15 @@ button:hover {
 }
 
 /* header part css */
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  background-color: white;
+}
+
 .navbar {
   padding: 20px 0 !important;
   border-bottom: 1px solid rgba(139, 56, 136, 0.1);
@@ -64,6 +79,7 @@ button:hover {
   line-height: 25px;
   color: #333333;
 }
+
 .header button {
   font-style: normal;
   font-weight: 400;
