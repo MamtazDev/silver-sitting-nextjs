@@ -429,7 +429,14 @@ footer .copyright {
 
 @media screen and (max-width: 767px) {
   .header .navbar-nav {
+    margin-top: 25px;
     gap: 25px;
+    text-align: center;
+  }
+
+  .header .form-select {
+
+    margin: 20px auto 0;
   }
 
   .header .child {
