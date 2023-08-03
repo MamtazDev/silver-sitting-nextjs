@@ -189,7 +189,7 @@ const Footer = () => {
           meaningful company.
         </p>
 
-        <div className="d-flex flex-wrap justify-content-between">
+        <div className="d-flex gap-4 flex-wrap flex-column flex-md-row justify-content-between">
           <div>
             {routes.slice(0, 4).map((item, index) => (
               <Link href={item?.path}>{item.name}</Link>
@@ -215,7 +215,7 @@ const Footer = () => {
           SilverSetting sees itself as a meaningful company
         </p>
 
-        <div className="d-flex flex-wrap justify-content-between">
+        <div className="d-flex gap-4 flex-wrap flex-column flex-md-row justify-content-between">
           <div>
             {routes.slice(15, 22).map((item, index) => (
               <Link href="/">{item.name}</Link>
