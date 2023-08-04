@@ -11,6 +11,9 @@ import Repositories from "@/components/Github/Github";
 
 // const inter = Inter({ subsets: ["latin"] });
 import { useSelector } from "react-redux";
+import { SessionProvider, useSession } from 'next-auth/react';
+
+
 
 export default function Home() {
   const { user } = useSelector((state) => state.register);
@@ -24,7 +27,10 @@ export default function Home() {
       </Head>
       <main>
 
-        {/* <Repositories/> */}
+
+      <SessionProvider>
+        <Repositories/>
+    </SessionProvider>
         
         <Banner />
         <Known />
