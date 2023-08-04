@@ -19,7 +19,7 @@
   padding: 52px;
 }
 
-.question {
+.answer {
   border-radius: 3px 3px 3px 0px;
   background: #8B3888;
   padding: 15px;
@@ -27,12 +27,12 @@
   height: 100%;
 }
 
-.questionBox {
+.answer_box {
   width: 20px;
   background-color: #8B3888;
 }
 
-.questionBox div {
+.answer_box div {
   height: 100%;
   width: 20px;
   background-color: #fcf9fc !important;
@@ -40,24 +40,51 @@
 
 }
 
-.question h6 {
+.answer h6 {
   color: #FFF;
   font-size: 16px;
   font-weight: 400;
   line-height: normal;
 }
 
-.question p {
+.answer p {
   color: #E0E0E0;
   font-size: 14px;
   font-weight: 300;
   line-height: normal;
 }
 
+.question {
+  background-color: #F3EBF3;
+  width: 100%;
+  text-align: end;
+  padding: 15px;
+}
 
+.question h6 {
+  color: #222;
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 6px;
+}
 
+.question p {
+  color: #666;
+  font-size: 14px;
+  font-weight: 300;
+}
 
+.question_box {
+  background-color: #F3EBF3;
 
+}
+
+.question_box div {
+  height: 100%;
+  width: 20px;
+  background-color: #fcf9fc !important;
+  border-bottom-left-radius: 17px;
+}
 
 .emptyContainer {
   width: 20%;
