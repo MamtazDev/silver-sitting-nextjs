@@ -9,6 +9,7 @@ import logOut from "../../public/assets/icons/logout.png";
 import Link from "next/link";
 import "../../styles/Header.module.css";
 import { useSelector } from "react-redux";
+import {IoIosArrowDown} from "react-icons/io"
 
 const Header = () => {
   const { user } = useSelector((state) => state.register);
@@ -78,8 +79,10 @@ const Header = () => {
                 <option value="eng">ENG</option>
                 <option value="1">GER</option>
               </Form.Select> */}
-
-              <div id="google_translate_element"></div>
+              <div className="d-flex align-items-center">
+                <div id="google_translate_element"></div>
+                <IoIosArrowDown/>
+              </div>
               {user ? (
                 <div className="parent">
                   <Link
