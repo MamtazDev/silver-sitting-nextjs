@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, Form, Nav, Navbar } from "react-bootstrap";
 import logo from "../../public/assets/logo.png";
 import profile from "../../public/assets/icons/loggedInProfile.png";
@@ -12,6 +12,28 @@ import { useSelector } from "react-redux";
 
 const Header = () => {
   const { user } = useSelector((state) => state.register);
+  useEffect(() => {
+    const script = document.createElement("script");
+
+    script.src =
+      "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+    script.async = true;
+    document.body.appendChild(script);
+    window.googleTranslateElementInit = () => {
+      new window.google.translate.TranslateElement(
+        {
+          pageLanguage: "en",
+          includedLanguages: "en,de",
+          layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
+        },
+        "google_translate_element"
+      );
+    };
+    return () => {
+      document.body.removeChild(script);
+      delete window.googleTranslateElementInit;
+    };
+  }, []);
   return (
     <div className="header">
       <Navbar collapseOnSelect expand="lg">
@@ -48,14 +70,16 @@ const Header = () => {
                 </div>
               </div>
             </Nav>
-            <Nav className="button-navbar">
-              <Form.Select
+            <Nav className="button-navbar align-items-center">
+              {/* <Form.Select
                 aria-label="Default select example"
                 className="language-dropdown"
               >
                 <option value="eng">ENG</option>
                 <option value="1">GER</option>
-              </Form.Select>
+              </Form.Select> */}
+
+              <div id="google_translate_element"></div>
               {user ? (
                 <div className="parent">
                   <Link

@@ -9,6 +9,7 @@ import { useRouter } from "next/router";
 const Login = () => {
   const [agree, setAgree] = useState(false);
   const [errors, setErrors] = useState("");
+  const [isValid, setIsValid] = useState(false);
 
   const router = useRouter();
 
