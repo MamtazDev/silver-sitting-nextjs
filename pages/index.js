@@ -7,6 +7,7 @@ import Known from "@/components/Home/Known/Known";
 import About from "@/components/Home/About";
 import HowWorks from "@/components/Home/HowWorks";
 import Register from "@/components/Home/Register";
+import Repositories from "@/components/Github/Github";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,6 +21,9 @@ export default function Home() {
         <link rel="stylesheet" href="../styles/Header.css" />
       </Head>
       <main>
+
+        {/* <Repositories/> */}
+        
         <Banner />
         <Known />
         <About />
