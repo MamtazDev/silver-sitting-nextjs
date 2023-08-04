@@ -504,10 +504,6 @@ footer .copyright {
 
 
 
-
-/* #google_translate_element:last-child {
-  display: none !important;
-} */
 .goog-te-gadget-simple span:last-child {
   display: none;
 }
