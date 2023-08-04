@@ -19,6 +19,15 @@
   padding: 52px;
 }
 
+.conversation {
+  max-height: 48vh;
+  overflow-y: scroll;
+}
+
+.conversation::-webkit-scrollbar {
+  display: none;
+}
+
 .answer {
   border-radius: 3px 3px 3px 0px;
   background: #8B3888;
