@@ -7,10 +7,10 @@ import Known from "@/components/Home/Known/Known";
 import About from "@/components/Home/About";
 import HowWorks from "@/components/Home/HowWorks";
 import Register from "@/components/Home/Register";
-
-const inter = Inter({ subsets: ["latin"] });
+import { useSelector } from "react-redux";
 
 export default function Home() {
+  const { user } = useSelector((state) => state.register);
   return (
     <>
       <Head>
@@ -24,7 +24,7 @@ export default function Home() {
         <Known />
         <About />
         <HowWorks />
-        <Register />
+        {!user && <Register />}
       </main>
     </>
   );

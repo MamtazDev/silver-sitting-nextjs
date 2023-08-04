@@ -19,6 +19,46 @@
   padding: 52px;
 }
 
+.question {
+  border-radius: 3px 3px 3px 0px;
+  background: #8B3888;
+  padding: 15px;
+  width: 100% !important;
+  height: 100%;
+}
+
+.questionBox {
+  width: 20px;
+  background-color: #8B3888;
+}
+
+.questionBox div {
+  height: 100%;
+  width: 20px;
+  background-color: #fcf9fc !important;
+  border-bottom-right-radius: 17px;
+
+}
+
+.question h6 {
+  color: #FFF;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.question p {
+  color: #E0E0E0;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: normal;
+}
+
+
+
+
+
+
 .emptyContainer {
   width: 20%;
 }
