@@ -121,10 +121,10 @@ const Register = () => {
           setError("Password doesn't matched!");
         }
       } else {
-        setError("Password should be 8 charecter or a number.");
+        setError("Password should be 8 character or a number.");
       }
     } else {
-      setError("Please confirm that you are atleast 55 years old.");
+      setError("Please confirm that you are at least 55 years old.");
     }
   };
 

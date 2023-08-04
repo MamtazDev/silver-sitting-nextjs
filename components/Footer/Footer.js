@@ -67,27 +67,27 @@ const Footer = () => {
     },
     {
       name: "Baby-sitter",
-      path: "#",
+      path: "https://www.silversitting.com/suche",
     },
     {
       name: "Babysitter Berlin",
-      path: "#",
+      path: "https://www.silversitting.com/suche?Suchort=Berlin",
     },
     {
       name: "Babysitter Bonn",
-      path: "#",
+      path: "https://www.silversitting.com/suche?Suchort=Bonn",
     },
     {
       name: "Babysitter Dusseldorf",
-      path: "#",
+      path: "https://www.silversitting.com/suche?Suchort=Duesseldorf",
     },
     {
       name: "Babysitter Frankfurt",
-      path: "#",
+      path: "https://www.silversitting.com/suche?Suchort=Frankfurt",
     },
     {
       name: "Babysitter Hamburg",
-      path: "#",
+      path: "https://www.silversitting.com/suche?Suchort=Hamburg",
     },
     {
       name: "More cities",
@@ -95,27 +95,27 @@ const Footer = () => {
     },
     {
       name: "Childcare",
-      path: "#",
+      path: "https://www.silversitting.com/suche",
     },
     {
       name: "Childcare Berlin",
-      path: "#",
+      path: "https://www.silversitting.com/suche?Suchort=Berlin",
     },
     {
       name: "Childcare Bonn",
-      path: "#",
+      path: "https://www.silversitting.com/suche?Suchort=Bonn",
     },
     {
       name: "Childcare Dusseldorf",
-      path: "#",
+      path: "https://www.silversitting.com/suche?Suchort=Duesseldorf",
     },
     {
       name: "Childcare Frankfurt",
-      path: "#",
+      path: "https://www.silversitting.com/suche?Suchort=Frankfurt",
     },
     {
       name: "Childcare Hamburg",
-      path: "#",
+      path: "https://www.silversitting.com/suche?Suchort=Hamburg",
     },
     {
       name: "More cities",
@@ -123,51 +123,51 @@ const Footer = () => {
     },
     {
       name: "Surrogate",
-      path: "#",
+      path: "https://www.silversitting.com/suche",
     },
     {
       name: "Loan Grandma Berlin",
-      path: "#",
+      path: "https://www.silversitting.com/suche?Suchort=Berlin",
     },
     {
       name: "Leihoma Bonn",
-      path: "#",
+      path: "https://www.silversitting.com/suche?Suchort=Bonn",
     },
     {
       name: "Loan Grandma Dusseldorf",
-      path: "#",
+      path: "https://www.silversitting.com/suche?Suchort=Duesseldorf",
     },
     {
       name: "Lease grandmother Frankfurt",
-      path: "#",
+      path: "https://www.silversitting.com/suche?Suchort=Frankfurt",
     },
     {
       name: "Lease granmother Hamburg",
-      path: "#",
+      path: "https://www.silversitting.com/suche?Suchort=Hamburg",
     },
     {
       name: "Nanny",
-      path: "#",
+      path: "https://www.silversitting.com/suche",
     },
     {
       name: "Nanny Berlin",
-      path: "#",
+      path: "https://www.silversitting.com/suche?Suchort=Berlin",
     },
     {
       name: "Nanny Bonn",
-      path: "#",
+      path: "https://www.silversitting.com/suche?Suchort=Bonn",
     },
     {
       name: "Nanny Dusseldorf",
-      path: "#",
+      path: "https://www.silversitting.com/suche?Suchort=Duesseldorf",
     },
     {
       name: "Nanny Frankfurt",
-      path: "#",
+      path: "https://www.silversitting.com/suche?Suchort=Frankfurt",
     },
     {
       name: "Nanny Hamburg",
-      path: "#",
+      path: "https://www.silversitting.com/suche?Suchort=Hamburg",
     },
   ];
 
@@ -189,7 +189,7 @@ const Footer = () => {
           meaningful company.
         </p>
 
-        <div className="d-flex flex-wrap justify-content-between">
+        <div className="d-flex gap-4 flex-wrap flex-column flex-md-row justify-content-between">
           <div>
             {routes.slice(0, 4).map((item, index) => (
               <Link href={item?.path}>{item.name}</Link>
@@ -215,25 +215,33 @@ const Footer = () => {
           SilverSetting sees itself as a meaningful company
         </p>
 
-        <div className="d-flex flex-wrap justify-content-between">
+        <div className="d-flex gap-4 flex-wrap flex-column flex-md-row justify-content-between">
           <div>
             {routes.slice(15, 22).map((item, index) => (
-              <Link href="/">{item.name}</Link>
+              <Link target="_blank" href={item.path}>
+                {item.name}
+              </Link>
             ))}
           </div>
           <div>
             {routes.slice(22, 29).map((item, index) => (
-              <Link href="/">{item.name}</Link>
+              <Link target="_blank" href={item.path}>
+                {item.name}
+              </Link>
             ))}
           </div>
           <div>
             {routes.slice(29, 35).map((item, index) => (
-              <Link href="/">{item.name}</Link>
+              <Link target="_blank" href={item.path}>
+                {item.name}
+              </Link>
             ))}
           </div>
           <div>
             {routes.slice(35, 41).map((item, index) => (
-              <Link href="/">{item.name}</Link>
+              <Link target="_blank" href={item.path}>
+                {item.name}
+              </Link>
             ))}
           </div>
         </div>

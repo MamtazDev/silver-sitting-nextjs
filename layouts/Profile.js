@@ -14,4 +14,3 @@ const ProfileLayout = ({ children }) => {
 };
 
 export default ProfileLayout;
- 

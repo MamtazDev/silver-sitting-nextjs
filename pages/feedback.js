@@ -67,7 +67,7 @@ const Feedback = () => {
               </div>
               <div>
                 <label>Phone</label>
-                <input type="text" name="phone" required />
+                <input type="tel" name="phone" required />
               </div>
             </div>
 
