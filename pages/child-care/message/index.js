@@ -13,17 +13,37 @@ const ChaldCareMessage = () => {
       </div>
       <div className={styles.mainContainer}>
         <div>
-          <div className="d-flex gap-1 align-items-center">
+          <div
+            style={{ marginBottom: "30px" }}
+            className="d-flex gap-1 align-items-center"
+          >
             <img src={chatProfile.src} alt="" />
             <div className="d-flex w-100">
-              <div className={styles.questionBox}><div>
-                
-              </div></div>
+              <div className={styles.answer_box}>
+                <div></div>
+              </div>
+              <div className={styles.answer}>
+                <h6>
+                  Hi how are you? Can you take care of my 2 year old daughter?
+                </h6>
+                <p>20 days ago.</p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            style={{ marginBottom: "30px" }}
+            className="d-flex gap-1 align-items-center"
+          >
+            <div className="d-flex w-100">
               <div className={styles.question}>
                 <h6>
                   Hi how are you? Can you take care of my 2 year old daughter?
                 </h6>
                 <p>20 days ago.</p>
+              </div>
+              <div className={styles.question_box}>
+                <div></div>
               </div>
             </div>
           </div>
