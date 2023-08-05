@@ -6,7 +6,7 @@ const SearchResult = () => {
   return (
     <div>
       {[0, 1, 2, 3].map((item, idx) => (
-        <SearchResultCard />
+        <SearchResultCard index={idx} />
       ))}
 
       <div className="d-flex justify-content-center mt-5">
