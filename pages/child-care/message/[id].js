@@ -2,12 +2,14 @@ import React, { useEffect, useRef, useState } from "react";
 import quote from "../../../public/assets/images/child-care-message.png";
 import styles from "@/styles/ChildCareMessage.module.css";
 import chatProfile from "../../../public/assets/chat-profile.png";
+import { useRouter } from "next/router";
 
-const ChildCareMessage = () => {
+const Chatting = () => {
   const [messages, setMessages] = useState([]);
   const [inputMessage, setInputMessage] = useState("");
   const chatContainerRef = useRef(null);
-
+  const router = useRouter();
+  const { idx } = router.query;
   const handleInputChange = (event) => {
     setInputMessage(event.target.value);
   };
@@ -54,7 +56,6 @@ const ChildCareMessage = () => {
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
-
   return (
     <section
       className={`container mx-auto ${styles.chilCareMessageMainContainer}`}
@@ -63,6 +64,7 @@ const ChildCareMessage = () => {
         <img src={quote.src} alt="" />
       </div>
       <div className={styles.mainContainer}>
+        <h1>Details Page for ID: {idx}</h1>
         <div>
           <div ref={chatContainerRef} className={styles.conversation}>
             {messages.map((message, index) => (
@@ -124,4 +126,4 @@ const ChildCareMessage = () => {
   );
 };
 
-export default ChildCareMessage;
+export default Chatting;
