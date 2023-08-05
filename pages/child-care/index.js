@@ -11,7 +11,7 @@ import ChildCareSeachError from "@/utils/modals/ChildCareSeachError";
 const ChildCare = () => {
   const [lookfor, setLookfor] = useState("");
   const [warning, setWarning] = useState(false);
-  const [step, setStep] = useState(0);
+  const [step, setStep] = useState(1);
   const [modalShow, setModalShow] = useState(false);
 
   const handleSerchFormSubmit = (e) => {

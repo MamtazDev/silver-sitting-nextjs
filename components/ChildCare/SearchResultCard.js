@@ -3,7 +3,9 @@ import person from "../../public/assets/images/person.png";
 import styles from "@/styles/SearchResultCard.module.css";
 import Link from "next/link";
 
-const SearchResultCard = ({ idx }) => {
+const SearchResultCard = ({ index }) => {
+
+  console.log("idx", index)
   return (
     <div className={styles.mainContainer}>
       <div className={styles.personContainer}>
@@ -21,7 +23,7 @@ const SearchResultCard = ({ idx }) => {
         <p>1 km</p>
       </div>
       <div className={styles.buttonContainer}>
-        <Link href={`/child-care/message/${idx}`}>
+        <Link href={`/child-care/message/${index}`}>
           <button className="btn">Contact</button>
         </Link>
       </div>

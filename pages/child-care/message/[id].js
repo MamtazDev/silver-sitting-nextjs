@@ -9,7 +9,7 @@ const Chatting = () => {
   const [inputMessage, setInputMessage] = useState("");
   const chatContainerRef = useRef(null);
   const router = useRouter();
-  const { idx } = router.query;
+  const { id } = router.query;
   const handleInputChange = (event) => {
     setInputMessage(event.target.value);
   };
@@ -64,7 +64,7 @@ const Chatting = () => {
         <img src={quote.src} alt="" />
       </div>
       <div className={styles.mainContainer}>
-        <h1>Details Page for ID: {idx}</h1>
+        <h1>Details Page for ID: {id}</h1>
         <div>
           <div ref={chatContainerRef} className={styles.conversation}>
             {messages.map((message, index) => (
