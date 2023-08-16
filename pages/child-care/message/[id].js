@@ -3,46 +3,42 @@ import quote from "../../../public/assets/images/child-care-message.png";
 import styles from "@/styles/ChildCareMessage.module.css";
 import chatProfile from "../../../public/assets/chat-profile.png";
 import { useRouter } from "next/router";
+import {
+  useAddConversationMutation,
+  useAddMessageMutation,
+  useGetConversationTwoUsersQuery,
+  useGetMessageByConversationQuery,
+} from "@/features/chat/chatApi";
+import { useDispatch, useSelector } from "react-redux";
+import { setConversationId } from "@/features/chat/chatSlice";
+import { useGetSingleUserQuery } from "@/features/register/registerApi";
 
 const Chatting = () => {
-  const [messages, setMessages] = useState([]);
+  const { user } = useSelector((state) => state.register);
+  const { conversationId } = useSelector((state) => state.chat);
+
+  const dispatch = useDispatch();
+
+  // const [messages, setMessages] = useState([]);
   const [inputMessage, setInputMessage] = useState("");
   const chatContainerRef = useRef(null);
+
   const router = useRouter();
   const { id } = router.query;
+
   const handleInputChange = (event) => {
     setInputMessage(event.target.value);
   };
 
-  const handleSendMessage = () => {
-    if (inputMessage.trim() !== "") {
-      const userMessage = { text: inputMessage, sender: "user" };
-      setMessages([...messages, userMessage]);
-      setInputMessage("");
-
-      // Simulate an auto-answer after a short delay
-      setTimeout(() => {
-        const answer = getAutoAnswer(inputMessage);
-        const autoAnswerMessage = { text: answer, sender: "website" };
-        setMessages([...messages, userMessage, autoAnswerMessage]);
-      }, 1000);
-    }
-  };
-  const handleKeyDown = (event) => {
-    if (event.key === "Enter" && !event.shiftKey) {
-      event.preventDefault();
-      handleSendMessage();
-    }
-  };
-  const getAutoAnswer = (question) => {
-    if (question.toLowerCase().includes("hello")) {
-      return "Hello! How can I assist you?";
-    } else if (question.toLowerCase().includes("how are you?")) {
-      return "I'm just a bot, but thanks for asking!";
-    } else {
-      return "I appreciate your question!";
-    }
-  };
+  // const getAutoAnswer = (question) => {
+  //   if (question.toLowerCase().includes("hello")) {
+  //     return "Hello! How can I assist you?";
+  //   } else if (question.toLowerCase().includes("how are you?")) {
+  //     return "I'm just a bot, but thanks for asking!";
+  //   } else {
+  //     return "I appreciate your question!";
+  //   }
+  // };
 
   const scrollToBottom = () => {
     if (chatContainerRef.current) {
@@ -53,9 +49,80 @@ const Chatting = () => {
       }
     }
   };
+
+  // apisss
+
+  const { data, isLoading, isError, isSuccess } =
+    useGetConversationTwoUsersQuery({
+      firstUserId: user._id,
+      secondUserId: id,
+    });
+
+  const [addConversation, { error }] = useAddConversationMutation();
+
+  const { data: message } = useGetMessageByConversationQuery(conversationId);
+
+  const [addMessage, { isLoading: messageLoading }] = useAddMessageMutation();
+
+  const { data: senderInfo } = useGetSingleUserQuery(id);
+
+  // apisss
+
+  const createConversation = () => {
+    const data = {
+      senderId: user?._id,
+      reciverId: id,
+    };
+
+    addConversation(data).then((res) => {
+      if (res.data) {
+        dispatch(setConversationId(res.data?._id));
+      }
+    });
+  };
+
+  const handleSendMessage = () => {
+    if (inputMessage.trim() !== "") {
+      // const userMessage = { text: inputMessage, sender: "user" };
+      // setMessages([...messages, userMessage]);
+      // setInputMessage("");
+      // // Simulate an auto-answer after a short delay
+      // setTimeout(() => {
+      //   const answer = getAutoAnswer(inputMessage);
+      //   const autoAnswerMessage = { text: answer, sender: "website" };
+      //   setMessages([...messages, userMessage, autoAnswerMessage]);
+      // }, 1000);
+      const data = {
+        conversationId,
+        sender: user?._id,
+        text: inputMessage,
+      };
+      addMessage(data).then((res) => {
+        if (res.data) {
+          setInputMessage("");
+        }
+      });
+    }
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter" && !event.shiftKey) {
+      event.preventDefault();
+      handleSendMessage();
+    }
+  };
+
+  useEffect(() => {
+    if (isSuccess && !data) {
+      createConversation();
+    } else if (isSuccess && data) {
+      dispatch(setConversationId(data?._id));
+    }
+  }, [isSuccess]);
+
   useEffect(() => {
     scrollToBottom();
-  }, [messages]);
+  }, [message]);
   return (
     <section
       className={`container mx-auto ${styles.chilCareMessageMainContainer}`}
@@ -67,34 +134,40 @@ const Chatting = () => {
         <h1>Details Page for ID: {id}</h1>
         <div>
           <div ref={chatContainerRef} className={styles.conversation}>
-            {messages.map((message, index) => (
+            {message?.map((msg, index) => (
               <div key={index}>
-                {message.sender === "user" && (
+                {msg.sender !== user?._id && (
                   <div
                     style={{ marginBottom: "30px" }}
-                    className="d-flex gap-1 align-items-center"
+                    className="d-flex gap-1 align-items-center "
                   >
-                    <img src={chatProfile.src} alt="" />
+                    <img
+                      src={senderInfo?.image}
+                      alt=""
+                      width={75}
+                      height={75}
+                      className="rounded-circle"
+                    />
                     <div className="d-flex w-100">
                       <div className={styles.answer_box}>
                         <div></div>
                       </div>
                       <div className={styles.answer}>
-                        <h6>{message.text}</h6>
+                        <h6>{msg.text}</h6>
                         <p>20 days ago.</p>
                       </div>
                     </div>
                   </div>
                 )}
 
-                {message.sender !== "user" && (
+                {msg.sender === user?._id && (
                   <div
                     style={{ marginBottom: "30px" }}
                     className="d-flex gap-1 align-items-center"
                   >
                     <div className="d-flex w-100">
                       <div className={styles.question}>
-                        <h6>{message.text}</h6>
+                        <h6>{msg.text}</h6>
                         <p>20 days ago.</p>
                       </div>
                       <div className={styles.question_box}>
@@ -115,7 +188,11 @@ const Chatting = () => {
             placeholder="Type a message to daniel..."
           />
           <div className={styles.buttonContainer}>
-            <button onClick={handleSendMessage} className="_button">
+            <button
+              onClick={handleSendMessage}
+              className="_button"
+              disabled={messageLoading}
+            >
               Send Message
             </button>
           </div>
