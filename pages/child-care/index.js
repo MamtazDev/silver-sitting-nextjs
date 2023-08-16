@@ -7,21 +7,70 @@ import SearchResult from "@/components/ChildCare/SearchResult";
 import Meta from "@/components/Shared/Meta";
 import Link from "next/link";
 import ChildCareSeachError from "@/utils/modals/ChildCareSeachError";
+import { useGetSearchedChildCarerMutation } from "@/features/childCareSearch/childCareSearchApi";
+import { useDispatch } from "react-redux";
+import { setChildCarerFilterData } from "@/features/childCareSearch/childCareSearchSlice";
 
 const ChildCare = () => {
-  const [lookfor, setLookfor] = useState("");
+  const [lookfor, setLookfor] = useState();
   const [warning, setWarning] = useState(false);
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(0);
   const [modalShow, setModalShow] = useState(false);
+
+  const [offers, setOffers] = useState([]);
+
+  const dispatch = useDispatch();
+
+  const [getSearchedChildCarer, { isLoading, isSuccess, isError }] =
+    useGetSearchedChildCarerMutation();
+
+  const handleOfferProvideValue = (value) => {
+    if (offers.includes(value)) {
+      const filter = offers.filter((i) => i !== value);
+      setOffers(filter);
+    } else {
+      setOffers([...offers, value]);
+    }
+  };
 
   const handleSerchFormSubmit = (e) => {
     e.preventDefault();
     // setStep((prev) => prev + 1);
-    setStep("error");
+    // setStep("error");
+    const form = e.target;
+
+    const filterCriteria = {};
+    const gender = lookfor;
+    const distance = form.distance.value;
+    console.log(distance);
+
+    if (gender) {
+      filterCriteria.gender = gender;
+    }
+    if (distance) {
+      filterCriteria.distance = Number(distance);
+    }
+
+    const data = {
+      offerProvide: offers,
+    };
+
+    getSearchedChildCarer({ filterCriteria, data }).then((res) => {
+      if (res?.data) {
+        dispatch(setChildCarerFilterData(res.data));
+        setStep((prev) => prev + 1);
+      }
+      if (res?.error) {
+        setStep("error");
+      }
+    });
+
+    // console.log(filterCriteria);
+
+    // console.log(data, "fdd");
   };
 
   const handleChange = (e) => {
-    console.log(e.target.value);
     const distance = e.target.value;
     if (distance > 30) {
       setWarning(true);
@@ -55,7 +104,7 @@ const ChildCare = () => {
                 <h6>I'm looking for</h6>
                 <div className={`d-flex ${styles.grannySelction}`}>
                   <div
-                    onClick={() => setLookfor("granny")}
+                    onClick={() => setLookfor("Female")}
                     className={styles.checkBoxContainer}
                   >
                     <input
@@ -63,13 +112,13 @@ const ChildCare = () => {
                       type="checkbox"
                       name="lookFor"
                       value="gg"
-                      checked={lookfor === "granny"}
+                      checked={lookfor === "Female"}
                       className={`me-2 ${styles.colorCheckBox}`}
                     />
                     <label htmlFor="granny">Granny</label>
                   </div>
                   <div
-                    onClick={() => setLookfor("grandpa")}
+                    onClick={() => setLookfor("Male")}
                     className={styles.checkBoxContainer}
                   >
                     <input
@@ -77,7 +126,7 @@ const ChildCare = () => {
                       type="checkbox"
                       name="lookFor"
                       value="bb"
-                      checked={lookfor === "grandpa"}
+                      checked={lookfor === "Male"}
                       className={`me-2 ${styles.colorCheckBox}`}
                     />
                     <label htmlFor="grandpa">Grandpa</label>
@@ -86,15 +135,20 @@ const ChildCare = () => {
 
                 <div className={styles.inputContainer}>
                   <label>Near</label>
-                  <input type="text" className="w-100" />
+                  <input
+                    type="number"
+                    className="w-100"
+                    name="distance"
+                    onChange={(e) => handleChange(e)}
+                  />
 
                   <div className={styles.distance}>
                     <p>
                       Up to max.{" "}
                       <input
                         type="text"
-                        name="distance"
-                        onChange={(e) => handleChange(e)}
+                        // name="distance"
+
                         className="mx-3 text-center"
                         placeholder="30"
                       />{" "}
@@ -122,33 +176,69 @@ const ChildCare = () => {
                   <div className={styles.typesCheckboxs}>
                     <div className={styles.box1}>
                       <div className={styles.checkBoxContainer}>
-                        <input type="checkbox" />
+                        <input
+                          type="checkbox"
+                          value="Classic babysitting for children from 1 year"
+                          onChange={(e) =>
+                            handleOfferProvideValue(e.target.value)
+                          }
+                        />
                         <label>
                           Classic child sitting (child age &gt; 1y.)
                         </label>
                       </div>
                       <div className={styles.checkBoxContainer}>
-                        <input type="checkbox" />
+                        <input
+                          type="checkbox"
+                          value="Child care for children from 4 years"
+                          onChange={(e) =>
+                            handleOfferProvideValue(e.target.value)
+                          }
+                        />
                         <label>
                           Classic child sitting (child age &gt; 4y.)
                         </label>
                       </div>
                       <div className={styles.checkBoxContainer}>
-                        <input type="checkbox" />
+                        <input
+                          type="checkbox"
+                          value="Homework help classes 1 - 4"
+                          onChange={(e) =>
+                            handleOfferProvideValue(e.target.value)
+                          }
+                        />
                         <label>Homework supervision 1. - 4. class</label>
                       </div>
                       <div className={styles.checkBoxContainer}>
-                        <input type="checkbox" />
+                        <input
+                          type="checkbox"
+                          value="Homework help classes 5 - 7"
+                          onChange={(e) =>
+                            handleOfferProvideValue(e.target.value)
+                          }
+                        />
                         <label>Homework supervision 5. - 7. class</label>
                       </div>
                     </div>
                     <div className={styles.box1}>
                       <div className={styles.checkBoxContainer}>
-                        <input type="checkbox" />
+                        <input
+                          type="checkbox"
+                          value="Baking/cooking (for the child and with the child)"
+                          onChange={(e) =>
+                            handleOfferProvideValue(e.target.value)
+                          }
+                        />
                         <label>Cook and bake</label>
                       </div>
                       <div className={styles.checkBoxContainer}>
-                        <input type="checkbox" />
+                        <input
+                          type="checkbox"
+                          value="Pick-up and delivery services"
+                          onChange={(e) =>
+                            handleOfferProvideValue(e.target.value)
+                          }
+                        />
                         <label>Pick up and delivery services</label>
                       </div>
                     </div>
