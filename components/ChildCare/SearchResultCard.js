@@ -4,8 +4,7 @@ import styles from "@/styles/SearchResultCard.module.css";
 import Link from "next/link";
 
 const SearchResultCard = ({ index }) => {
-
-  console.log("idx", index)
+  // console.log("idx", index);
   return (
     <div className={styles.mainContainer}>
       <div className={styles.personContainer}>
@@ -23,7 +22,7 @@ const SearchResultCard = ({ index }) => {
         <p>1 km</p>
       </div>
       <div className={styles.buttonContainer}>
-        <Link href={`/child-care/message/${index}`}>
+        <Link href={`/child-care/message/64d602ef9758d6fb2bfaccce`}>
           <button className="btn">Contact</button>
         </Link>
       </div>
