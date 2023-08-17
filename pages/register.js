@@ -327,12 +327,23 @@ const Register = () => {
               <h6>Nice that you have registered with SilverSitting!</h6>
               <p>
                 To complete your registration, please click on the{" "}
-                <Link href="!#">link</Link> in the <br /> email we just sent
-                you.
+                <Link
+                  href="https://mail.google.com/mail/u/0/#inbox"
+                  target="_blank"
+                >
+                  link
+                </Link>{" "}
+                in the <br /> email we just sent you.
               </p>
               <p>
-                <span>For information :</span> a <Link href="!#">link</Link> can
-                be a word with a blue background that can be clicked on.
+                <span>For information :</span> a{" "}
+                <Link
+                  href="https://mail.google.com/mail/u/0/#inbox"
+                  target="_blank"
+                >
+                  link
+                </Link>{" "}
+                can be a word with a blue background that can be clicked on.
               </p>
             </div>
           )}
