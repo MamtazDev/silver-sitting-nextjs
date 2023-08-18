@@ -24,22 +24,22 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    if (agree) {
-      const data = {
-        email,
-        password,
-      };
+    // if (agree) {
+    const data = {
+      email,
+      password,
+    };
 
-      login(data).then((res) => {
-        if (res.data?.accessTOken) {
-          router.push("/profile");
-        } else if (res.error) {
-          setErrors(res.error.data.message);
-        }
-      });
-    } else {
-      setErrors("You have to agree the privacy policy.");
-    }
+    login(data).then((res) => {
+      if (res.data?.accessTOken) {
+        router.push("/profile");
+      } else if (res.error) {
+        setErrors(res.error.data.message);
+      }
+    });
+    // } else {
+    //   setErrors("You have to agree the privacy policy.");
+    // }
   };
   return (
     <>
@@ -69,7 +69,7 @@ const Login = () => {
             <div
               className={`d-flex align-items-center mt-2 ${styles.policy} justify-content-between`}
             >
-              <div className="d-flex align-items-center gap-2">
+              {/* <div className="d-flex align-items-center gap-2">
                 <input
                   type="checkbox"
                   name=""
@@ -83,7 +83,7 @@ const Login = () => {
                   </Link>{" "}
                   and agree to it. <span>*</span>
                 </label>
-              </div>
+              </div> */}
               <p>Forgot Password?</p>
             </div>
             <p className="text-danger">{errors}</p>

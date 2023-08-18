@@ -15,8 +15,7 @@ const POBOX = () => {
 
   return (
     <div className="w-100">
-      {step === 1 && isSuccess && <PoBox data={data} />}
-      {step === 2 && isSuccess && <NoSms />}
+      {data?.length > 0 && isSuccess ? <PoBox data={data} /> : <NoSms />}
     </div>
   );
 };

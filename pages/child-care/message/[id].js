@@ -12,6 +12,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { setConversationId } from "@/features/chat/chatSlice";
 import { useGetSingleUserQuery } from "@/features/register/registerApi";
+import { formatMessageTime } from "@/utils/utils";
 
 const Chatting = () => {
   const { user } = useSelector((state) => state.register);
@@ -61,6 +62,7 @@ const Chatting = () => {
   const [addConversation, { error }] = useAddConversationMutation();
 
   const { data: message } = useGetMessageByConversationQuery(conversationId);
+  console.log(message, "msgggg");
 
   const [addMessage, { isLoading: messageLoading }] = useAddMessageMutation();
 
@@ -131,7 +133,6 @@ const Chatting = () => {
         <img src={quote.src} alt="" />
       </div>
       <div className={styles.mainContainer}>
-        <h1>Details Page for ID: {id}</h1>
         <div>
           <div ref={chatContainerRef} className={styles.conversation}>
             {message?.map((msg, index) => (
@@ -154,7 +155,7 @@ const Chatting = () => {
                       </div>
                       <div className={styles.answer}>
                         <h6>{msg.text}</h6>
-                        <p>20 days ago.</p>
+                        <p>{formatMessageTime(msg.createdAt)}</p>
                       </div>
                     </div>
                   </div>
@@ -168,7 +169,7 @@ const Chatting = () => {
                     <div className="d-flex w-100">
                       <div className={styles.question}>
                         <h6>{msg.text}</h6>
-                        <p>20 days ago.</p>
+                        <p>{formatMessageTime(msg.createdAt)}</p>
                       </div>
                       <div className={styles.question_box}>
                         <div></div>
@@ -185,7 +186,7 @@ const Chatting = () => {
             onChange={handleInputChange}
             onKeyDown={handleKeyDown}
             className={styles.textareaInput}
-            placeholder="Type a message to daniel..."
+            placeholder={`Type a message to ${senderInfo?.firstName}...`}
           />
           <div className={styles.buttonContainer}>
             <button

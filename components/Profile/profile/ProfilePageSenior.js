@@ -11,6 +11,8 @@ import {
 const ProfilePageSenior = ({ user }) => {
   const { data: userInfo, isSuccess } = useGetSingleUserQuery(user?._id);
 
+  console.log(userInfo, "gg");
+
   const [availabilities, setAvailabilities] = useState([]);
   const [offers, setOffers] = useState([]);
   const [gender, setGender] = useState();
@@ -124,6 +126,7 @@ const ProfilePageSenior = ({ user }) => {
       setAvailabilities(userInfo?.availability);
       setOffers(userInfo?.offerProvide);
       setAboutMe(userInfo?.aboutMe);
+      setGender(userInfo?.gender);
     }
   }, [userInfo]);
   return isSuccess ? (
