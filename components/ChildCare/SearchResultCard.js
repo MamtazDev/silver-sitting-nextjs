@@ -7,7 +7,7 @@ const SearchResultCard = ({ index, item }) => {
   // console.log("idx", index);
   return (
     <div className={styles.mainContainer}>
-      <div className={styles.personContainer}>
+      <div className={`${styles.personContainer} w-50`}>
         <div>
           <img
             src={item?.image}
@@ -23,14 +23,18 @@ const SearchResultCard = ({ index, item }) => {
           <p>{item?.aboutMe}</p>
         </div>
       </div>
-      <div>
-        <h5>Distance</h5>
-        <p>{item?.distance}</p>
-      </div>
-      <div className={styles.buttonContainer}>
-        <Link href={`/child-care/message/${item?._id}`}>
-          <button className="btn">Contact</button>
-        </Link>
+      <div className={`w-50 ${styles.distanceContaier}`}>
+        <div className="d-flex flex-column flex-md-row gap-4 gap-md-0 justify-content-between">
+          <div className="text-center">
+            <h5>Distance</h5>
+            <p>{item?.distance}</p>
+          </div>
+          <div className={styles.buttonContainer}>
+            <Link href={`/child-care/message/${item?._id}`}>
+              <button className="btn">Contact</button>
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );

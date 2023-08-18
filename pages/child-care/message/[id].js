@@ -12,6 +12,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { setConversationId } from "@/features/chat/chatSlice";
 import { useGetSingleUserQuery } from "@/features/register/registerApi";
+import { formatMessageTime } from "@/utils/utils";
 
 const Chatting = () => {
   const { user } = useSelector((state) => state.register);
@@ -154,7 +155,7 @@ const Chatting = () => {
                       </div>
                       <div className={styles.answer}>
                         <h6>{msg.text}</h6>
-                        <p>20 days ago.</p>
+                        <p>{formatMessageTime(msg.createdAt)}</p>
                       </div>
                     </div>
                   </div>
@@ -168,7 +169,7 @@ const Chatting = () => {
                     <div className="d-flex w-100">
                       <div className={styles.question}>
                         <h6>{msg.text}</h6>
-                        <p>20 days ago.</p>
+                        <p>{formatMessageTime(msg.createdAt)}</p>
                       </div>
                       <div className={styles.question_box}>
                         <div></div>

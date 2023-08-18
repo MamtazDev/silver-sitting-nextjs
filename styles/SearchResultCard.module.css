@@ -83,6 +83,13 @@
     padding: 10px 20px;
     border-radius: 5px;
   }
+
+  .personContainer {
+    width: 60% !important;
+  }
+  .distanceContaier {
+    width: 40% !important;
+  }
 }
 
 @media only screen and (max-width: 688px) {
@@ -94,6 +101,8 @@
 
   .personContainer {
     flex-direction: column;
+
+    width: 100% !important;
   }
 
   .personContainer div {
@@ -102,5 +111,9 @@
 
   .personContainer img {
     width: 100%;
+  }
+
+  .distanceContaier {
+    width: 100% !important;
   }
 }
