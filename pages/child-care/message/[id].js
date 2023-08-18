@@ -61,6 +61,7 @@ const Chatting = () => {
   const [addConversation, { error }] = useAddConversationMutation();
 
   const { data: message } = useGetMessageByConversationQuery(conversationId);
+  console.log(message, "msgggg");
 
   const [addMessage, { isLoading: messageLoading }] = useAddMessageMutation();
 
@@ -131,7 +132,6 @@ const Chatting = () => {
         <img src={quote.src} alt="" />
       </div>
       <div className={styles.mainContainer}>
-        <h1>Details Page for ID: {id}</h1>
         <div>
           <div ref={chatContainerRef} className={styles.conversation}>
             {message?.map((msg, index) => (
@@ -185,7 +185,7 @@ const Chatting = () => {
             onChange={handleInputChange}
             onKeyDown={handleKeyDown}
             className={styles.textareaInput}
-            placeholder="Type a message to daniel..."
+            placeholder={`Type a message to ${senderInfo?.firstName}...`}
           />
           <div className={styles.buttonContainer}>
             <button
