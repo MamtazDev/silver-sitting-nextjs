@@ -1,14 +1,14 @@
 import React from "react";
 import styles from "@/styles/Blog.module.css";
 
-const ChancellorSpeech = () => {
+const ChancellorSpeech = ({blogDetails}) => {
   return (
     <div className={styles.chancellor_speech}>
       <div className="container">
-        <h4>
-          As our Chancellor said in her historic television speech on March 18,
+        <div dangerouslySetInnerHTML={{ __html: blogDetails?.attributes.details }}/>
+          {/* As our Chancellor said in her historic television speech on March 18,
           2020:
-        </h4>
+        </h4> */}
         <div className={styles.speech}>
           <p>
             It depends on everyone. We are not doomed to passively accept the
