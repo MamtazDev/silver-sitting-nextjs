@@ -2,7 +2,7 @@ import NoSms from "@/components/Pobox/NoSms";
 import PoBox from "@/components/Pobox/PoBox";
 import { useGetConversationByUserQuery } from "@/features/chat/chatApi";
 import ProfileLayout from "@/layouts/Profile";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 const POBOX = () => {
