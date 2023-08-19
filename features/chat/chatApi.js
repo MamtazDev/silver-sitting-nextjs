@@ -28,6 +28,12 @@ export const chatAPi = apiSlice.injectEndpoints({
       query: (conversationId) => `/api/message/${conversationId}`,
       providesTags: ["Messages"],
     }),
+    putMessageSeen: builder.mutation({
+      query: ({ senderId, conversationId }) => ({
+        url: `/api/message/seen/${senderId}/${conversationId}`,
+        method: "PUT",
+      }),
+    }),
   }),
 });
 
@@ -37,4 +43,5 @@ export const {
   useAddConversationMutation,
   useAddMessageMutation,
   useGetMessageByConversationQuery,
+  usePutMessageSeenMutation,
 } = chatAPi;

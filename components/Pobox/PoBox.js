@@ -17,6 +17,7 @@ const PoBox = ({ data }) => {
             profile={profile}
             sms={sms}
             members={item?.members}
+            conversationId={item?._id}
           />
         ))}
 
