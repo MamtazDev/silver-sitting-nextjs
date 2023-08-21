@@ -259,7 +259,7 @@ const ChildCare = () => {
 
         {/* search result */}
 
-        {step === 1 && <SearchResult />}
+        {step === 1 && <SearchResult setStep={setStep} />}
 
         {step === "error" && (
           <div className={styles.contentContainer}>
