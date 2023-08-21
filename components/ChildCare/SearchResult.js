@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import SearchResultCard from "./SearchResultCard";
 import Pagination from "../Pagination/Pagination";
 import { useSelector } from "react-redux";
+import styles from "@/styles/SearchResultCard.module.css";
 
-const SearchResult = () => {
+const SearchResult = ({ setStep }) => {
   const { filterData } = useSelector((state) => state.childCarerFilter);
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -16,6 +17,16 @@ const SearchResult = () => {
 
   return (
     <div>
+      <div className={`${styles.buttonContainer} mt-4`}>
+        <button
+          className="btn"
+          style={{ background: "#8b3888", color: "white" }}
+          onClick={() => setStep(0)}
+        >
+          Search Again
+        </button>
+      </div>
+
       {filterData &&
         filterData.length > 0 &&
         filterData
