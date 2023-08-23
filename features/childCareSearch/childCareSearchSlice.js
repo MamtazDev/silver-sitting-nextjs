@@ -2,6 +2,7 @@ const { createSlice } = require("@reduxjs/toolkit");
 
 const initialState = {
   filterData: null,
+  city: "",
 };
 
 const childCarerSearchSlice = createSlice({
@@ -11,9 +12,13 @@ const childCarerSearchSlice = createSlice({
     setChildCarerFilterData: (state, action) => {
       state.filterData = action.payload;
     },
+    setCity: (state, action) => {
+      state.city = action.payload;
+    },
   },
 });
 
 export default childCarerSearchSlice.reducer;
 
-export const { setChildCarerFilterData } = childCarerSearchSlice.actions;
+export const { setChildCarerFilterData, setCity } =
+  childCarerSearchSlice.actions;

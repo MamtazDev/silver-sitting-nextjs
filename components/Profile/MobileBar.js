@@ -8,7 +8,7 @@ const MobileBar = () => {
   const pathName = usePathname();
   const { user } = useSelector((state) => state.register);
   return (
-    <div className={styles.MobileBarContainer}>
+    <div className={`${styles.MobileBarContainer} d-block d-lg-none `}>
       {/* <ul>
         <li className={pathName == "/profile/po-box" && styles.active}>
           <Link href="/profile/po-box">
@@ -61,28 +61,26 @@ const MobileBar = () => {
         </li>
       </ul> */}
 
-      <ul>
+      <ul className="p-0">
         <li className={pathName == "/profile/po-box" && styles.mobileActive}>
-          <Link href="/profile/po-box">
-            P.O. Box
-          </Link>
+          <Link href="/profile/po-box">P.O. Box</Link>
         </li>
         <li className={pathName == "/profile" && styles.mobileActive}>
-          <Link href="/profile">
-            Profile
-          </Link>
+          <Link href="/profile">Profile</Link>
         </li>
         {user.role === "childcarer" && (
-          <li className={pathName == "/profile/settings" && styles.mobileActive}>
-            <Link href="/profile/settings">
-              Settings
-            </Link>
+          <li
+            className={pathName == "/profile/settings" && styles.mobileActive}
+          >
+            <Link href="/profile/settings">Settings</Link>
           </li>
         )}
-        <li className={pathName == "/profile/change-password" && styles.mobileActive}>
-          <Link href="/profile/change-password">
-            Change password
-          </Link>
+        <li
+          className={
+            pathName == "/profile/change-password" && styles.mobileActive
+          }
+        >
+          <Link href="/profile/change-password">Change password</Link>
         </li>
       </ul>
     </div>
