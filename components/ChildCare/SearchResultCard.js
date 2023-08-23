@@ -27,7 +27,7 @@ const SearchResultCard = ({ index, item }) => {
         <div className="d-flex flex-column flex-md-row gap-4 gap-md-0 justify-content-between">
           <div className="text-center">
             <h5>Distance</h5>
-            <p>{item?.distance}</p>
+            <p>{Math.round(item?.distance)}</p>
           </div>
           <div className={styles.buttonContainer}>
             <Link href={`/child-care/message/${item?._id}`}>

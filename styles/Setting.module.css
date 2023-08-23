@@ -14,6 +14,7 @@
 .mainContentContainer {
   display: flex;
   gap: 16px;
+  flex-direction: row;
 }
 
 .fileContainer {
@@ -126,4 +127,10 @@
   left: 320px;
   width: 320px;
   height: 90px;
+}
+
+@media only screen and (max-width: 688px) {
+  .mainContentContainer {
+    flex-direction: column;
+  }
 }

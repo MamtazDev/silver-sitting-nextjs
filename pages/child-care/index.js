@@ -8,7 +8,7 @@ import Meta from "@/components/Shared/Meta";
 import Link from "next/link";
 import ChildCareSeachError from "@/utils/modals/ChildCareSeachError";
 import { useGetSearchedChildCarerMutation } from "@/features/childCareSearch/childCareSearchApi";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setChildCarerFilterData } from "@/features/childCareSearch/childCareSearchSlice";
 
 const ChildCare = () => {
@@ -20,6 +20,7 @@ const ChildCare = () => {
   const [offers, setOffers] = useState([]);
 
   const dispatch = useDispatch();
+  const { city } = useSelector((state) => state.childCarerFilter);
 
   const [getSearchedChildCarer, { isLoading, isSuccess, isError }] =
     useGetSearchedChildCarerMutation();
@@ -41,14 +42,14 @@ const ChildCare = () => {
 
     const filterCriteria = {};
     const gender = lookfor;
-    const distance = form.distance.value;
-    console.log(distance);
+    const city = form.city.value;
+    // console.log(distance);
 
     if (gender) {
       filterCriteria.gender = gender;
     }
-    if (distance) {
-      filterCriteria.distance = Number(distance);
+    if (city) {
+      filterCriteria.city = city;
     }
 
     const data = {
@@ -72,11 +73,11 @@ const ChildCare = () => {
 
   const handleChange = (e) => {
     const distance = e.target.value;
-    if (distance > 30) {
-      setWarning(true);
-    } else {
-      setWarning(false);
-    }
+    // if (distance > 30) {
+    //   setWarning(true);
+    // } else {
+    //   setWarning(false);
+    // }
   };
 
   useEffect(() => {
@@ -136,9 +137,10 @@ const ChildCare = () => {
                 <div className={styles.inputContainer}>
                   <label>Near</label>
                   <input
-                    type="number"
+                    type="text"
                     className="w-100"
-                    name="distance"
+                    Value={city}
+                    name="city"
                     onChange={(e) => handleChange(e)}
                   />
 
@@ -245,7 +247,11 @@ const ChildCare = () => {
                   </div>
                 </div>
                 <div className="text-center">
-                  <button className={`btn ${styles.formButton}`} type="submit">
+                  <button
+                    className={`btn ${styles.formButton}`}
+                    type="submit"
+                    disabled={isLoading}
+                  >
                     Start Search
                   </button>
                 </div>

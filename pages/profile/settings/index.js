@@ -49,7 +49,7 @@ const settings = () => {
       <h3>Settings</h3>
 
       <div className={styles.mainContentContainer}>
-        <div className={styles.fileContainer}>
+        <div className={`${styles.fileContainer} w-100`}>
           <p>
             Your certificate of good conduct has been successfully uploaded and
             will now be checked.
@@ -73,7 +73,7 @@ const settings = () => {
             <span>Documents only, eg PDF,no pictures, Max 15MB </span>
           )}
         </div>
-        <div className={styles.checkboxContainer}>
+        <div className={`${styles.checkboxContainer} w-100`}>
           <div className={styles.checkBox_Box}>
             <input
               type="checkbox"

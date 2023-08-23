@@ -7,6 +7,8 @@ import arrow from "../../../public/assets/icons/arrow.png";
 import Link from "next/link";
 import { useDispatch } from "react-redux";
 import { setStepControll } from "@/features/register/registerSlice";
+import { setCity } from "@/features/childCareSearch/childCareSearchSlice";
+import { useRouter } from "next/router";
 
 const Banner = () => {
   const dispatch = useDispatch();
@@ -19,6 +21,15 @@ const Banner = () => {
   const handleButtonClicknext = () => {
     setBackgroundImage(`url(${banner.src})`);
     setTab("children");
+  };
+
+  const router = useRouter();
+
+  const handleFind = (event) => {
+    event.preventDefault();
+    const city = event.target.residance.value;
+    dispatch(setCity(city));
+    router.push(`/child-care?location=${city}`);
   };
   return (
     <div
@@ -84,15 +95,20 @@ const Banner = () => {
                 </div>
               )}
               {tab === "caregiver" && (
-                <div>
-                  <input type="text" placeholder="Enter care address" />
+                <form onSubmit={handleFind}>
+                  <input
+                    type="text"
+                    placeholder="Enter care address"
+                    name="residance"
+                    required
+                  />
                   <div className="text-center">
                     <button id="login_btn" className="mb-4" type="">
                       Find Now
                     </button>{" "}
                   </div>
                   <br />
-                </div>
+                </form>
               )}
             </div>
           </div>

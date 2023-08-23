@@ -162,3 +162,50 @@
   gap: 60px;
   margin-bottom: 40px;
 }
+
+.MobileBarContainer {
+  margin-top: 10px;
+}
+
+.MobileBarContainer ul {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.MobileBarContainer ul li a {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  /* background-color: #8b3888; */
+  font-size: 18px;
+  font-family: Outfit;
+  letter-spacing: -0.4px;
+  padding: 22px 20px;
+  border: 1px solid #8b3888;
+  border-radius: 8px;
+  color: black;
+}
+
+.MobileBarContainer ul .mobileActive a {
+  background-color: #8b3888;
+  color: #fff;
+}
+
+@media only screen and (min-width: 689px) and (max-width: 992px) {
+  .grid__box {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 688px) {
+  .grid__box {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    display: none;
+  }
+}
