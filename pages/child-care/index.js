@@ -9,7 +9,10 @@ import Link from "next/link";
 import ChildCareSeachError from "@/utils/modals/ChildCareSeachError";
 import { useGetSearchedChildCarerMutation } from "@/features/childCareSearch/childCareSearchApi";
 import { useDispatch, useSelector } from "react-redux";
-import { setChildCarerFilterData } from "@/features/childCareSearch/childCareSearchSlice";
+import {
+  setChildCarerFilterData,
+  setCity,
+} from "@/features/childCareSearch/childCareSearchSlice";
 
 const ChildCare = () => {
   const [lookfor, setLookfor] = useState();
@@ -57,11 +60,14 @@ const ChildCare = () => {
     };
 
     getSearchedChildCarer({ filterCriteria, data }).then((res) => {
-      if (res?.data) {
+      if (res?.data.length > 0) {
         dispatch(setChildCarerFilterData(res.data));
         setStep((prev) => prev + 1);
-      }
-      if (res?.error) {
+      } else if (res?.data.length === 0) {
+        setStep("error");
+      } else if (res?.error) {
+        setStep("error");
+      } else {
         setStep("error");
       }
     });
@@ -69,6 +75,13 @@ const ChildCare = () => {
     // console.log(filterCriteria);
 
     // console.log(data, "fdd");
+  };
+
+  const handleSearchAgain = () => {
+    setOffers([]);
+    setLookfor(undefined);
+    dispatch(setCity(""));
+    setStep(0);
   };
 
   const handleChange = (e) => {
@@ -110,7 +123,7 @@ const ChildCare = () => {
                   >
                     <input
                       id="granny"
-                      type="checkbox"
+                      type="radio"
                       name="lookFor"
                       value="gg"
                       checked={lookfor === "Female"}
@@ -124,7 +137,7 @@ const ChildCare = () => {
                   >
                     <input
                       id="grandpa"
-                      type="checkbox"
+                      type="radio"
                       name="lookFor"
                       value="bb"
                       checked={lookfor === "Male"}
@@ -265,7 +278,12 @@ const ChildCare = () => {
 
         {/* search result */}
 
-        {step === 1 && <SearchResult setStep={setStep} />}
+        {step === 1 && (
+          <SearchResult
+            setStep={setStep}
+            handleSearchAgain={handleSearchAgain}
+          />
+        )}
 
         {step === "error" && (
           <div className={styles.contentContainer}>
@@ -289,7 +307,7 @@ const ChildCare = () => {
 
                 <div className="text-center">
                   <button
-                    onClick={() => setStep(0)}
+                    onClick={handleSearchAgain}
                     className={`btn ${styles.formButton}`}
                     type="submit"
                   >
