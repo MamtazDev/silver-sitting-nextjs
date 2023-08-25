@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setConversationId } from "@/features/chat/chatSlice";
 import { useGetSingleUserQuery } from "@/features/register/registerApi";
 import { formatMessageTime } from "@/utils/utils";
+import { io } from "socket.io-client";
 
 const Chatting = () => {
   const { user } = useSelector((state) => state.register);
@@ -22,6 +23,12 @@ const Chatting = () => {
 
   // const [messages, setMessages] = useState([]);
   const [inputMessage, setInputMessage] = useState("");
+  const [arrivalMessage, setArrivalMessage] = useState(null);
+  const [curentAllmessages, setCurentAllMessages] = useState([]);
+  const socket = useRef();
+
+  // console.log(arrivalMessage, "arrrviaaal");
+
   const chatContainerRef = useRef(null);
 
   const router = useRouter();
@@ -55,14 +62,15 @@ const Chatting = () => {
 
   const { data, isLoading, isError, isSuccess } =
     useGetConversationTwoUsersQuery({
-      firstUserId: user._id,
+      firstUserId: user?._id,
       secondUserId: id,
     });
 
   const [addConversation, { error }] = useAddConversationMutation();
 
   const { data: message } = useGetMessageByConversationQuery(conversationId);
-  console.log(message, "msgggg");
+
+  // console.log(message, "msgggg");u
 
   const [addMessage, { isLoading: messageLoading }] = useAddMessageMutation();
 
@@ -85,20 +93,20 @@ const Chatting = () => {
 
   const handleSendMessage = () => {
     if (inputMessage.trim() !== "") {
-      // const userMessage = { text: inputMessage, sender: "user" };
-      // setMessages([...messages, userMessage]);
-      // setInputMessage("");
-      // // Simulate an auto-answer after a short delay
-      // setTimeout(() => {
-      //   const answer = getAutoAnswer(inputMessage);
-      //   const autoAnswerMessage = { text: answer, sender: "website" };
-      //   setMessages([...messages, userMessage, autoAnswerMessage]);
-      // }, 1000);
       const data = {
         conversationId,
         sender: user?._id,
         text: inputMessage,
       };
+
+      const receiverId = id;
+
+      socket.current.emit("sendMessage", {
+        senderId: user._id,
+        receiverId: id,
+        text: inputMessage,
+      });
+
       addMessage(data).then((res) => {
         if (res.data) {
           setInputMessage("");
@@ -115,6 +123,35 @@ const Chatting = () => {
   };
 
   useEffect(() => {
+    socket.current = io("ws://localhost:8900");
+    socket.current.on("getMessage", (data) => {
+      console.log("data", data);
+      setArrivalMessage({
+        sender: data.senderId,
+        text: data.text,
+        createdAt: Date.now(),
+      });
+    });
+  }, [arrivalMessage]);
+
+  useEffect(() => {
+    arrivalMessage &&
+      id.includes(arrivalMessage.sender) &&
+      setCurentAllMessages((prev) => [...prev, arrivalMessage]);
+  }, [arrivalMessage, id]);
+
+  useEffect(() => {
+    socket.current.emit("addUser", user._id);
+    socket.current.on("getUsers", (users) => {
+      // console.log(users);
+    });
+  }, [user]);
+
+  useEffect(() => {
+    setCurentAllMessages(message);
+  }, [message]);
+
+  useEffect(() => {
     if (isSuccess && !data) {
       createConversation();
     } else if (isSuccess && data) {
@@ -124,7 +161,8 @@ const Chatting = () => {
 
   useEffect(() => {
     scrollToBottom();
-  }, [message]);
+  }, [curentAllmessages]);
+
   return (
     <section
       className={`container mx-auto ${styles.chilCareMessageMainContainer}`}
@@ -135,7 +173,7 @@ const Chatting = () => {
       <div className={styles.mainContainer}>
         <div>
           <div ref={chatContainerRef} className={styles.conversation}>
-            {message?.map((msg, index) => (
+            {curentAllmessages?.map((msg, index) => (
               <div key={index}>
                 {msg.sender !== user?._id && (
                   <div
