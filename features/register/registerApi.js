@@ -36,6 +36,7 @@ export const registerApi = apiSlice.injectEndpoints({
                 lastName: result.data.user.lastName,
                 email: result.data.user.email,
                 isVerified: result.data.user.isVerified,
+                residance: result.data.user.residance,
               },
             })
           );
@@ -51,6 +52,7 @@ export const registerApi = apiSlice.injectEndpoints({
                 lastName: result.data.user.lastName,
                 email: result.data.user.email,
                 isVerified: result.data.user.isVerified,
+                residance: result.data.user.residance,
               },
             })
           );
@@ -64,6 +66,7 @@ export const registerApi = apiSlice.injectEndpoints({
                 lastName: result.data.user.lastName,
                 email: result.data.user.email,
                 isVerified: result.data.user.isVerified,
+                residance: result.data.user.residance,
               },
             })
           );

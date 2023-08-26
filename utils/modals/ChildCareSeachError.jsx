@@ -3,7 +3,6 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 
 const ChildCareSeachError = (props) => {
-  console.log(props, "pp");
   return (
     <Modal
       {...props}

@@ -8,8 +8,12 @@ import Meta from "@/components/Shared/Meta";
 import Link from "next/link";
 import ChildCareSeachError from "@/utils/modals/ChildCareSeachError";
 import { useGetSearchedChildCarerMutation } from "@/features/childCareSearch/childCareSearchApi";
-import { useDispatch } from "react-redux";
-import { setChildCarerFilterData } from "@/features/childCareSearch/childCareSearchSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setChildCarerFilterData,
+  setCity,
+} from "@/features/childCareSearch/childCareSearchSlice";
+import useGetUserLocation from "@/hooks/useGetUserLocation";
 
 const ChildCare = () => {
   const [lookfor, setLookfor] = useState();
@@ -20,6 +24,11 @@ const ChildCare = () => {
   const [offers, setOffers] = useState([]);
 
   const dispatch = useDispatch();
+  const { city } = useSelector((state) => state.childCarerFilter);
+
+  const { user } = useSelector((state) => state.register);
+
+  const userGeoLocation = useGetUserLocation();
 
   const [getSearchedChildCarer, { isLoading, isSuccess, isError }] =
     useGetSearchedChildCarerMutation();
@@ -35,48 +44,58 @@ const ChildCare = () => {
 
   const handleSerchFormSubmit = (e) => {
     e.preventDefault();
-    // setStep((prev) => prev + 1);
-    // setStep("error");
+
     const form = e.target;
+
+    const userAddress = { ...userGeoLocation, address: user?.residance };
 
     const filterCriteria = {};
     const gender = lookfor;
-    const distance = form.distance.value;
-    console.log(distance);
+    const city = form.city.value;
 
     if (gender) {
       filterCriteria.gender = gender;
     }
-    if (distance) {
-      filterCriteria.distance = Number(distance);
+    if (city) {
+      filterCriteria.city = city;
     }
 
     const data = {
       offerProvide: offers,
+      userAddress,
     };
 
     getSearchedChildCarer({ filterCriteria, data }).then((res) => {
-      if (res?.data) {
+      console.log(res);
+      if (res?.data?.length > 0) {
         dispatch(setChildCarerFilterData(res.data));
         setStep((prev) => prev + 1);
-      }
-      if (res?.error) {
+      } else if (res?.data?.length === 0) {
+        setStep("error");
+      } else if (res?.error?.data?.message === "Distance is more than 100") {
+        setWarning(true);
+      } else if (res?.error?.data?.message === "No matched users") {
+        setStep("error");
+      } else {
         setStep("error");
       }
     });
+  };
 
-    // console.log(filterCriteria);
-
-    // console.log(data, "fdd");
+  const handleSearchAgain = () => {
+    setOffers([]);
+    setLookfor(undefined);
+    dispatch(setCity(""));
+    setStep(0);
   };
 
   const handleChange = (e) => {
     const distance = e.target.value;
-    if (distance > 30) {
-      setWarning(true);
-    } else {
-      setWarning(false);
-    }
+    // if (distance > 30) {
+    //   setWarning(true);
+    // } else {
+    //   setWarning(false);
+    // }
   };
 
   useEffect(() => {
@@ -109,7 +128,7 @@ const ChildCare = () => {
                   >
                     <input
                       id="granny"
-                      type="checkbox"
+                      type="radio"
                       name="lookFor"
                       value="gg"
                       checked={lookfor === "Female"}
@@ -123,7 +142,7 @@ const ChildCare = () => {
                   >
                     <input
                       id="grandpa"
-                      type="checkbox"
+                      type="radio"
                       name="lookFor"
                       value="bb"
                       checked={lookfor === "Male"}
@@ -136,9 +155,10 @@ const ChildCare = () => {
                 <div className={styles.inputContainer}>
                   <label>Near</label>
                   <input
-                    type="number"
+                    type="text"
                     className="w-100"
-                    name="distance"
+                    Value={city}
+                    name="city"
                     onChange={(e) => handleChange(e)}
                   />
 
@@ -245,9 +265,23 @@ const ChildCare = () => {
                   </div>
                 </div>
                 <div className="text-center">
-                  <button className={`btn ${styles.formButton}`} type="submit">
-                    Start Search
-                  </button>
+                  {isLoading ? (
+                    <div className={` ${styles.searchingContainer}`}>
+                      <div className="d-flex flex-column flex-md-row align-items-center gap-2">
+                        <div class="spinner-border" role="status">
+                          <span class="visually-hidden">Loading...</span>
+                        </div>{" "}
+                        <div>Searching...</div>
+                      </div>
+                    </div>
+                  ) : (
+                    <button
+                      className={`btn ${styles.formButton}`}
+                      disabled={isLoading}
+                    >
+                      Start Search
+                    </button>
+                  )}
                 </div>
               </form>
             </div>
@@ -259,7 +293,12 @@ const ChildCare = () => {
 
         {/* search result */}
 
-        {step === 1 && <SearchResult setStep={setStep} />}
+        {step === 1 && (
+          <SearchResult
+            setStep={setStep}
+            handleSearchAgain={handleSearchAgain}
+          />
+        )}
 
         {step === "error" && (
           <div className={styles.contentContainer}>
@@ -283,7 +322,7 @@ const ChildCare = () => {
 
                 <div className="text-center">
                   <button
-                    onClick={() => setStep(0)}
+                    onClick={handleSearchAgain}
                     className={`btn ${styles.formButton}`}
                     type="submit"
                   >

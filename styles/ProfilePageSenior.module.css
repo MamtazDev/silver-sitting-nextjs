@@ -213,3 +213,20 @@
 .textArea:focus-visible {
   outline: none;
 }
+
+@media screen and (max-width: 767px) {
+  .inputContainer {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .youOfferInputContainer {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .availabilityInputContainer {
+    flex-direction: column;
+    gap: 25px;
+  }
+  .genderInputContainer {
+    flex-direction: column;
+    gap: 25px;
+  }
+}

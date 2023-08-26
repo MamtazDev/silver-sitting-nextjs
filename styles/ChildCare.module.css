@@ -26,7 +26,7 @@
 }
 
 .contentContainer h5 {
-  color: #F00;
+  color: #f00;
   text-align: center;
   font-size: 18px;
   font-family: Outfit;
@@ -57,7 +57,7 @@
 }
 
 .formContainer form p a {
-  color: #8B3888;
+  color: #8b3888;
   text-decoration: underline !important;
 }
 
@@ -172,6 +172,19 @@
   gap: 20px;
 }
 
+.searchingContainer {
+  background: #8b3888;
+  border-radius: 7px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 25px;
+  color: #ffffff;
+  padding: 16px 36px;
+  max-width: 250px;
+  margin: 0 auto;
+}
+
 .formButton {
   background: #8b3888;
   border-radius: 7px;
@@ -273,5 +286,17 @@
     line-height: 25px;
     color: #ffffff;
     padding: 6px 16px;
+  }
+
+  .searchingContainer {
+    background: #8b3888;
+    border-radius: 7px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 25px;
+    color: #ffffff;
+    padding: 6px 16px;
+    width: 100px;
   }
 }

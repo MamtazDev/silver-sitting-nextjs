@@ -108,12 +108,12 @@
   border-radius: 11px;
   height: 134px;
   border: 1px solid #dcdcdc;
-  background-color: #fcf9fc;
+  background-color: #ffffff ;
   resize: none;
 }
 
 .textareaInput:focus-visible {
-  outline: 1px solid #dcdcdc;
+  outline: 1px solid #ffffff;
 }
 
 @media only screen and (max-width: 688px) {

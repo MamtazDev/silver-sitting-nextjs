@@ -4,7 +4,7 @@ import Pagination from "../Pagination/Pagination";
 import { useSelector } from "react-redux";
 import styles from "@/styles/SearchResultCard.module.css";
 
-const SearchResult = ({ setStep }) => {
+const SearchResult = ({ handleSearchAgain }) => {
   const { filterData } = useSelector((state) => state.childCarerFilter);
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -21,7 +21,7 @@ const SearchResult = ({ setStep }) => {
         <button
           className="btn"
           style={{ background: "#8b3888", color: "white" }}
-          onClick={() => setStep(0)}
+          onClick={handleSearchAgain}
         >
           Search Again
         </button>
