@@ -52,8 +52,8 @@ const Message = ({ styles, profile, sms, members, conversationId }) => {
 
   return (
     <div className={styles.pobox}>
-      <div className="d-flex gap-3 flex-column md:flex-row align-items-center justify-content-between">
-        <div className="d-flex flex-column md:flex-row align-items-center gap-4 rounded-circle">
+      <div className="d-flex gap-3 flex-column flex-md-row align-items-center justify-content-between">
+        <div className="d-flex flex-column flex-md-row align-items-center gap-4 rounded-circle">
           <img
             src={userInfo?.image}
             alt=""
