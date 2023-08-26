@@ -13,6 +13,7 @@ import {
   setChildCarerFilterData,
   setCity,
 } from "@/features/childCareSearch/childCareSearchSlice";
+import useGetUserLocation from "@/hooks/useGetUserLocation";
 
 const ChildCare = () => {
   const [lookfor, setLookfor] = useState();
@@ -24,6 +25,10 @@ const ChildCare = () => {
 
   const dispatch = useDispatch();
   const { city } = useSelector((state) => state.childCarerFilter);
+
+  const { user } = useSelector((state) => state.register);
+
+  const userGeoLocation = useGetUserLocation();
 
   const [getSearchedChildCarer, { isLoading, isSuccess, isError }] =
     useGetSearchedChildCarerMutation();
@@ -39,14 +44,14 @@ const ChildCare = () => {
 
   const handleSerchFormSubmit = (e) => {
     e.preventDefault();
-    // setStep((prev) => prev + 1);
-    // setStep("error");
+
     const form = e.target;
+
+    const userAddress = { ...userGeoLocation, address: user?.residance };
 
     const filterCriteria = {};
     const gender = lookfor;
     const city = form.city.value;
-    // console.log(distance);
 
     if (gender) {
       filterCriteria.gender = gender;
@@ -57,24 +62,24 @@ const ChildCare = () => {
 
     const data = {
       offerProvide: offers,
+      userAddress,
     };
 
     getSearchedChildCarer({ filterCriteria, data }).then((res) => {
-      if (res?.data.length > 0) {
+      console.log(res);
+      if (res?.data?.length > 0) {
         dispatch(setChildCarerFilterData(res.data));
         setStep((prev) => prev + 1);
-      } else if (res?.data.length === 0) {
+      } else if (res?.data?.length === 0) {
         setStep("error");
-      } else if (res?.error) {
+      } else if (res?.error?.data?.message === "Distance is more than 100") {
+        setWarning(true);
+      } else if (res?.error?.data?.message === "No matched users") {
         setStep("error");
       } else {
         setStep("error");
       }
     });
-
-    // console.log(filterCriteria);
-
-    // console.log(data, "fdd");
   };
 
   const handleSearchAgain = () => {
@@ -260,13 +265,23 @@ const ChildCare = () => {
                   </div>
                 </div>
                 <div className="text-center">
-                  <button
-                    className={`btn ${styles.formButton}`}
-                    type="submit"
-                    disabled={isLoading}
-                  >
-                    Start Search
-                  </button>
+                  {isLoading ? (
+                    <div className={` ${styles.searchingContainer}`}>
+                      <div className="d-flex flex-column flex-md-row align-items-center gap-2">
+                        <div class="spinner-border" role="status">
+                          <span class="visually-hidden">Loading...</span>
+                        </div>{" "}
+                        <div>Searching...</div>
+                      </div>
+                    </div>
+                  ) : (
+                    <button
+                      className={`btn ${styles.formButton}`}
+                      disabled={isLoading}
+                    >
+                      Start Search
+                    </button>
+                  )}
                 </div>
               </form>
             </div>

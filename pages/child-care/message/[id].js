@@ -224,6 +224,7 @@ const Chatting = () => {
             onChange={handleInputChange}
             onKeyDown={handleKeyDown}
             className={styles.textareaInput}
+            // style={{ backgroundColor: "#FFFFF" }}
             placeholder={`Type a message to ${senderInfo?.firstName}...`}
           />
           <div className={styles.buttonContainer}>
