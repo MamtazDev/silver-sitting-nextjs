@@ -3,6 +3,7 @@
     max-width: 740px;
     margin: 60px auto 128px;
     overflow-x: scroll;
+    justify-content: center;
 }
 
 .blog_tab::-webkit-scrollbar {

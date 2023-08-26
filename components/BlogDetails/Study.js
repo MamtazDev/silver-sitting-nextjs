@@ -7,7 +7,7 @@ const Study = () => {
   return (
     <div className={styles.study}>
       <div className="container">
-        <div className="row gy-4">
+        <div className="row d-none  gy-4">
           <div className="col-12 col-lg-6">
             <h4>
               New{" "}

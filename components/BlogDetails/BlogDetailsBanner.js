@@ -5,8 +5,12 @@ import people from "../../public/assets/icons/details-people.png";
 import share from "../../public/assets/icons/details-share.png";
 import comment from "../../public/assets/icons/details-comment.png";
 import like from "../../public/assets/icons/details.like.png";
+import { TwitterShareButton, FacebookShareButton } from 'react-share';
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 
-const BlogDetailsBanner = ({blogDetails}) => {
+
+const BlogDetailsBanner = ({ blogDetails }) => {
   return (
     <div className={styles.blog_details}>
       <div className="container">
@@ -27,8 +31,20 @@ const BlogDetailsBanner = ({blogDetails}) => {
               </div>
               <div>
                 <div className="d-flex align-items-center gap-2">
-                  <img src={share.src} alt="" />
-                  <h6 className="mb-0">Share</h6>
+                  <Popup trigger={<div className="d-flex"> <img src={share.src} alt="" />
+                    <h6 className="mb-0"> Share</h6></div>} position="right center">
+                    <div>
+                      <TwitterShareButton url={`http://localhost:1337${blogDetails?.attributes?.thumb?.data[0]?.attributes?.formats?.thumbnail?.url}`} title={` Share on Twitter`}>
+                        Share on Twitter
+                      </TwitterShareButton>
+
+                      <FacebookShareButton url={`http://localhost:1337${blogDetails?.attributes?.thumb?.data[0]?.attributes?.formats?.thumbnail?.url}`} quote={` Share on facebook`}>
+                        Share on Facebook
+                      </FacebookShareButton>
+                    </div>
+                  </Popup>
+
+
                 </div>
               </div>
               <div>
@@ -44,10 +60,10 @@ const BlogDetailsBanner = ({blogDetails}) => {
                 </div>
               </div>
             </div>
-            <h4>{blogDetails?.attributes?.title ?blogDetails?.attributes?.title :"This is title"}</h4>
-            <p dangerouslySetInnerHTML={{ __html: blogDetails?.attributes.description }}/>
-             
-        
+            <h4>{blogDetails?.attributes?.title ? blogDetails?.attributes?.title : "This is title"}</h4>
+            <p dangerouslySetInnerHTML={{ __html: blogDetails?.attributes.description }} />
+
+
             <br />
             {/* <p>
               We at SilverSitting are only too happy to support the

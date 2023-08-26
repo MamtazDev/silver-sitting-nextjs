@@ -6,7 +6,7 @@ import guide from "../../public/assets/guide.png";
 const PocketGuide = () => {
   return (
     <div className={styles.pocket_guide}>
-      <div className="container">
+      {/* <div className="container">
         <p>
           The Federal Ministry of Health has published a pocket guide especially
           for senior citizens. You can read it{" "}
@@ -18,7 +18,7 @@ const PocketGuide = () => {
           </Link>{" "}
         </p>
         <img className="img-fluid" src={guide.src} alt="" />
-      </div>
+      </div> */}
     </div>
   );
 };

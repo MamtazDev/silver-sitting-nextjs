@@ -21,7 +21,7 @@ const TypesTabs = () => {
     },
   ];
   return (
-    <div className="container">
+    <div className="container d-none">
       <div className={styles.tabs}>
         {tabs.map((tab, index) => (
           <Link  key={index} href="/Corona">

@@ -32,6 +32,7 @@ export default function BlogDetails () {
     .then(res=>res.json())
     .then(data=>{
       if(data?.data)
+      console.log("Blog Details: ",data.data)
       setBlogDetails(data.data)
     })
   },[slug])

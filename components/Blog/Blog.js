@@ -13,6 +13,7 @@ const Blog = ({allBlogs}) => {
 
   const gg = formatDate("2023-08-11T23:58:42.228Z")
   console.log(gg,"jkj")
+  console.log("allBlogs", allBlogs)
 
 
   // ?.attributes?.thumb?.data[0]?.attributes?.formats?.thumbnail?.url,
@@ -29,7 +30,7 @@ const Blog = ({allBlogs}) => {
             >
               <div className={styles.blog}>
                 <Link href={`blogs/details/${index.id}`}>
-                  <img className="img-fluid w-100" src={ index.attributes?.thumb?.data[0]?.attributes?.formats?.thumbnail?.url?`http://localhost:1337${index.attributes?.thumb?.data[0]?.attributes?.formats?.thumbnail?.url}` :blog.src} alt="" />
+                  <img style={{height:"30vh", objectFit:'cover'}} className="img-fluid w-100" src={ index.attributes?.thumb?.data[0]?.attributes?.formats?.thumbnail?.url?`http://localhost:1337${index.attributes?.thumb?.data[0]?.attributes?.formats?.thumbnail?.url}` :blog.src} alt="" />
                   {/* <img className="img-fluid w-100" src={blog.src} alt="" /> */}
                 </Link>
                 <div></div>
@@ -50,7 +51,7 @@ const Blog = ({allBlogs}) => {
                       </div>
                     </div>
                     <div>
-                      <div className="d-flex align-items-center gap-1">
+                      <div className="d-flex  align-items-center gap-1">
                         <img src={share.src} alt="" />
                         <p className="mb-0">Share</p>
                       </div>
@@ -74,7 +75,7 @@ const Blog = ({allBlogs}) => {
                     the year, Corona has been threatening all of our health and
                     even all of our lives.
                   </h6> */}
-                  <Link href="">
+                  <Link href={`blogs/details/${index.id}`}>
                     Read More <img className="ms-1" src={arrow.src} alt="" />
                   </Link>
                 </div>
