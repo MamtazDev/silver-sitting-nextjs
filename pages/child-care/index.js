@@ -47,7 +47,12 @@ const ChildCare = () => {
 
     const form = e.target;
 
-    const userAddress = { ...userGeoLocation, address: user?.residance };
+    const maxDistance = form.maxDistance.value;
+
+    console.log(maxDistance, "kkkk");
+
+    // const userAddress = { ...userGeoLocation, address: user?.residance };
+    const userAddress = user?.residance;
 
     const filterCriteria = {};
     const gender = lookfor;
@@ -57,12 +62,14 @@ const ChildCare = () => {
       filterCriteria.gender = gender;
     }
     if (city) {
-      filterCriteria.city = city;
+      filterCriteria.city = city ? city : user?.residance;
+    }
+    if (maxDistance) {
+      filterCriteria.maxDistance = maxDistance;
     }
 
     const data = {
       offerProvide: offers,
-      userAddress,
     };
 
     getSearchedChildCarer({ filterCriteria, data }).then((res) => {
@@ -91,11 +98,11 @@ const ChildCare = () => {
 
   const handleChange = (e) => {
     const distance = e.target.value;
-    // if (distance > 30) {
-    //   setWarning(true);
-    // } else {
-    //   setWarning(false);
-    // }
+    if (Number(distance) > 30) {
+      setWarning(true);
+    } else {
+      setWarning(false);
+    }
   };
 
   useEffect(() => {
@@ -157,20 +164,20 @@ const ChildCare = () => {
                   <input
                     type="text"
                     className="w-100"
-                    Value={city}
+                    Value={city ? city : user?.residance}
                     name="city"
-                    onChange={(e) => handleChange(e)}
+                    // onChange={(e) => handleChange(e)}
                   />
 
                   <div className={styles.distance}>
                     <p>
                       Up to max.{" "}
                       <input
-                        type="text"
-                        // name="distance"
-
+                        type="number"
+                        name="maxDistance"
                         className="mx-3 text-center"
                         placeholder="30"
+                        onChange={(e) => handleChange(e)}
                       />{" "}
                       km distance
                     </p>
@@ -277,7 +284,7 @@ const ChildCare = () => {
                   ) : (
                     <button
                       className={`btn ${styles.formButton}`}
-                      disabled={isLoading}
+                      disabled={isLoading || warning}
                     >
                       Start Search
                     </button>
