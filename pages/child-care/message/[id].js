@@ -123,7 +123,9 @@ const Chatting = () => {
   };
 
   useEffect(() => {
-    socket.current = io("ws://localhost:8900");
+    socket.current = io("ws://16.171.47.109:8900");
+
+    // http://16.171.47.109:8900/
     socket.current.on("getMessage", (data) => {
       console.log("data", data);
       setArrivalMessage({
