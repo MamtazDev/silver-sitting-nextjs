@@ -37,7 +37,9 @@ const Message = ({ styles, profile, sms, members, conversationId }) => {
   useEffect(() => {
     const senderId = members?.find((i) => user?._id !== i);
 
-    fetch(`http://16.171.138.157:8000/api/users/${senderId}`).then((res) =>
+    fetch(
+      `https://silver-backend-demo.onrender.com/api/users/${senderId}`
+    ).then((res) =>
       res.json().then((datas) => {
         if (datas) {
           setUserInfo(datas);
@@ -46,7 +48,7 @@ const Message = ({ styles, profile, sms, members, conversationId }) => {
     );
 
     fetch(
-      `http://16.171.138.157:8000/api/message/${senderId}/${conversationId}`
+      `https://silver-backend-demo.onrender.com/api/message/${senderId}/${conversationId}`
     )
       .then((res) => res.json())
       .then((resData) => setMessages(resData));
