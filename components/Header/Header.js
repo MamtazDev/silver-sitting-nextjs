@@ -9,32 +9,32 @@ import logOut from "../../public/assets/icons/logout.png";
 import Link from "next/link";
 import "../../styles/Header.module.css";
 import { useSelector } from "react-redux";
-import {IoIosArrowDown} from "react-icons/io"
+import { IoIosArrowDown } from "react-icons/io";
 
 const Header = () => {
   const { user } = useSelector((state) => state.register);
-  useEffect(() => {
-    const script = document.createElement("script");
+  // useEffect(() => {
+  //   const script = document.createElement("script");
 
-    script.src =
-      "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
-    script.async = true;
-    document.body.appendChild(script);
-    window.googleTranslateElementInit = () => {
-      new window.google.translate.TranslateElement(
-        {
-          pageLanguage: "en",
-          includedLanguages: "en,de",
-          layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
-        },
-        "google_translate_element"
-      );
-    };
-    return () => {
-      document.body.removeChild(script);
-      delete window.googleTranslateElementInit;
-    };
-  }, []);
+  //   script.src =
+  //     "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+  //   script.async = true;
+  //   document.body.appendChild(script);
+  //   window.googleTranslateElementInit = () => {
+  //     new window.google.translate.TranslateElement(
+  //       {
+  //         pageLanguage: "en",
+  //         includedLanguages: "en,de",
+  //         layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
+  //       },
+  //       "google_translate_element"
+  //     );
+  //   };
+  //   return () => {
+  //     document.body.removeChild(script);
+  //     delete window.googleTranslateElementInit;
+  //   };
+  // }, []);
   return (
     <div className="header">
       <Navbar collapseOnSelect expand="lg">
@@ -81,7 +81,7 @@ const Header = () => {
               </Form.Select> */}
               <div className="d-flex align-items-center">
                 <div id="google_translate_element"></div>
-                <IoIosArrowDown/>
+                <IoIosArrowDown />
               </div>
               {user ? (
                 <div className="parent">

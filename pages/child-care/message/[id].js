@@ -152,6 +152,7 @@ const Chatting = () => {
 
   useEffect(() => {
     socket.current = io("https://chat-8xfi.onrender.com/");
+    // socket.current = io("https://chat-8xfi.onrender.com/");
 
     // http://16.171.47.109:8900/
     socket.current.on("getMessage", (data) => {
