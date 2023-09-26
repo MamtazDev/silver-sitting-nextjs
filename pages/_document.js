@@ -1,30 +1,6 @@
 import { Html, Head, Main, NextScript } from "next/document";
-import { useEffect } from "react";
 
 export default function Document() {
-  useEffect(() => {
-    function googleTranslateElementInit() {
-      new window.google.translate.TranslateElement(
-        {
-          pageLanguage: "en",
-          includedLanguages: "en,fr",
-        },
-        "google_translate_element"
-      );
-    }
-
-    // Load the Google Translate script when the component mounts
-    const script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src =
-      "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
-    document.body.appendChild(script);
-
-    // Cleanup when the component unmounts
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
   return (
     <Html lang="en">
       <Head>
@@ -41,7 +17,6 @@ export default function Document() {
       <body>
         <Main />
         <NextScript />
-        <div id="google_translate_element"></div>
       </body>
     </Html>
   );
