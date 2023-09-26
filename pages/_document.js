@@ -13,6 +13,10 @@ export default function Document() {
           http-equiv="Content-Security-Policy"
           content="upgrade-insecure-requests"
         ></meta>
+      </Head>
+      <body>
+        <Main />
+        <NextScript />
         <script type="text/javascript">
           function googleTranslateElementInit(){" "}
           {
@@ -25,15 +29,10 @@ export default function Document() {
             )
           }
         </script>
-
         <script
           type="text/javascript"
-          src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+          src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
         ></script>
-      </Head>
-      <body>
-        <Main />
-        <NextScript />
       </body>
     </Html>
   );
