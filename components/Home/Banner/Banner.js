@@ -70,7 +70,7 @@ const Banner = () => {
               </div>
               {tab === "children" && (
                 <div>
-                  <h6 className="mb-4 fw-bold">
+                  <h6 className="mb-4 ">
                     Take care of children and get compensation from parents if
                     you want.
                   </h6>
