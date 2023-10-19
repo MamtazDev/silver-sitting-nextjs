@@ -34,7 +34,7 @@ export default function Home() {
         <link rel="stylesheet" href="../styles/Header.css" />
       </Head>
       <main>
-        <h1>{t("nachricht")}</h1>
+        {/* <h1>{t("nachricht")}</h1> */}
         <Banner />
         <Known />
         <About />
