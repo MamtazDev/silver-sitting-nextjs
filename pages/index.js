@@ -8,9 +8,23 @@ import About from "@/components/Home/About";
 import HowWorks from "@/components/Home/HowWorks";
 import Register from "@/components/Home/Register";
 import { useSelector } from "react-redux";
+import translations from "@/utils/translation";
+import { useTranslation } from "react-i18next";
+
+import Cookies from "js-cookie";
 
 export default function Home() {
   const { user } = useSelector((state) => state.register);
+  const { i18n } = useTranslation();
+
+  const t =
+    i18n.language === "en"
+      ? function (str) {
+          return translations.en[str];
+        }
+      : function (str) {
+          return translations.de[str];
+        };
   return (
     <>
       <Head>
@@ -20,6 +34,7 @@ export default function Home() {
         <link rel="stylesheet" href="../styles/Header.css" />
       </Head>
       <main>
+        <h1>{t("nachricht")}</h1>
         <Banner />
         <Known />
         <About />

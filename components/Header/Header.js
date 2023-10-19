@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect } from "react";
 import { Container, Form, Nav, Navbar } from "react-bootstrap";
 import logo from "../../public/assets/logo.png";
@@ -10,31 +12,49 @@ import Link from "next/link";
 import "../../styles/Header.module.css";
 import { useSelector } from "react-redux";
 import { IoIosArrowDown } from "react-icons/io";
+import { useTranslation } from "react-i18next";
 
 const Header = () => {
   const { user } = useSelector((state) => state.register);
-  useEffect(() => {
-    const script = document.createElement("script");
 
-    script.src =
-      "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
-    script.async = true;
-    document.body.appendChild(script);
-    window.googleTranslateElementInit = () => {
-      new window.google.translate.TranslateElement(
-        {
-          pageLanguage: "en",
-          includedLanguages: "en,de",
-          layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
-        },
-        "google_translate_element"
-      );
-    };
-    return () => {
-      document.body.removeChild(script);
-      delete window.googleTranslateElementInit;
-    };
-  }, []);
+  const { i18n } = useTranslation();
+
+  // const t =
+  //   i18n.language === "en"
+  //     ? function (str) {
+  //         return translations.en[str];
+  //       }
+  //     : function (str) {
+  //         return translations.de[str];
+  //       };
+
+  // useEffect(() => {
+  //   const script = document.createElement("script");
+
+  //   script.src =
+  //     "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+  //   script.async = true;
+  //   document.body.appendChild(script);
+  //   window.googleTranslateElementInit = () => {
+  //     new window.google.translate.TranslateElement(
+  //       {
+  //         pageLanguage: "en",
+  //         includedLanguages: "en,de",
+  //         layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
+  //       },
+  //       "google_translate_element"
+  //     );
+  //   };
+  //   return () => {
+  //     document.body.removeChild(script);
+  //     delete window.googleTranslateElementInit;
+  //   };
+  // }, []);
+
+  const handleChange = (e) => {
+    const lang = `${e.target.value}`;
+    i18n.changeLanguage(lang);
+  };
   return (
     <div className="header">
       <Navbar collapseOnSelect expand="lg">
@@ -72,17 +92,22 @@ const Header = () => {
               </div>
             </Nav>
             <Nav className="button-navbar align-items-center">
-              {/* <Form.Select
+              <Form.Select
                 aria-label="Default select example"
                 className="language-dropdown"
+                onChange={handleChange}
               >
-                <option value="eng">ENG</option>
-                <option value="1">GER</option>
-              </Form.Select> */}
-              <div className="d-flex align-items-center">
+                <option value="en" selected={i18n.language === "en"}>
+                  ENG
+                </option>
+                <option value="de" selected={i18n.language === "de"}>
+                  GER
+                </option>
+              </Form.Select>
+              {/* <div className="d-flex align-items-center">
                 <div id="google_translate_element"></div>
                 <IoIosArrowDown />
-              </div>
+              </div> */}
               {user ? (
                 <div className="parent">
                   <Link
