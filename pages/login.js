@@ -7,6 +7,7 @@ import { useLoginMutation } from "@/features/register/registerApi";
 import { useRouter } from "next/router";
 import { useTranslation } from "react-i18next";
 import translations from "@/utils/translation";
+import loadingGif from "@/public/assets/loading.svg";
 
 const Login = () => {
   const [agree, setAgree] = useState(false);
@@ -54,7 +55,7 @@ const Login = () => {
     //   setErrors("You have to agree the privacy policy.");
     // }
   };
-  
+
   return (
     <>
       <Meta>Login</Meta>
@@ -102,13 +103,22 @@ const Login = () => {
             </div>
             <p className="text-danger">{errors}</p>
             <div className="text-center">
-              <button
-                className={`btn ${styles.loginButton}`}
-                type="submit"
-                disabled={isLoading}
-              >
-                Log In
-              </button>
+              {isLoading ? (
+                <button
+                  className={`btn ${styles.loginButton} disabledButton`}
+                  disabled
+                >
+                  Logging <img src={loadingGif.src} width={25} />
+                </button>
+              ) : (
+                <button
+                  className={`btn ${styles.loginButton}`}
+                  type="submit"
+                  disabled={isLoading}
+                >
+                  Log In
+                </button>
+              )}
             </div>
           </form>
           <div className={styles.formFooter}>
