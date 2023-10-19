@@ -13,6 +13,8 @@ import {
   setChildCarerFilterData,
   setCity,
 } from "@/features/childCareSearch/childCareSearchSlice";
+import { useTranslation } from "react-i18next";
+import translations from "@/utils/translation";
 // import useGetUserLocation from "@/hooks/useGetUserLocation";
 
 const ChildCare = () => {
@@ -27,6 +29,16 @@ const ChildCare = () => {
 
   const dispatch = useDispatch();
   const { city } = useSelector((state) => state.childCarerFilter);
+  const { i18n } = useTranslation();
+
+  const t =
+    i18n.language === "en"
+      ? function (str) {
+          return translations.en[str];
+        }
+      : function (str) {
+          return translations.de[str];
+        };
 
   const { user } = useSelector((state) => state.register);
 
@@ -299,7 +311,7 @@ const ChildCare = () => {
                         <div class="spinner-border" role="status">
                           <span class="visually-hidden">Loading...</span>
                         </div>{" "}
-                        <div>Searching...</div>
+                        <div>{t("searching")}</div>
                       </div>
                     </div>
                   ) : (
@@ -307,7 +319,7 @@ const ChildCare = () => {
                       className={`btn ${styles.formButton}`}
                       disabled={isLoading}
                     >
-                      Start Search
+                      {t("startSearch")}
                     </button>
                   )}
                 </div>

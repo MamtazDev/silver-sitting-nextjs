@@ -12,8 +12,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { setRole, setStepControll } from "@/features/register/registerSlice";
 import { useRegisterMutation } from "@/features/register/registerApi";
 import loadingGif from "../public/assets/loading.svg";
+import { useTranslation } from "react-i18next";
+import translations from "@/utils/translation";
 
 const Register = () => {
+  const { i18n } = useTranslation();
+  const t =
+    i18n.language === "en"
+      ? function (str) {
+          return translations.en[str];
+        }
+      : function (str) {
+          return translations.de[str];
+        };
+        
   const { registerPage, role } = useSelector((state) => state.register);
   const dispatch = useDispatch();
 
