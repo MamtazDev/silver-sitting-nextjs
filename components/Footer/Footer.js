@@ -2,6 +2,9 @@ import React from "react";
 import styles from "@/styles/Footer.module.css";
 import footerLogo from "../../public/assets/footer-logo.png";
 import Link from "next/link";
+import { useDispatch } from "react-redux";
+import { setCity } from "@/features/childCareSearch/childCareSearchSlice";
+import { useRouter } from "next/router";
 
 const Footer = () => {
   const routes = [
@@ -67,110 +70,141 @@ const Footer = () => {
     },
     {
       name: "Baby-sitter",
-      path: "https://www.silversitting.com/suche",
+      path: "/child-care",
     },
     {
       name: "Babysitter Berlin",
-      path: "https://www.silversitting.com/suche?Suchort=Berlin",
+      path: "/child-care",
+      area: "Berlin",
     },
     {
       name: "Babysitter Bonn",
-      path: "https://www.silversitting.com/suche?Suchort=Bonn",
+      path: "/child-care",
+      area: "Bonn",
     },
     {
       name: "Babysitter Dusseldorf",
-      path: "https://www.silversitting.com/suche?Suchort=Duesseldorf",
+      path: "/child-care",
+      area: "Duesseldorf",
     },
     {
       name: "Babysitter Frankfurt",
-      path: "https://www.silversitting.com/suche?Suchort=Frankfurt",
+      path: "/child-care",
+      area: "Frankfurt",
     },
     {
       name: "Babysitter Hamburg",
-      path: "https://www.silversitting.com/suche?Suchort=Hamburg",
+      path: "/child-care",
+      area: "Hamburg",
     },
     {
       name: "More cities",
-      path: "#",
+      path: "/child-care",
     },
     {
       name: "Childcare",
-      path: "https://www.silversitting.com/suche",
+      path: "/child-care",
     },
     {
       name: "Childcare Berlin",
-      path: "https://www.silversitting.com/suche?Suchort=Berlin",
+      path: "/child-care",
+      area: "Berlin",
     },
     {
       name: "Childcare Bonn",
-      path: "https://www.silversitting.com/suche?Suchort=Bonn",
+      path: "/child-care",
+      area: "Bonn",
     },
     {
       name: "Childcare Dusseldorf",
-      path: "https://www.silversitting.com/suche?Suchort=Duesseldorf",
+      path: "/child-care",
+      area: "Duesseldorf",
     },
     {
       name: "Childcare Frankfurt",
-      path: "https://www.silversitting.com/suche?Suchort=Frankfurt",
+      path: "/child-care",
+      area: "Frankfurt",
     },
     {
       name: "Childcare Hamburg",
-      path: "https://www.silversitting.com/suche?Suchort=Hamburg",
+      path: "/child-care",
+      area: "Hamburg",
     },
     {
       name: "More cities",
-      path: "#",
+      path: "/child-care",
     },
     {
       name: "Surrogate",
-      path: "https://www.silversitting.com/suche",
+      path: "/child-care",
     },
     {
       name: "Loan Grandma Berlin",
-      path: "https://www.silversitting.com/suche?Suchort=Berlin",
+      path: "/child-care",
+      area: "Berlin",
     },
     {
       name: "Leihoma Bonn",
-      path: "https://www.silversitting.com/suche?Suchort=Bonn",
+      path: "/child-care",
+      area: "Bonn",
     },
     {
       name: "Loan Grandma Dusseldorf",
-      path: "https://www.silversitting.com/suche?Suchort=Duesseldorf",
+      path: "/child-care",
+      area: "Duesseldorf",
     },
     {
       name: "Lease grandmother Frankfurt",
-      path: "https://www.silversitting.com/suche?Suchort=Frankfurt",
+      path: "/child-care",
+      area: "Frankfurt",
     },
     {
       name: "Lease granmother Hamburg",
-      path: "https://www.silversitting.com/suche?Suchort=Hamburg",
+      path: "/child-care",
+      area: "Hamburg",
     },
     {
       name: "Nanny",
-      path: "https://www.silversitting.com/suche",
+      path: "/child-care",
     },
     {
       name: "Nanny Berlin",
-      path: "https://www.silversitting.com/suche?Suchort=Berlin",
+      path: "/child-care",
+      area: "Berlin",
     },
     {
       name: "Nanny Bonn",
-      path: "https://www.silversitting.com/suche?Suchort=Bonn",
+      path: "/child-care",
+      area: "Bonn",
     },
     {
       name: "Nanny Dusseldorf",
-      path: "https://www.silversitting.com/suche?Suchort=Duesseldorf",
+      path: "/child-care",
+      area: "Duesseldorf",
     },
     {
       name: "Nanny Frankfurt",
-      path: "https://www.silversitting.com/suche?Suchort=Frankfurt",
+      path: "/child-care",
+      area: "Frankfurt",
     },
     {
       name: "Nanny Hamburg",
-      path: "https://www.silversitting.com/suche?Suchort=Hamburg",
+      path: "/child-care",
+      area: "Hamburg",
     },
   ];
 
+  const dispatch = useDispatch();
+  const { push } = useRouter();
+
+  const handleClick = (city) => {
+    if (city) {
+      dispatch(setCity(city));
+    } else {
+      dispatch(setCity(""));
+    }
+    push("/child-care");
+  };
   return (
     <footer>
       <div className="container">
@@ -218,28 +252,28 @@ const Footer = () => {
         <div className="d-flex gap-4 flex-wrap flex-column flex-md-row justify-content-between">
           <div>
             {routes.slice(15, 22).map((item, index) => (
-              <Link target="_blank" href={item.path}>
+              <Link href="" onClick={() => handleClick(item?.area)}>
                 {item.name}
               </Link>
             ))}
           </div>
           <div>
             {routes.slice(22, 29).map((item, index) => (
-              <Link target="_blank" href={item.path}>
+              <Link href="" onClick={() => handleClick(item?.area)}>
                 {item.name}
               </Link>
             ))}
           </div>
           <div>
             {routes.slice(29, 35).map((item, index) => (
-              <Link target="_blank" href={item.path}>
+              <Link href="" onClick={() => handleClick(item?.area)}>
                 {item.name}
               </Link>
             ))}
           </div>
           <div>
             {routes.slice(35, 41).map((item, index) => (
-              <Link target="_blank" href={item.path}>
+              <Link href="" onClick={() => handleClick(item?.area)}>
                 {item.name}
               </Link>
             ))}

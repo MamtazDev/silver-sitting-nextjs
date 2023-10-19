@@ -120,14 +120,14 @@ const ChildCare = () => {
   }, [step]);
 
   useEffect(() => {
-    if (user) {
+    if (user && !city) {
       setTimeout(() => {
         if (window.confirm("Are you allow us to use your location?")) {
           dispatch(setCity(user?.residance));
         }
       }, 1000);
     }
-  }, [user]);
+  }, [user, city]);
 
   return (
     <>
