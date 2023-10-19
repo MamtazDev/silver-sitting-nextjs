@@ -35,7 +35,7 @@ export default function Home() {
       </Head>
       <main>
         {/* <h1>{t("nachricht")}</h1> */}
-        <Banner />
+        <Banner t={t} />
         <Known />
         <About />
         <HowWorks />

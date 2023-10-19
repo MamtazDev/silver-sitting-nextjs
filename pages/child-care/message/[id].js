@@ -14,10 +14,23 @@ import { setConversationId } from "@/features/chat/chatSlice";
 import { useGetSingleUserQuery } from "@/features/register/registerApi";
 import { formatMessageTime } from "@/utils/utils";
 import { io } from "socket.io-client";
+import { useTranslation } from "react-i18next";
+import translations from "@/utils/translation";
 
 const Chatting = () => {
   const { user } = useSelector((state) => state.register);
   const { conversationId } = useSelector((state) => state.chat);
+
+  const { i18n } = useTranslation();
+
+  const t =
+    i18n.language === "en"
+      ? function (str) {
+          return translations.en[str];
+        }
+      : function (str) {
+          return translations.de[str];
+        };
 
   const dispatch = useDispatch();
 
@@ -236,7 +249,7 @@ const Chatting = () => {
               className="_button"
               disabled={messageLoading}
             >
-              Send Message
+              {t("sendMsg")}
             </button>
           </div>
         </div>

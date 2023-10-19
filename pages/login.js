@@ -5,6 +5,8 @@ import Link from "next/link";
 import Meta from "@/components/Shared/Meta";
 import { useLoginMutation } from "@/features/register/registerApi";
 import { useRouter } from "next/router";
+import { useTranslation } from "react-i18next";
+import translations from "@/utils/translation";
 
 const Login = () => {
   const [agree, setAgree] = useState(false);
@@ -15,6 +17,17 @@ const Login = () => {
 
   const [login, { isError, isLoading, isSuccess, error, data }] =
     useLoginMutation();
+
+  const { i18n } = useTranslation();
+
+  const t =
+    i18n.language === "en"
+      ? function (str) {
+          return translations.en[str];
+        }
+      : function (str) {
+          return translations.de[str];
+        };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -41,6 +54,7 @@ const Login = () => {
     //   setErrors("You have to agree the privacy policy.");
     // }
   };
+  
   return (
     <>
       <Meta>Login</Meta>
@@ -48,7 +62,7 @@ const Login = () => {
         <div className={styles.emptyContainer}></div>
         <div className={styles.loginFormContainer}>
           <form onSubmit={handleSubmit}>
-            <h2>Log In</h2>
+            <h2>{t("logIn")}</h2>
             <div className={`${styles.inputContainer} ${styles.emailInput}`}>
               <label>
                 Email address <span>*</span>

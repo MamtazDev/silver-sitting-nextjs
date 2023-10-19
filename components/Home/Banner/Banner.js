@@ -10,7 +10,7 @@ import { setStepControll } from "@/features/register/registerSlice";
 import { setCity } from "@/features/childCareSearch/childCareSearchSlice";
 import { useRouter } from "next/router";
 
-const Banner = () => {
+const Banner = ({ t }) => {
   const dispatch = useDispatch();
   const [backgroundImage, setBackgroundImage] = useState(`url(${banner1.src})`);
   const [tab, setTab] = useState("caregiver");
@@ -104,7 +104,7 @@ const Banner = () => {
                   />
                   <div className="text-center">
                     <button id="login_btn" className="mb-4" type="">
-                      Find Now
+                      {t("findNow")}
                     </button>{" "}
                   </div>
                   <br />
