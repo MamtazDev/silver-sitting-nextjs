@@ -11,6 +11,7 @@ import stamptik from "../public/assets/icons/staptik.png";
 import InstructionCard from "@/components/Instructions/InstructionCard";
 import Meta from "@/components/Shared/Meta";
 import ProtectedRoute from "@/routes/ProtectedRoute";
+import Link from "next/link";
 
 const instructions = [
   {
@@ -87,7 +88,9 @@ const Instructions = () => {
             ))}
           </div>
           <div className="text-center">
-            <button className={`btn ${styles.button}`}>Find A Nanny Now</button>
+            <Link href="/child-care" className={`btn ${styles.button}`}>
+              Find A Nanny Now
+            </Link>
           </div>
         </section>
       </>

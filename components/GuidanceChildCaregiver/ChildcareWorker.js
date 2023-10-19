@@ -19,15 +19,15 @@ const ChildcareWorker = () => {
           <div>
             <p>
               The first impression counts! As soon as you have{" "}
-              <Link href="">registered</Link> as a childcare worker , you can
-              write a few words about yourself in your personal profile - your
-              business card - and upload a friendly photo. When that's done,
-              you're almost ready to go!
+              <Link href="/register">registered</Link> as a childcare worker ,
+              you can write a few words about yourself in your personal profile
+              - your business card - and upload a friendly photo. When that's
+              done, you're almost ready to go!
             </p>
             <p>
               Now the parents have the opportunity to find you for childcare via
               a filter-based search. You are also welcome to try the search
-              yourself <Link href="">click here</Link> .
+              yourself <Link href="/child-care">click here</Link> .
             </p>
           </div>
         </div>

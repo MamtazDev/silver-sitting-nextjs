@@ -11,6 +11,7 @@ import sms from "../public/assets/success-sms.png";
 import { useDispatch, useSelector } from "react-redux";
 import { setRole, setStepControll } from "@/features/register/registerSlice";
 import { useRegisterMutation } from "@/features/register/registerApi";
+import loadingGif from "../public/assets/loading.svg";
 
 const Register = () => {
   const { registerPage, role } = useSelector((state) => state.register);
@@ -31,6 +32,17 @@ const Register = () => {
     return passwordRegex.test(value);
   };
 
+  const handlePasswordCheck = (e) => {
+    const isValid = validatePassword(e.target.value);
+    if (isValid) {
+      setError("");
+    } else {
+      setError(
+        "Password should be 8 characters and include at least one lowercase letter and one digit."
+      );
+    }
+  };
+
   const checkMatchedPassword = (password, rePassword) => {
     return password === rePassword;
   };
@@ -40,6 +52,7 @@ const Register = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    setError("");
 
     const form = event.target;
 
@@ -86,7 +99,9 @@ const Register = () => {
           setError("Password doesn't matched!");
         }
       } else {
-        setError("Password should be 8 charecter or a number.");
+        setError(
+          "Password should be 8 characters and include at least one lowercase letter and one digit."
+        );
       }
     } else if (role === "parents") {
       const passwordTesting = validatePassword(password);
@@ -121,15 +136,15 @@ const Register = () => {
           setError("Password doesn't matched!");
         }
       } else {
-        setError("Password should be 8 character or a number.");
+        setError(
+          "Password should be 8 characters and include at least one lowercase letter and one digit."
+        );
       }
     } else {
       setError("Please confirm that you are at least 55 years old.");
     }
   };
 
-  console.log(data, "eee");
-  console.log(error, "eror");
   return (
     <>
       <Meta>Register</Meta>
@@ -218,13 +233,23 @@ const Register = () => {
                   <label>
                     First Name <span>*</span>
                   </label>
-                  <input type="text" name="firstName" className="w-100" />
+                  <input
+                    type="text"
+                    name="firstName"
+                    className="w-100"
+                    required
+                  />
                 </div>
                 <div className="w-50">
                   <label>
                     Last Name <span>*</span>
                   </label>
-                  <input type="text" name="lastName" className="w-100" />
+                  <input
+                    type="text"
+                    name="lastName"
+                    className="w-100"
+                    required
+                  />
                 </div>
               </div>
               {/* 2nd row */}
@@ -232,7 +257,7 @@ const Register = () => {
                 <label>
                   Email address <span>*</span>
                 </label>
-                <input type="email" name="email" className="w-100" />
+                <input type="email" name="email" className="w-100" required />
               </div>
               {/* 3rd row */}
               <div className={styles.twoInputContainer}>
@@ -240,13 +265,23 @@ const Register = () => {
                   <label>
                     Post Code <span>*</span>
                   </label>
-                  <input type="number" name="postCode" className="w-100" />
+                  <input
+                    type="number"
+                    name="postCode"
+                    className="w-100"
+                    required
+                  />
                 </div>
                 <div className="w-50">
                   <label>
                     Residence <span>*</span>
                   </label>
-                  <input type="text" name="residence" className="w-100" />
+                  <input
+                    type="text"
+                    name="residence"
+                    className="w-100"
+                    required
+                  />
                 </div>
               </div>
               {/* 4th row */}
@@ -264,13 +299,24 @@ const Register = () => {
                   <label>
                     Password <span>*</span>
                   </label>
-                  <input type="password" name="password" className="w-100" />
+                  <input
+                    type="password"
+                    name="password"
+                    className="w-100"
+                    required
+                    onBlur={handlePasswordCheck}
+                  />
                 </div>
                 <div className="w-50">
                   <label>
                     Re-enter Password <span>*</span>
                   </label>
-                  <input type="password" name="rePassword" className="w-100" />
+                  <input
+                    type="password"
+                    name="rePassword"
+                    className="w-100"
+                    required
+                  />
                 </div>
               </div>
 
@@ -299,15 +345,24 @@ const Register = () => {
                   </label>
                 </div>
               </div>
-              <p className="text-danger">{errors}</p>
-              <div
-                className={`text-center ${styles.loginButtonContainer}`}
-                // onClick={() => setStep(3)}
-              >
-                <button className={`btn`} type="submit" disabled={isLoading}>
-                  Register
-                </button>
-              </div>
+              <p className="text-danger w-75">{errors}</p>
+              {isLoading ? (
+                <div className={`text-center ${styles.loginButtonContainer}`}>
+                  <button
+                    className={`btn disabledButton`}
+                    type="button"
+                    disabled
+                  >
+                    Registering <img src={loadingGif.src} width={25} />
+                  </button>
+                </div>
+              ) : (
+                <div className={`text-center ${styles.loginButtonContainer}`}>
+                  <button className={`btn`} type="submit">
+                    Register
+                  </button>
+                </div>
+              )}
               <div className={styles.quoteText}>
                 If you need assistance with registration then contact us at
                 <a href="mailto:info@silversitting.com">

@@ -13,13 +13,15 @@ import {
   setChildCarerFilterData,
   setCity,
 } from "@/features/childCareSearch/childCareSearchSlice";
-import useGetUserLocation from "@/hooks/useGetUserLocation";
+// import useGetUserLocation from "@/hooks/useGetUserLocation";
 
 const ChildCare = () => {
   const [lookfor, setLookfor] = useState();
   const [warning, setWarning] = useState(false);
   const [step, setStep] = useState(0);
   const [modalShow, setModalShow] = useState(false);
+  const [distanceInputValue, setDistanceInputValue] = useState("");
+  const [searchError, setSearchError] = useState(false);
 
   const [offers, setOffers] = useState([]);
 
@@ -28,7 +30,7 @@ const ChildCare = () => {
 
   const { user } = useSelector((state) => state.register);
 
-  const userGeoLocation = useGetUserLocation();
+  // const userGeoLocation = useGetUserLocation();
 
   const [getSearchedChildCarer, { isLoading, isSuccess, isError }] =
     useGetSearchedChildCarerMutation();
@@ -44,12 +46,14 @@ const ChildCare = () => {
 
   const handleSerchFormSubmit = (e) => {
     e.preventDefault();
-
+    setSearchError(false);
     const form = e.target;
 
-    const maxDistance = form.maxDistance.value;
+    const maxDistance =
+      form.maxDistance.value > 30 ? 30 : form.maxDistance.value;
+    setDistanceInputValue(maxDistance);
 
-    console.log(maxDistance, "kkkk");
+    // console.log(maxDistance, "kkkk");
 
     // const userAddress = { ...userGeoLocation, address: user?.residance };
     const userAddress = user?.residance;
@@ -57,6 +61,11 @@ const ChildCare = () => {
     const filterCriteria = {};
     const gender = lookfor;
     const city = form.city.value;
+
+    if (!city) {
+      setSearchError(true);
+      return;
+    }
 
     if (gender) {
       filterCriteria.gender = gender;
@@ -98,6 +107,7 @@ const ChildCare = () => {
 
   const handleChange = (e) => {
     const distance = e.target.value;
+    setDistanceInputValue(distance);
     if (Number(distance) > 30) {
       setWarning(true);
     } else {
@@ -108,6 +118,16 @@ const ChildCare = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [step]);
+
+  useEffect(() => {
+    if (user) {
+      setTimeout(() => {
+        if (window.confirm("Are you allow us to use your location?")) {
+          dispatch(setCity(user?.residance));
+        }
+      }, 1000);
+    }
+  }, [user]);
 
   return (
     <>
@@ -164,7 +184,7 @@ const ChildCare = () => {
                   <input
                     type="text"
                     className="w-100"
-                    Value={city ? city : user?.residance}
+                    Value={city}
                     name="city"
                     // onChange={(e) => handleChange(e)}
                   />
@@ -173,6 +193,7 @@ const ChildCare = () => {
                     <p>
                       Up to max.{" "}
                       <input
+                        value={distanceInputValue}
                         type="number"
                         name="maxDistance"
                         className="mx-3 text-center"
@@ -284,12 +305,16 @@ const ChildCare = () => {
                   ) : (
                     <button
                       className={`btn ${styles.formButton}`}
-                      disabled={isLoading || warning}
+                      disabled={isLoading}
                     >
                       Start Search
                     </button>
                   )}
                 </div>
+                <p className="text-danger mt-2">
+                  {searchError &&
+                    "Please enter the desired address above or log in."}
+                </p>
               </form>
             </div>
             <div className={styles.imageContainer}>
