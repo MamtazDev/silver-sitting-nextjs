@@ -14,6 +14,7 @@ const About = () => {
         "Find out where the idea for Silver Sitting came from and what drives us.",
       link: "Learn more about the idea and the <br /> founders of SilverSitting",
       bg: "about",
+      route: "/whoWeAre",
     },
     {
       pic: news,
@@ -21,6 +22,7 @@ const About = () => {
       content: "Check out our childcare news and articles",
       link: "To the news",
       bg: "news",
+      route: "/blogs",
     },
     {
       pic: security,
@@ -28,6 +30,7 @@ const About = () => {
       content: "Your safety is important to us!",
       link: "Take care of children safely",
       bg: "security",
+      route: "/ChildrenProviderFaq",
     },
   ];
 
@@ -51,7 +54,7 @@ const About = () => {
                 <p>{detail.content}</p>
               </div>
               <Link
-                href="#"
+                href={detail?.route}
                 dangerouslySetInnerHTML={{ __html: detail.link }}
               />
             </div>

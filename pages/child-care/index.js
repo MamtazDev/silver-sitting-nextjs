@@ -15,6 +15,7 @@ import {
 } from "@/features/childCareSearch/childCareSearchSlice";
 import { useTranslation } from "react-i18next";
 import translations from "@/utils/translation";
+import { useRouter } from "next/router";
 // import useGetUserLocation from "@/hooks/useGetUserLocation";
 
 const ChildCare = () => {
@@ -23,13 +24,16 @@ const ChildCare = () => {
   const [step, setStep] = useState(0);
   const [modalShow, setModalShow] = useState(false);
   const [distanceInputValue, setDistanceInputValue] = useState("");
-  const [searchError, setSearchError] = useState(false);
+  const [searchError, setSearchError] = useState("");
 
   const [offers, setOffers] = useState([]);
 
   const dispatch = useDispatch();
   const { city } = useSelector((state) => state.childCarerFilter);
   const { i18n } = useTranslation();
+
+  const { pathname } = useRouter();
+  console.log(pathname);
 
   const t =
     i18n.language === "en"
@@ -58,7 +62,7 @@ const ChildCare = () => {
 
   const handleSerchFormSubmit = (e) => {
     e.preventDefault();
-    setSearchError(false);
+    setSearchError("");
     const form = e.target;
 
     const maxDistance =
@@ -72,11 +76,21 @@ const ChildCare = () => {
 
     const filterCriteria = {};
     const gender = lookfor;
-    const city = form.city.value;
+    let city = form.city.value;
 
     if (!city) {
-      setSearchError(true);
-      return;
+      if (user) {
+        if (window.confirm("Are you allow us to use your location?")) {
+          dispatch(setCity(user?.residance));
+          city = user?.residance;
+        } else {
+          setSearchError("Please enter the desired address above.");
+          return;
+        }
+      } else {
+        setSearchError("Please enter the desired address above or log in.");
+        return;
+      }
     }
 
     if (gender) {
@@ -130,16 +144,6 @@ const ChildCare = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [step]);
-
-  useEffect(() => {
-    if (user && !city) {
-      setTimeout(() => {
-        if (window.confirm("Are you allow us to use your location?")) {
-          dispatch(setCity(user?.residance));
-        }
-      }, 1000);
-    }
-  }, [user, city]);
 
   return (
     <>
@@ -323,10 +327,9 @@ const ChildCare = () => {
                     </button>
                   )}
                 </div>
-                <p className="text-danger mt-2">
-                  {searchError &&
-                    "Please enter the desired address above or log in."}
-                </p>
+                {searchError && (
+                  <p className="text-danger mt-2">{searchError}</p>
+                )}
               </form>
             </div>
             <div className={styles.imageContainer}>
