@@ -25,7 +25,7 @@ const Register = () => {
       : function (str) {
           return translations.de[str];
         };
-        
+
   const { registerPage, role } = useSelector((state) => state.register);
   const dispatch = useDispatch();
 
@@ -112,7 +112,7 @@ const Register = () => {
         }
       } else {
         setError(
-          "Password should be 8 characters and include at least one lowercase letter and one digit."
+          "Password at least 8 characters and include at least one lowercase letter and one digit."
         );
       }
     } else if (role === "parents") {

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "@/styles/ChildCare.module.css";
 import children from "../../public/assets/images/child-photo.png";
 import children1 from "../../public/assets/images/child-login.png";
@@ -32,8 +32,9 @@ const ChildCare = () => {
   const { city } = useSelector((state) => state.childCarerFilter);
   const { i18n } = useTranslation();
 
-  const { pathname } = useRouter();
-  console.log(pathname);
+  const router = useRouter();
+
+  const submitButtonRef = useRef();
 
   const t =
     i18n.language === "en"
@@ -146,6 +147,12 @@ const ChildCare = () => {
     window.scrollTo(0, 0);
   }, [step]);
 
+  useEffect(() => {
+    if (router.query?.location) {
+      submitButtonRef.current.click();
+    }
+  }, [router.query?.location]);
+
   return (
     <>
       <Meta>ChildCare</Meta>
@@ -153,7 +160,7 @@ const ChildCare = () => {
         {/* banner */}
         <div className={styles.childCareBanner}>
           {step === 0 && <h3>Find childcare for your child here</h3>}
-          {step === 1 && <h3>Search Result</h3>}
+          {(step === 1 || step === 2) && <h3>Search Result</h3>}
           {step === "error" && <h3>Find childcare for your child here</h3>}
         </div>
 
@@ -321,6 +328,7 @@ const ChildCare = () => {
                     </div>
                   ) : (
                     <button
+                      ref={submitButtonRef}
                       className={`btn ${styles.formButton}`}
                       disabled={isLoading}
                     >
@@ -341,7 +349,7 @@ const ChildCare = () => {
 
         {/* search result */}
 
-        {step === 1 && (
+        {(step === 1 || step === 2) && (
           <SearchResult
             setStep={setStep}
             handleSearchAgain={handleSearchAgain}
