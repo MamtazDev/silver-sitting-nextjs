@@ -129,6 +129,7 @@ const ChildCare = () => {
     setLookfor(undefined);
     dispatch(setCity(""));
     setStep(0);
+    setWarning(false);
   };
 
   const handleChange = (e) => {
@@ -223,7 +224,7 @@ const ChildCare = () => {
                 {warning && (
                   <>
                     <h5>
-                      The search is limited to a radius of 30 km and has been
+                      The search is limited to a radius of 30 km and will be
                       reset automatically.
                     </h5>
                     <h5 style={{ marginBottom: "34px" }}>
