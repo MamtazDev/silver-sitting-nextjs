@@ -83,7 +83,7 @@ const Banner = ({ t }) => {
                     </Link>
                   </div>
                   <div className="text-center">
-                    <Link href="https://en.silversitting.com/leihoma-werden">
+                    <Link href="/guidance">
                       Learn more{" "}
                       <img
                         style={{ marginLeft: "11px" }}
