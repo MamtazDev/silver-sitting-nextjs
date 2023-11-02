@@ -19,7 +19,7 @@ import { useRouter } from "next/router";
 // import useGetUserLocation from "@/hooks/useGetUserLocation";
 
 const ChildCare = () => {
-  const [lookfor, setLookfor] = useState();
+  const [lookfor, setLookfor] = useState([]);
   const [warning, setWarning] = useState(false);
   const [step, setStep] = useState(0);
   const [modalShow, setModalShow] = useState(false);
@@ -51,6 +51,15 @@ const ChildCare = () => {
 
   const [getSearchedChildCarer, { isLoading, isSuccess, isError }] =
     useGetSearchedChildCarerMutation();
+
+  const handleLookFor = (value) => {
+    if (lookfor.includes(value)) {
+      const newArray = lookfor.filter((i) => i !== value);
+      setLookfor(newArray);
+    } else {
+      setLookfor([...lookfor, value]);
+    }
+  };
 
   const handleOfferProvideValue = (value) => {
     if (offers.includes(value)) {
@@ -94,8 +103,8 @@ const ChildCare = () => {
       }
     }
 
-    if (gender) {
-      filterCriteria.gender = gender;
+    if (gender.length === 1) {
+      filterCriteria.gender = gender[0];
     }
     if (city) {
       filterCriteria.city = city ? city : user?.residance;
@@ -127,7 +136,7 @@ const ChildCare = () => {
 
   const handleSearchAgain = () => {
     setOffers([]);
-    setLookfor(undefined);
+    setLookfor([]);
     dispatch(setCity(""));
     setStep(0);
     setWarning(false);
@@ -174,29 +183,29 @@ const ChildCare = () => {
                 <h6>I'm looking for</h6>
                 <div className={`d-flex ${styles.grannySelction}`}>
                   <div
-                    onClick={() => setLookfor("Female")}
+                    onClick={() => handleLookFor("Female")}
                     className={styles.checkBoxContainer}
                   >
                     <input
                       id="granny"
-                      type="radio"
+                      type="checkbox"
                       name="lookFor"
                       value="gg"
-                      checked={lookfor === "Female"}
+                      checked={lookfor.includes("Female")}
                       className={`me-2 ${styles.colorCheckBox}`}
                     />
                     <label htmlFor="granny">Granny</label>
                   </div>
                   <div
-                    onClick={() => setLookfor("Male")}
+                    onClick={() => handleLookFor("Male")}
                     className={styles.checkBoxContainer}
                   >
                     <input
                       id="grandpa"
-                      type="radio"
+                      type="checkbox"
                       name="lookFor"
                       value="bb"
-                      checked={lookfor === "Male"}
+                      checked={lookfor.includes("Male")}
                       className={`me-2 ${styles.colorCheckBox}`}
                     />
                     <label htmlFor="grandpa">Grandpa</label>

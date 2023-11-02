@@ -34,6 +34,7 @@ const Register = () => {
   const [terms, setTerms] = useState(false);
   const [privacy, setPrivacy] = useState(false);
   const [errors, setError] = useState("");
+  const [gender, setGender] = useState();
 
   const scrollToTop = () => {
     window.scrollTo(0, 0);
@@ -84,7 +85,7 @@ const Register = () => {
         const matchedPassword = checkMatchedPassword(password, rePassword);
 
         if (matchedPassword) {
-          if (terms && privacy) {
+          if (terms && privacy && gender) {
             const data = {
               role,
               firstName,
@@ -94,6 +95,7 @@ const Register = () => {
               residance: residence,
               password,
               streetOrHouseNumber,
+              gender,
             };
             register(data).then((res) => {
               if (res.data?.status === 200) {
@@ -263,6 +265,42 @@ const Register = () => {
                     required
                   />
                 </div>
+              </div>
+
+              <div className="mb-4">
+                <label>
+                  Gender <span>*</span>
+                  <div className={styles.genderInputContainer}>
+                    <div>
+                      <input
+                        type="radio"
+                        name="gender"
+                        value="Male"
+                        id="male"
+                        style={{ marginBottom: "0" }}
+                        onChange={(e) => setGender(e.target.value)}
+                        checked={gender === "Male"}
+                      />
+                      <label htmlFor="male" style={{ marginBottom: "0" }}>
+                        Masculine
+                      </label>
+                    </div>
+                    <div>
+                      <input
+                        type="radio"
+                        name="gender"
+                        value="Female"
+                        id="female"
+                        style={{ marginBottom: "0" }}
+                        onChange={(e) => setGender(e.target.value)}
+                        checked={gender === "Female"}
+                      />
+                      <label htmlFor="female" style={{ marginBottom: "0" }}>
+                        Feminine
+                      </label>
+                    </div>
+                  </div>
+                </label>
               </div>
               {/* 2nd row */}
               <div>

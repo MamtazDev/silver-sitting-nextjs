@@ -256,6 +256,29 @@
   font-weight: 600;
 }
 
+.genderInputContainer {
+  display: flex;
+  gap: 130px;
+  margin-top: 20px;
+}
+
+.genderInputContainer div {
+  display: flex;
+  gap: 15px;
+  align-items: center !important;
+}
+
+.genderInputContainer input {
+  accent-color: #a86ab7;
+  width: 21px;
+  height: 21px;
+  margin-bottom: none !important;
+}
+
+.genderInputContainer label {
+  margin-bottom: none !important;
+}
+
 @media only screen and (max-width: 1024px) {
   .emptyContainer {
     width: 10%;
