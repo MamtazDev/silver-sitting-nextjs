@@ -2,6 +2,9 @@ import { NextResponse } from "next/server";
 
 export default function middleware(req) {
   let verify = req.cookies.get("silverSitting");
+
+  // console.log("verify", verify)
+
   let url = req.url;
 
   if (!verify && url.includes("/profile")) {
