@@ -6,13 +6,17 @@ import share from "../../public/assets/icons/details-share.png";
 import comment from "../../public/assets/icons/details-comment.png";
 import like from "../../public/assets/icons/details.like.png";
 
-const BlogDetailsBanner = ({blogDetails}) => {
+const BlogDetailsBanner = ({ blogDetails }) => {
   return (
     <div className={styles.blog_details}>
       <div className="container">
         <div className="row gy-4">
           <div className="col-12 col-lg-6">
-            <img className="img-fluid w-100" src={`http://localhost:1337${blogDetails?.attributes?.thumb?.data[0]?.attributes?.formats?.thumbnail?.url}`} alt="" />
+            <img
+              className="img-fluid w-100"
+              src={`${process.env.NEXT_PUBLIC_BLOG_URL}${blogDetails?.attributes?.thumb?.data[0]?.attributes?.formats?.thumbnail?.url}`}
+              alt=""
+            />
           </div>
           <div className="col-12 col-lg-6">
             <div
@@ -44,10 +48,17 @@ const BlogDetailsBanner = ({blogDetails}) => {
                 </div>
               </div>
             </div>
-            <h4>{blogDetails?.attributes?.title ?blogDetails?.attributes?.title :"This is title"}</h4>
-            <p dangerouslySetInnerHTML={{ __html: blogDetails?.attributes.description }}/>
-             
-        
+            <h4>
+              {blogDetails?.attributes?.title
+                ? blogDetails?.attributes?.title
+                : "This is title"}
+            </h4>
+            <p
+              dangerouslySetInnerHTML={{
+                __html: blogDetails?.attributes.description,
+              }}
+            />
+
             <br />
             {/* <p>
               We at SilverSitting are only too happy to support the
