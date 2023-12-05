@@ -5,10 +5,10 @@ export default function middleware(req) {
   let url = req.url;
 
   if (!verify && url.includes("/profile")) {
-    return NextResponse.redirect("http://localhost:3000/login");
+    return NextResponse.redirect(`${process.env.NEXT_PUBLIC_MAIN_URL}/login`);
   }
 
   if (verify && (url.includes("/register") || url.includes("/login"))) {
-    return NextResponse.redirect("http://localhost:3000/");
+    return NextResponse.redirect(`${process.env.NEXT_PUBLIC_MAIN_URL}/`);
   }
 }

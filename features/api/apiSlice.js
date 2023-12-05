@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://silver-backend-demo.onrender.com",
+    baseUrl: `${process.env.NEXT_PUBLIC_BASE_URL}`,
   }),
   tagTypes: ["User", "Messages"],
   endpoints: (builder) => ({}),
