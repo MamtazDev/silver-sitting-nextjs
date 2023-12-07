@@ -19,34 +19,25 @@ const Blog = ({ allBlogs }) => {
     <div style={{ marginBottom: "30px" }}>
       <div className="container">
         <div className="row gy-4">
-          {allBlogs.length > 0 &&
-            allBlogs.map((index) => (
+          {allBlogs?.length > 0 &&
+            allBlogs?.map((index) => (
               <div
                 style={{ minHeight: "560px" }}
                 className="col-12 col-md-6 col-lg-4"
               >
                 <div className={styles.blog}>
-                  <Link href={`blogs/details/${index.id}`}>
+                  <Link href={`blogs/details/${index._id}`}>
                     <img
                       className="img-fluid w-100"
-                      src={
-                        index.attributes?.thumb?.data[0]?.attributes?.formats
-                          ?.thumbnail?.url
-                          ? `${process.env.NEXT_PUBLIC_BLOG_URL}${index.attributes?.thumb?.data[0]?.attributes?.formats?.thumbnail?.url}`
-                          : blog.src
-                      }
+                      src={index?.image ? index?.image : blog.src}
                       alt=""
                     />
                     {/* <img className="img-fluid w-100" src={blog.src} alt="" /> */}
                   </Link>
                   <div></div>
                   <div className={styles.date}>
-                    <h5 className="mb-0">
-                      {formatDate(index?.attributes?.publishedAt)[0]}
-                    </h5>
-                    <p className="mb-0">
-                      {formatDate(index?.attributes?.publishedAt)[1]}
-                    </p>
+                    <h5 className="mb-0">{formatDate(index?.createdAt)[0]}</h5>
+                    <p className="mb-0">{formatDate(index?.createdAt)[1]}</p>
                   </div>
 
                   <div className={styles.blog_content}>
@@ -79,17 +70,13 @@ const Blog = ({ allBlogs }) => {
                         </div>
                       </div>
                     </div>
-                    <h4>
-                      {index.attributes.title
-                        ? index.attributes.title
-                        : "New Title"}
-                    </h4>
-                    <h6
+                    <h4>{index?.title ? index?.title : "New Title"}</h4>
+                    {/* <h6
                       className={styles.textLineLimit}
                       dangerouslySetInnerHTML={{
-                        __html: index?.attributes.description,
+                        __html: index?.description,
                       }}
-                    />
+                    /> */}
                     {/* We live in a time full of challenges: Since the beginning of
                     the year, Corona has been threatening all of our health and
                     even all of our lives.

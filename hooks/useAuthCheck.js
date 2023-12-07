@@ -19,17 +19,18 @@ const useAuthCheck = () => {
 
     const cookieValue = getCookie("silverSitting");
 
-    
-    const urlDecodedString = decodeURIComponent(cookieValue);
-    const userDataFromCookies = JSON.parse(urlDecodedString);
-    
-    console.log("cookieValue: ", userDataFromCookies.accessToken, userDataFromCookies.user)
+    // console.log("cookieValue: ", userDataFromCookies.accessToken, userDataFromCookies.user)
 
     if (cookieValue) {
       // const auth = JSON.parse(localAuth);
+      const urlDecodedString = decodeURIComponent(cookieValue);
+      const userDataFromCookies = JSON.parse(urlDecodedString);
       if (userDataFromCookies?.accessToken && userDataFromCookies?.user) {
         dispatch(
-          userLoggedIn({ accessToken: userDataFromCookies.accessToken, user: userDataFromCookies.user })
+          userLoggedIn({
+            accessToken: userDataFromCookies.accessToken,
+            user: userDataFromCookies.user,
+          })
         );
       }
     }
