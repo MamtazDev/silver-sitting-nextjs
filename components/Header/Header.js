@@ -13,6 +13,7 @@ import "../../styles/Header.module.css";
 import { useSelector } from "react-redux";
 import { IoIosArrowDown } from "react-icons/io";
 import { useTranslation } from "react-i18next";
+import { useRouter } from "next/router";
 
 const Header = () => {
   const { user } = useSelector((state) => state.register);
@@ -51,9 +52,16 @@ const Header = () => {
   //   };
   // }, []);
 
+  const { push } = useRouter();
+
   const handleChange = (e) => {
     const lang = `${e.target.value}`;
     i18n.changeLanguage(lang);
+  };
+  
+
+  const handleAddBlog = () => {
+    push("/blogs/add");
   };
   return (
     <div className="header">
@@ -109,59 +117,74 @@ const Header = () => {
                 <IoIosArrowDown />
               </div> */}
               {user ? (
-                <div className="parent">
-                  <Link
-                    href="/profile"
-                    className="login-btn d-flex justify-content-center align-items-center"
-                    style={{ maxWidth: "56px" }}
-                  >
-                    <img src={profile.src} alt="" />
-                  </Link>
-                  <div className="child">
-                    <Link
-                      href="/profile/po-box"
-                      style={{
-                        display: "flex",
-                        gap: "18px",
-                        alignItems: "center",
-                      }}
-                    >
-                      <img src={poBox.src} alt="" /> P.O. Box
-                    </Link>
+                <>
+                  <div className="parent">
                     <Link
                       href="/profile"
-                      style={{
-                        display: "flex",
-                        gap: "18px",
-                        alignItems: "center",
-                      }}
+                      className="login-btn d-flex justify-content-center align-items-center"
+                      style={{ maxWidth: "56px" }}
                     >
-                      {" "}
-                      <img src={profileColor.src} alt="" /> Profile
+                      <img src={profile.src} alt="" />
                     </Link>
-                    <Link
-                      href="/profile/ideas"
-                      style={{
-                        display: "flex",
-                        gap: "18px",
-                        alignItems: "center",
-                      }}
-                    >
-                      <img src={ideas.src} alt="" /> Ideas
-                    </Link>
-                    <Link
-                      href="/logout"
-                      style={{
-                        display: "flex",
-                        gap: "18px",
-                        alignItems: "center",
-                      }}
-                    >
-                      {" "}
-                      <img src={logOut.src} alt="" /> Logout
-                    </Link>
+                    <div className="child">
+                      <Link
+                        href="/profile/po-box"
+                        style={{
+                          display: "flex",
+                          gap: "18px",
+                          alignItems: "center",
+                        }}
+                      >
+                        <img src={poBox.src} alt="" /> P.O. Box
+                      </Link>
+                      <Link
+                        href="/profile"
+                        style={{
+                          display: "flex",
+                          gap: "18px",
+                          alignItems: "center",
+                        }}
+                      >
+                        {" "}
+                        <img src={profileColor.src} alt="" /> Profile
+                      </Link>
+                      <Link
+                        href="/profile/ideas"
+                        style={{
+                          display: "flex",
+                          gap: "18px",
+                          alignItems: "center",
+                        }}
+                      >
+                        <img src={ideas.src} alt="" /> Ideas
+                      </Link>
+                      <Link
+                        href="/logout"
+                        style={{
+                          display: "flex",
+                          gap: "18px",
+                          alignItems: "center",
+                        }}
+                      >
+                        {" "}
+                        <img src={logOut.src} alt="" /> Logout
+                      </Link>
+                    </div>
                   </div>
-                </div>
+                  {user?.role === "admin" && (
+                    <button
+                      style={{
+                        backgroundColor: "#8B3888",
+                        color: "#FFF",
+                        padding: "16px",
+                        borderRadius: "7px",
+                      }}
+                      onClick={handleAddBlog}
+                    >
+                      Add Blog
+                    </button>
+                  )}
+                </>
               ) : (
                 <Link className="login-btn" href="/login">
                   Login
