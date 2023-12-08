@@ -4,26 +4,46 @@ import Blog from "./Blog";
 import { useGetAllBlogsQuery } from "@/features/blog/blogApi";
 
 const BlogTab = () => {
-  const [active, setActive] = useState(1);
+  const [active, setActive] = useState("all");
   const [allBlogs, setAllBlogs] = useState([]);
 
-  const { data } = useGetAllBlogsQuery();
+  console.log(allBlogs, "gg");
+
+  const { data, isLoading } = useGetAllBlogsQuery();
+
   const blogTab = [
     {
       name: "All posts",
+      slug: "all",
     },
     {
       name: "Health & Wellbeing",
+      slug: "healthWellbeing",
     },
     {
       name: "Psychology",
+      slug: "psychology",
     },
     {
       name: "Upbringing",
+      slug: "upbringing",
     },
   ];
 
-  console.log(data?.data?.blogs, "ss");
+  const handleBlogsFilter = (blog) => {
+    const Blogs = [...data?.data?.blogs];
+    const newBlogs = Blogs.filter((item) => item?.category === blog?.slug);
+
+    if (blog?.slug === "all") {
+      setAllBlogs(Blogs);
+    } else {
+      setAllBlogs(newBlogs);
+    }
+    setActive(blog?.slug);
+  };
+  useEffect(() => {
+    setAllBlogs(data?.data?.blogs);
+  }, [data]);
 
   // const token =
   //   "9e4769d0d6f7087336e46b08d65e145a5cca3ac64c096c1ddf341daf8f0cdea1e8cd96841136a099fad3fa9099b08d0d99cfa65462751ab557105585dec2744ac416ef3b5c0d98268384387f689253382f046b77bab794f7ddcfda761c93966965d73f3d4c15a564dae442d537b017a91d9d0b98158e156416c0a9516abda2d6";
@@ -48,9 +68,9 @@ const BlogTab = () => {
           {blogTab.map((tab, index) => (
             <button
               className={
-                active === index + 1 ? styles.active : styles.deactivate
+                active === tab?.slug ? styles.active : styles.deactivate
               }
-              onClick={() => setActive(index + 1)}
+              onClick={() => handleBlogsFilter(tab)}
             >
               {tab.name}
             </button>
@@ -58,10 +78,10 @@ const BlogTab = () => {
         </div>
       </div>
 
-      {active === 1 && <Blog allBlogs={data?.data?.blogs} />}
-      {active === 2 && <Blog allBlogs={data?.data?.blogs} />}
-      {active === 3 && <Blog allBlogs={data?.data?.blogs} />}
-      {active === 4 && <Blog allBlogs={data?.data?.blogs} />}
+      {isLoading ? "" : <Blog allBlogs={allBlogs} />}
+      {/* {active === 2 && <Blog allBlogs={allBlogs} />}
+      {active === 3 && <Blog allBlogs={allBlogs} />}
+      {active === 4 && <Blog allBlogs={allBlogs} />} */}
     </div>
   );
 };
