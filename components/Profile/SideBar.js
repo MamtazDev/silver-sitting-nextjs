@@ -68,6 +68,20 @@ const SideBar = () => {
             Change password
           </Link>
         </li>
+        {user?.role === "admin" && (
+          <>
+            <li>
+              <Link href="/blogs/add">
+                <img src={password.src} alt="" /> Add Blog
+              </Link>
+            </li>
+            <li className={pathName == "/profile/all-blogs" && styles.active}>
+              <Link href="/profile/all-blogs">
+                <img src={password.src} alt="" /> All Blogs
+              </Link>
+            </li>
+          </>
+        )}
       </ul>
     </div>
   );

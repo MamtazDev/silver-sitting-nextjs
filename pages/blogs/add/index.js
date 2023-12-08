@@ -71,7 +71,8 @@ const AddBlogs = () => {
       title: blogContent?.title,
       image: imageDataUrl,
       cover_image: featuredDataUrl,
-      description: content,
+      content: content,
+      description: blogContent?.description,
       category: blogContent?.category,
       language: blogContent?.language,
     };
@@ -168,8 +169,20 @@ const AddBlogs = () => {
             </select>
           </div>
         </div>
+
         <div>
-          <h4>Description</h4>
+          <h4>Blog Description</h4>
+          <textarea
+            name="description"
+            className="w-100 p-2"
+            style={{ minHeight: "150px" }}
+            placeholder="Writre short description..."
+            onChange={handleBlogContentChange}
+          />
+        </div>
+
+        <div>
+          <h4>Blog Content</h4>
           <MyQuillEditor value={content} onChange={handleContentChange} />
           {/* <div>
           <h2>Content:</h2>
@@ -185,6 +198,7 @@ const AddBlogs = () => {
                 backgroundColor: "#8b3888",
                 color: "#FFF",
                 padding: "10px",
+                cursor: "not-allowed",
               }}
             >
               Adding...
@@ -205,7 +219,8 @@ const AddBlogs = () => {
                 !blogImage ||
                 !featuredImage ||
                 !blogContent?.category ||
-                !blogContent?.language
+                !blogContent?.language ||
+                !blogContent?.description
               }
             >
               Add Blog

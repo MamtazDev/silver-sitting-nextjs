@@ -10,16 +10,12 @@ import Link from "next/link";
 import { formatDate } from "@/utils/utils";
 
 const Blog = ({ allBlogs }) => {
-  const gg = formatDate("2023-08-11T23:58:42.228Z");
-  console.log(gg, "jkj");
-
-  // ?.attributes?.thumb?.data[0]?.attributes?.formats?.thumbnail?.url,
-
+  console.log(allBlogs, "kjkj");
   return (
     <div style={{ marginBottom: "30px" }}>
       <div className="container">
         <div className="row gy-4">
-          {allBlogs?.length > 0 &&
+          {allBlogs?.length > 0 ? (
             allBlogs?.map((index) => (
               <div
                 style={{ minHeight: "560px" }}
@@ -28,6 +24,7 @@ const Blog = ({ allBlogs }) => {
                 <div className={styles.blog}>
                   <Link href={`blogs/details/${index._id}`}>
                     <img
+                      style={{ height: "300px" }}
                       className="img-fluid w-100"
                       src={index?.image ? index?.image : blog.src}
                       alt=""
@@ -40,7 +37,7 @@ const Blog = ({ allBlogs }) => {
                     <p className="mb-0">{formatDate(index?.createdAt)[1]}</p>
                   </div>
 
-                  <div className={styles.blog_content}>
+                  <div className={`${styles.blog_content}`}>
                     <div
                       style={{ marginBottom: "22px" }}
                       className="d-flex flex-wrap justify-content-between gap-4"
@@ -70,24 +67,33 @@ const Blog = ({ allBlogs }) => {
                         </div>
                       </div>
                     </div>
-                    <h4>{index?.title ? index?.title : "New Title"}</h4>
-                    {/* <h6
-                      className={styles.textLineLimit}
-                      dangerouslySetInnerHTML={{
-                        __html: index?.description,
-                      }}
-                    /> */}
-                    {/* We live in a time full of challenges: Since the beginning of
+
+                    <div className="d-flex flex-column h-100">
+                      <h4>{index?.title ? index?.title : "New Title"}</h4>
+                      <h6
+                        className={`${styles.textLineLimit} flex-grow-1`}
+                        dangerouslySetInnerHTML={{
+                          __html: index?.description,
+                        }}
+                      />
+                      {/* We live in a time full of challenges: Since the beginning of
                     the year, Corona has been threatening all of our health and
                     even all of our lives.
                   </h6> */}
-                    <Link href="">
-                      Read More <img className="ms-1" src={arrow.src} alt="" />
-                    </Link>
+                      <div className="flex-grow-1 ">
+                        <Link href={`blogs/details/${index._id}`}>
+                          Read More{" "}
+                          <img className="ms-1" src={arrow.src} alt="" />
+                        </Link>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            ))}
+            ))
+          ) : (
+            <h1 className="text-center my-5">No blogs found</h1>
+          )}
         </div>
       </div>
     </div>

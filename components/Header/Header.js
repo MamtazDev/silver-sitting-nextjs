@@ -58,7 +58,6 @@ const Header = () => {
     const lang = `${e.target.value}`;
     i18n.changeLanguage(lang);
   };
-  
 
   const handleAddBlog = () => {
     push("/blogs/add");
@@ -117,75 +116,75 @@ const Header = () => {
                 <IoIosArrowDown />
               </div> */}
               {user ? (
-                <>
-                  <div className="parent">
+                // <>
+                <div className="parent">
+                  <Link
+                    href="/profile"
+                    className="login-btn d-flex justify-content-center align-items-center"
+                    style={{ maxWidth: "56px" }}
+                  >
+                    <img src={profile.src} alt="" />
+                  </Link>
+                  <div className="child">
+                    <Link
+                      href="/profile/po-box"
+                      style={{
+                        display: "flex",
+                        gap: "18px",
+                        alignItems: "center",
+                      }}
+                    >
+                      <img src={poBox.src} alt="" /> P.O. Box
+                    </Link>
                     <Link
                       href="/profile"
-                      className="login-btn d-flex justify-content-center align-items-center"
-                      style={{ maxWidth: "56px" }}
-                    >
-                      <img src={profile.src} alt="" />
-                    </Link>
-                    <div className="child">
-                      <Link
-                        href="/profile/po-box"
-                        style={{
-                          display: "flex",
-                          gap: "18px",
-                          alignItems: "center",
-                        }}
-                      >
-                        <img src={poBox.src} alt="" /> P.O. Box
-                      </Link>
-                      <Link
-                        href="/profile"
-                        style={{
-                          display: "flex",
-                          gap: "18px",
-                          alignItems: "center",
-                        }}
-                      >
-                        {" "}
-                        <img src={profileColor.src} alt="" /> Profile
-                      </Link>
-                      <Link
-                        href="/profile/ideas"
-                        style={{
-                          display: "flex",
-                          gap: "18px",
-                          alignItems: "center",
-                        }}
-                      >
-                        <img src={ideas.src} alt="" /> Ideas
-                      </Link>
-                      <Link
-                        href="/logout"
-                        style={{
-                          display: "flex",
-                          gap: "18px",
-                          alignItems: "center",
-                        }}
-                      >
-                        {" "}
-                        <img src={logOut.src} alt="" /> Logout
-                      </Link>
-                    </div>
-                  </div>
-                  {user?.role === "admin" && (
-                    <button
                       style={{
-                        backgroundColor: "#8B3888",
-                        color: "#FFF",
-                        padding: "16px",
-                        borderRadius: "7px",
+                        display: "flex",
+                        gap: "18px",
+                        alignItems: "center",
                       }}
-                      onClick={handleAddBlog}
                     >
-                      Add Blog
-                    </button>
-                  )}
-                </>
+                      {" "}
+                      <img src={profileColor.src} alt="" /> Profile
+                    </Link>
+                    <Link
+                      href="/profile/ideas"
+                      style={{
+                        display: "flex",
+                        gap: "18px",
+                        alignItems: "center",
+                      }}
+                    >
+                      <img src={ideas.src} alt="" /> Ideas
+                    </Link>
+                    <Link
+                      href="/logout"
+                      style={{
+                        display: "flex",
+                        gap: "18px",
+                        alignItems: "center",
+                      }}
+                    >
+                      {" "}
+                      <img src={logOut.src} alt="" /> Logout
+                    </Link>
+                  </div>
+                </div>
               ) : (
+                //    {user?.role === "admin" && (
+                //       <button
+                //         style={{
+                //           backgroundColor: "#8B3888",
+                //           color: "#FFF",
+                //           padding: "16px",
+                //           borderRadius: "7px",
+                //         }}
+                //         onClick={handleAddBlog}
+                //       >
+                //         Add Blog
+                //       </button>
+                //     )}
+                //  </>
                 <Link className="login-btn" href="/login">
                   Login
                 </Link>
